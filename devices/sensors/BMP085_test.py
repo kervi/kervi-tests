@@ -13,9 +13,9 @@ if __name__ == '__main__':
     SENSOR_TEMP.link_to_dashboard("dashboard.app", "sensor")
 
     SENSOR_PRESSURE = Sensor("BMP085_pressure", "Pressure", BMP085.BMP085DeviceDriver(BMP085.BMP085_TEMPERATURE_SENSOR))
-    SENSOR_TEMP.link_to_dashboard("dashboard.app", "sensor")
+    SENSOR_PRESSURE.link_to_dashboard("dashboard.app", "sensor")
 
     SENSOR_ALTITUDE = Sensor("BMP085_altitude", "Altitude", BMP085.BMP085DeviceDriver(BMP085.BMP085_TEMPERATURE_SENSOR))
-    SENSOR_TEMP.link_to_dashboard("dashboard.app", "sensor")
+    SENSOR_ALTITUDE.link_to_dashboard("dashboard.app", "sensor")
     
     APP.run()
