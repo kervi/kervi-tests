@@ -11,7 +11,7 @@ if __name__ == '__main__':
     from kervi.sensor import Sensor
     from kervi_devices.sensors import TSL2561
     
-    SENSOR = Sensor("TSL2561", "Light", TSL2561.TSL2561SDeviceDriver())
+    SENSOR = Sensor("TSL2561", "Light", TSL2561.TSL2561DeviceDriver())
     SENSOR.link_to_dashboard("dashboard.app", "sensor")
 
     
