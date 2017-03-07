@@ -1,0 +1,151 @@
+2017-03-07 17:21:19,935 - kervi-main - DEBUG - Listen on: ('192.168.0.116', 9600)
+2017-03-07 17:21:19,936 - kervi-main - DEBUG - send rq to ('192.168.0.116', 9500) qlist:[] iq:[]
+2017-03-07 17:21:19,937 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'messageType': 'registerQueryHandler', 'query': 'GetApplicationInfo'}
+2017-03-07 17:21:19,937 - kervi-main - DEBUG - register query handler query:GetApplicationInfo injected:processSpine
+2017-03-07 17:21:19,939 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'messageType': 'registerQueryHandler', 'query': 'getDashboardComponents'}
+2017-03-07 17:21:19,939 - kervi-main - DEBUG - register query handler query:getDashboardComponents injected:processSpine
+2017-03-07 17:21:19,941 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'messageType': 'registerQueryHandler', 'query': 'getComponentInfo'}
+2017-03-07 17:21:19,941 - kervi-main - DEBUG - register query handler query:getComponentInfo injected:processSpine
+2017-03-07 17:21:19,943 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'messageType': 'processList', 'list': [('192.168.0.116', 9504), ('192.168.0.116', 9600)]}
+2017-03-07 17:21:19,944 - kervi-main - DEBUG - send rq to ('192.168.0.116', 9504) qlist:['GetApplicationInfo', 'getDashboardComponents', 'getComponentInfo'] iq:[{'query': 'GetApplicationInfo', 'matched': False, 'src': ('192.168.0.116', 9500)}, {'query': 'getDashboardComponents', 'matched': False, 'src': ('192.168.0.116', 9500)}, {'query': 'getComponentInfo', 'matched': False, 'src': ('192.168.0.116', 9500)}]
+2017-03-07 17:21:19,944 - kervi-main - DEBUG - message from:('192.168.0.116', 9504) on:9600 message:{'messageType': 'registerQueryHandler', 'query': 'GetApplicationInfo'}
+2017-03-07 17:21:19,944 - kervi-main - DEBUG - register query handler query:GetApplicationInfo injected:processSpine
+2017-03-07 17:21:19,946 - kervi-main - DEBUG - message from:('192.168.0.116', 9504) on:9600 message:{'messageType': 'registerQueryHandler', 'query': 'getDashboardComponents'}
+2017-03-07 17:21:19,946 - kervi-main - DEBUG - register query handler query:getDashboardComponents injected:processSpine
+2017-03-07 17:21:19,948 - kervi-main - DEBUG - message from:('192.168.0.116', 9504) on:9600 message:{'messageType': 'registerQueryHandler', 'query': 'getComponentInfo'}
+2017-03-07 17:21:19,948 - kervi-main - DEBUG - register query handler query:getComponentInfo injected:processSpine
+2017-03-07 17:21:19,958 - kervi-main - DEBUG - component created:module-dashboard
+2017-03-07 17:21:19,958 - kervi-main - DEBUG - register query handler query:getDashboardComponents injected:
+2017-03-07 17:21:19,959 - kervi-main - DEBUG - register query handler query:getComponentInfo injected:
+2017-03-07 17:21:19,959 - kervi-main - DEBUG - sendcommand:startThreads injected:
+2017-03-07 17:21:21,960 - kervi-main - DEBUG - triggerEvent:moduleStarted, id:module.id injected:
+2017-03-07 17:21:23,961 - kervi-main - DEBUG - sendcommand:startThreads injected:
+2017-03-07 17:28:48,776 - kervi-main - DEBUG - message from:('192.168.0.116', 9504) on:9600 message:{'id': 1, 'messageType': 'query', 'query': 'GetApplicationInfo', 'args': ()}
+2017-03-07 17:28:48,776 - kervi-main - DEBUG - sendQuery:GetApplicationInfo injected:processSpine
+2017-03-07 17:28:48,776 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-9, initial daemon)>
+2017-03-07 17:28:48,777 - kervi-main - DEBUG - query handler called:GetApplicationInfo injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1EF0>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E212F320>>]
+2017-03-07 17:28:48,777 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-9, stopped daemon 38472)>
+2017-03-07 17:28:48,779 - kervi-main - DEBUG - message from:('192.168.0.116', 9504) on:9600 message:{'messageType': 'registerEventHandler', 'event': 'moduleStarted', 'eventId': ''}
+2017-03-07 17:28:48,780 - kervi-main - DEBUG - register event handler event:moduleStarted id: injected:processSpine
+2017-03-07 17:28:48,801 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 1, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'sys-header')}
+2017-03-07 17:28:48,801 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,801 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-10, initial daemon)>
+2017-03-07 17:28:48,802 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,802 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-10, stopped daemon 25792)>
+2017-03-07 17:28:48,804 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 2, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'header')}
+2017-03-07 17:28:48,804 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,804 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-11, initial daemon)>
+2017-03-07 17:28:48,804 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,804 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-11, stopped daemon 19224)>
+2017-03-07 17:28:48,806 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 3, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'footer')}
+2017-03-07 17:28:48,806 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,806 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-12, initial daemon)>
+2017-03-07 17:28:48,806 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,806 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-12, stopped daemon 14340)>
+2017-03-07 17:28:48,808 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 4, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'background')}
+2017-03-07 17:28:48,808 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,808 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-13, initial daemon)>
+2017-03-07 17:28:48,808 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,808 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-13, stopped daemon 33680)>
+2017-03-07 17:28:48,810 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 5, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'button')}
+2017-03-07 17:28:48,810 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,810 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-14, initial daemon)>
+2017-03-07 17:28:48,810 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,810 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-14, stopped daemon 34456)>
+2017-03-07 17:28:48,814 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 6, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'sys-header')}
+2017-03-07 17:28:48,814 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,814 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-15, initial daemon)>
+2017-03-07 17:28:48,815 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,815 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-15, stopped daemon 22592)>
+2017-03-07 17:28:48,817 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 7, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'header')}
+2017-03-07 17:28:48,817 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,817 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-16, initial daemon)>
+2017-03-07 17:28:48,817 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,817 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-16, stopped daemon 36528)>
+2017-03-07 17:28:48,819 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 8, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'footer')}
+2017-03-07 17:28:48,819 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,819 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-17, initial daemon)>
+2017-03-07 17:28:48,819 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,819 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-17, stopped daemon 31540)>
+2017-03-07 17:28:48,821 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 9, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'background')}
+2017-03-07 17:28:48,821 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,821 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-18, initial daemon)>
+2017-03-07 17:28:48,821 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,821 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-18, stopped daemon 28288)>
+2017-03-07 17:28:48,823 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 10, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'button')}
+2017-03-07 17:28:48,823 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,823 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-19, initial daemon)>
+2017-03-07 17:28:48,823 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,823 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-19, stopped daemon 6548)>
+2017-03-07 17:28:48,828 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 11, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'sys-header')}
+2017-03-07 17:28:48,828 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,828 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-20, initial daemon)>
+2017-03-07 17:28:48,828 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,828 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-20, stopped daemon 36600)>
+2017-03-07 17:28:48,831 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 12, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'header')}
+2017-03-07 17:28:48,831 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,831 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-21, initial daemon)>
+2017-03-07 17:28:48,831 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,831 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-21, stopped daemon 40396)>
+2017-03-07 17:28:48,834 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 13, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'footer')}
+2017-03-07 17:28:48,834 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,834 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-22, initial daemon)>
+2017-03-07 17:28:48,834 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,834 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-22, stopped daemon 6540)>
+2017-03-07 17:28:48,837 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 14, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'background')}
+2017-03-07 17:28:48,837 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,837 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-23, initial daemon)>
+2017-03-07 17:28:48,837 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,837 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-23, stopped daemon 20184)>
+2017-03-07 17:28:48,839 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 15, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'button')}
+2017-03-07 17:28:48,839 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,839 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-24, initial daemon)>
+2017-03-07 17:28:48,839 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,839 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-24, stopped daemon 32464)>
+2017-03-07 17:28:48,841 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 16, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'sys-header')}
+2017-03-07 17:28:48,841 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,841 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-25, initial daemon)>
+2017-03-07 17:28:48,841 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,842 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-25, stopped daemon 35636)>
+2017-03-07 17:28:48,844 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 17, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'header')}
+2017-03-07 17:28:48,844 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,844 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-26, initial daemon)>
+2017-03-07 17:28:48,844 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,845 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-26, stopped daemon 25916)>
+2017-03-07 17:28:48,848 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 18, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'footer')}
+2017-03-07 17:28:48,848 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,849 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-27, initial daemon)>
+2017-03-07 17:28:48,849 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,849 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-27, stopped daemon 41676)>
+2017-03-07 17:28:48,851 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 19, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'background')}
+2017-03-07 17:28:48,851 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,851 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-28, initial daemon)>
+2017-03-07 17:28:48,851 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,851 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-28, stopped daemon 40584)>
+2017-03-07 17:28:48,853 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'id': 20, 'messageType': 'query', 'query': 'getDashboardComponents', 'args': ('dahsboard.app', 'button')}
+2017-03-07 17:28:48,853 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:processSpine
+2017-03-07 17:28:48,853 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-29, initial daemon)>
+2017-03-07 17:28:48,853 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,853 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-29, stopped daemon 21336)>
+2017-03-07 17:28:48,855 - kervi-main - DEBUG - message from:('192.168.0.116', 9504) on:9600 message:{'id': 1, 'messageType': 'query', 'query': 'getComponentInfo', 'args': ()}
+2017-03-07 17:28:48,855 - kervi-main - DEBUG - sendQuery:getComponentInfo injected:processSpine
+2017-03-07 17:28:48,855 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-30, initial daemon)>
+2017-03-07 17:28:48,855 - kervi-main - DEBUG - query handler called:getComponentInfo injected:processSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1FD0>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E212FF28>>, <bound method KerviComponent._get_component_info of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,857 - kervi-main - DEBUG - File "C:\Users\tim\AppData\Local\Programs\Python\Python36\lib\threading.py", line 884, in _bootstrap
+    self._bootstrap_inner()
+2017-03-07 17:28:48,857 - kervi-main - DEBUG - File "C:\Users\tim\AppData\Local\Programs\Python\Python36\lib\threading.py", line 916, in _bootstrap_inner
+    self.run()
+2017-03-07 17:28:48,857 - kervi-main - DEBUG - File "c:\tim privat\github\kervi\kervi\utility\bus.py", line 31, in run
+    self.result = self.handler(self.query, self.args, injected=self.injected)
+2017-03-07 17:28:48,857 - kervi-main - DEBUG - File "c:\tim privat\github\kervi\kervi\utility\bus.py", line 182, in query_handler
+    sub_result = func(*args)
+2017-03-07 17:28:48,857 - kervi-main - DEBUG - File "c:\tim privat\github\kervi\kervi\utility\component.py", line 159, in _get_component_info
+    info = self._get_info()
+2017-03-07 17:28:48,857 - kervi-main - DEBUG - File "c:\tim privat\github\kervi\kervi\dashboard.py", line 125, in _get_info
+    for line in traceback.format_stack():
+2017-03-07 17:28:48,857 - kervi-main - DEBUG - get dashboard info:module-dashboard
+2017-03-07 17:28:48,857 - kervi-main - DEBUG - Query dashboard components:module-dashboard - sys-header
+2017-03-07 17:28:48,857 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:
+2017-03-07 17:28:48,857 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-31, initial daemon)>
+2017-03-07 17:28:48,857 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E20F1E80>>, <bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x00000176E2123E80>>, <bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x00000176E20F1DA0>>]
+2017-03-07 17:28:48,859 - kervi-main - DEBUG - message from:('192.168.0.116', 9500) on:9600 message:{'messageType': 'queryResponse', 'id': 1, 'response': []}
