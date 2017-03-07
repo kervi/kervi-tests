@@ -4,9 +4,9 @@ if __name__ == '__main__':
 
     #add dashboard and panel
     from kervi.dashboard import Dashboard, DashboardPanel
-    DASHBOARD = Dashboard("dahsboard.app", "Test BMP085", is_default=True)
+    DASHBOARD = Dashboard("dashboard.app", "Test BMP085", is_default=True)
     DASHBOARD.add_panel(DashboardPanel("sensor", columns=2, rows=4, title=None))
-    
+
     from kervi.hal import GPIO
     from kervi.sensor import Sensor
     from kervi_devices.sensors import BMP085
@@ -18,5 +18,5 @@ if __name__ == '__main__':
 
     SENSOR_ALTITUDE = Sensor("BMP085_altitude", "Altitude", BMP085.BMP085DeviceDriver(BMP085.BMP085_TEMPERATURE_SENSOR))
     SENSOR_ALTITUDE.link_to_dashboard("dashboard.app", "sensor")
-    
+
     APP.run()
