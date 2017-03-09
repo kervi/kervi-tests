@@ -1,0 +1,318 @@
+2017-03-09 16:25:59,471 - kervi-main - DEBUG - Listen on: ('192.168.0.111', 9500)
+2017-03-09 16:25:59,471 - kervi-main - DEBUG - register query handler query:GetApplicationInfo injected:
+2017-03-09 16:25:59,489 - kervi-main - DEBUG - component created:dashboard.app
+2017-03-09 16:25:59,489 - kervi-main - DEBUG - register query handler query:getDashboardComponents injected:
+2017-03-09 16:25:59,490 - kervi-main - DEBUG - register query handler query:getComponentInfo injected:
+2017-03-09 16:25:59,515 - kervi-main - DEBUG - component created:CPULoadSensor
+2017-03-09 16:25:59,515 - kervi-main - DEBUG - register query handler query:getDashboardComponents injected:
+2017-03-09 16:25:59,515 - kervi-main - DEBUG - register query handler query:getComponentInfo injected:
+2017-03-09 16:25:59,519 - kervi-main - DEBUG - register command handler, command:startThreads injected:
+2017-03-09 16:25:59,520 - kervi-main - DEBUG - register command handler, command:stopThreads injected:
+2017-03-09 16:25:59,520 - kervi-main - DEBUG - register query handler query:getSensorValue injected:
+2017-03-09 16:25:59,520 - kervi-main - DEBUG - sendcommand:startThreads injected:
+2017-03-09 16:25:59,520 - kervi-main - DEBUG - delta exceeded:CPULoadSensor value:0.0, old value:None
+2017-03-09 16:25:59,520 - kervi-main - DEBUG - sendcommand:StoreSensorValue injected:
+2017-03-09 16:25:59,521 - kervi-main - DEBUG - triggerEvent:NewSensorReading, id:CPULoadSensor injected:
+2017-03-09 16:26:00,522 - kervi-main - DEBUG - delta exceeded:CPULoadSensor value:12.5, old value:0.0
+2017-03-09 16:26:00,522 - kervi-main - DEBUG - sendcommand:StoreSensorValue injected:
+2017-03-09 16:26:00,522 - kervi-main - DEBUG - triggerEvent:NewSensorReading, id:CPULoadSensor injected:
+2017-03-09 16:26:01,523 - kervi-main - DEBUG - delta exceeded:CPULoadSensor value:10.6, old value:12.5
+2017-03-09 16:26:01,524 - kervi-main - DEBUG - sendcommand:StoreSensorValue injected:
+2017-03-09 16:26:01,524 - kervi-main - DEBUG - triggerEvent:NewSensorReading, id:CPULoadSensor injected:
+2017-03-09 16:26:02,109 - IPC - DEBUG - create process:_KerviSocketIPC ipc port:9504:
+2017-03-09 16:26:02,111 - IPC - DEBUG - Listen on: ('192.168.0.111', 9504)
+2017-03-09 16:26:02,112 - kervi-main - DEBUG - connection accepted from ('192.168.0.111', 3512)
+2017-03-09 16:26:02,112 - IPC - DEBUG - send rq to ('192.168.0.111', 9500) clist:[]
+2017-03-09 16:26:02,112 - IPC - DEBUG - send rq to ('192.168.0.111', 9500) qlist:[]
+2017-03-09 16:26:02,112 - kervi-main - DEBUG - send rq to ('192.168.0.111', 3512) clist:['startThreads', 'stopThreads']
+2017-03-09 16:26:02,112 - IPC - DEBUG - send rq to ('192.168.0.111', 9500) elist:[]
+2017-03-09 16:26:02,112 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'messageType': 'registerProcess', 'address': ('192.168.0.111', 9504)}
+2017-03-09 16:26:02,112 - kervi-main - DEBUG - send rq handlers:<bound method SensorThread._start_command of <SensorThread(Thread-7, started daemon 17184)>>
+2017-03-09 16:26:02,112 - kervi-main - DEBUG - send rq handlers:<bound method SensorThread._stop_command of <SensorThread(Thread-7, started daemon 17184)>>
+2017-03-09 16:26:02,112 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'registerCommandHandler', 'command': 'startThreads'}
+2017-03-09 16:26:02,113 - IPC - DEBUG - register command handler, command:startThreads injected:processSpine
+2017-03-09 16:26:02,113 - kervi-main - DEBUG - send rq to ('192.168.0.111', 3512) qlist:['GetApplicationInfo', 'getDashboardComponents', 'getComponentInfo', 'getSensorValue']
+2017-03-09 16:26:02,113 - kervi-main - DEBUG - send rq handlers:<bound method Application._get_application_info of <kervi.bootstrap.Application object at 0x0000024FD9DF9630>>
+2017-03-09 16:26:02,113 - kervi-main - DEBUG - send rq handlers:<bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x0000024FDB1A99B0>>
+2017-03-09 16:26:02,113 - kervi-main - DEBUG - send rq handlers:<bound method KerviComponent._get_dashboard_components of <kervi.sensor.Sensor object at 0x0000024FDB21C6A0>>
+2017-03-09 16:26:02,113 - kervi-main - DEBUG - send rq handlers:<bound method KerviComponent._get_component_info of <kervi.dashboard.Dashboard object at 0x0000024FDB1A99B0>>
+2017-03-09 16:26:02,113 - kervi-main - DEBUG - send rq handlers:<bound method KerviComponent._get_component_info of <kervi.sensor.Sensor object at 0x0000024FDB21C6A0>>
+2017-03-09 16:26:02,113 - kervi-main - DEBUG - send rq handlers:<bound method Sensor._query_value of <kervi.sensor.Sensor object at 0x0000024FDB21C6A0>>
+2017-03-09 16:26:02,113 - kervi-main - DEBUG - send rq to ('192.168.0.111', 3512) elist:[]
+2017-03-09 16:26:02,115 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'registerCommandHandler', 'command': 'stopThreads'}
+2017-03-09 16:26:02,115 - IPC - DEBUG - register command handler, command:stopThreads injected:processSpine
+2017-03-09 16:26:02,118 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'registerQueryHandler', 'query': 'GetApplicationInfo'}
+2017-03-09 16:26:02,118 - IPC - DEBUG - register query handler query:GetApplicationInfo injected:processSpine
+2017-03-09 16:26:02,121 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'registerQueryHandler', 'query': 'getDashboardComponents'}
+2017-03-09 16:26:02,121 - IPC - DEBUG - register query handler query:getDashboardComponents injected:processSpine
+2017-03-09 16:26:02,123 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'registerQueryHandler', 'query': 'getComponentInfo'}
+2017-03-09 16:26:02,123 - IPC - DEBUG - register query handler query:getComponentInfo injected:processSpine
+2017-03-09 16:26:02,125 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'registerQueryHandler', 'query': 'getSensorValue'}
+2017-03-09 16:26:02,125 - IPC - DEBUG - register query handler query:getSensorValue injected:processSpine
+2017-03-09 16:26:02,127 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'processList', 'list': [('192.168.0.111', 9504)]}
+2017-03-09 16:26:02,526 - kervi-main - DEBUG - delta exceeded:CPULoadSensor value:12.8, old value:10.6
+2017-03-09 16:26:02,526 - kervi-main - DEBUG - sendcommand:StoreSensorValue injected:
+2017-03-09 16:26:02,526 - kervi-main - DEBUG - triggerEvent:NewSensorReading, id:CPULoadSensor injected:
+2017-03-09 16:26:03,527 - kervi-main - DEBUG - delta exceeded:CPULoadSensor value:8.3, old value:12.8
+2017-03-09 16:26:03,528 - kervi-main - DEBUG - sendcommand:StoreSensorValue injected:
+2017-03-09 16:26:03,528 - kervi-main - DEBUG - triggerEvent:NewSensorReading, id:CPULoadSensor injected:
+2017-03-09 16:26:04,162 - IPC - DEBUG - start websocket on:192.168.0.111, port:9000
+2017-03-09 16:26:04,406 - IPC - DEBUG - WS onMessage:{'id': 27, 'messageType': 'query', 'query': 'GetApplicationInfo', 'args': []}
+2017-03-09 16:26:04,406 - IPC - DEBUG - sendQuery:GetApplicationInfo injected:socketSpine
+2017-03-09 16:26:04,406 - IPC - DEBUG - sendQuery thread start:<_QueryThread(Thread-8, initial daemon)>
+2017-03-09 16:26:04,407 - IPC - DEBUG - query handler called:GetApplicationInfo injected:socketSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x000002AA4879BC18>>]
+2017-03-09 16:26:04,408 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'id': 1, 'messageType': 'query', 'query': 'GetApplicationInfo', 'args': ()}
+2017-03-09 16:26:04,409 - kervi-main - DEBUG - sendQuery:GetApplicationInfo injected:processSpine
+2017-03-09 16:26:04,409 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-10, initial daemon)>
+2017-03-09 16:26:04,410 - kervi-main - DEBUG - query handler called:GetApplicationInfo injected:processSpine, func[<bound method Application._get_application_info of <kervi.bootstrap.Application object at 0x0000024FD9DF9630>>]
+2017-03-09 16:26:04,411 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-10, stopped daemon 17948)>
+2017-03-09 16:26:04,411 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'queryResponse', 'id': 1, 'response': {'id': 'kervi_app', 'name': 'Kervi application', 'appKey': ''}}
+2017-03-09 16:26:04,412 - IPC - DEBUG - sendQuery thread done:<_QueryThread(Thread-8, stopped daemon 15136)>
+2017-03-09 16:26:04,412 - IPC - DEBUG - query response:{'id': 'kervi_app', 'name': 'Kervi application', 'appKey': ''}
+2017-03-09 16:26:04,413 - IPC - DEBUG - WS onMessage:{'id': 28, 'messageType': 'registerEventHandler', 'event': 'moduleStarted', 'eventId': ''}
+2017-03-09 16:26:04,414 - IPC - DEBUG - register event handler event:moduleStarted id: injected:socketSpine
+2017-03-09 16:26:04,415 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'messageType': 'registerEventHandler', 'event': 'moduleStarted', 'eventId': ''}
+2017-03-09 16:26:04,415 - kervi-main - DEBUG - register event handler event:moduleStarted id: injected:processSpine
+2017-03-09 16:26:04,416 - IPC - DEBUG - WS onMessage:{'id': 29, 'messageType': 'registerEventHandler', 'event': 'moduleStopped', 'eventId': ''}
+2017-03-09 16:26:04,416 - IPC - DEBUG - register event handler event:moduleStopped id: injected:socketSpine
+2017-03-09 16:26:04,418 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'messageType': 'registerEventHandler', 'event': 'moduleStopped', 'eventId': ''}
+2017-03-09 16:26:04,418 - kervi-main - DEBUG - register event handler event:moduleStopped id: injected:processSpine
+2017-03-09 16:26:04,418 - IPC - DEBUG - WS onMessage:{'id': 30, 'messageType': 'query', 'query': 'getComponentInfo', 'args': []}
+2017-03-09 16:26:04,419 - IPC - DEBUG - sendQuery:getComponentInfo injected:socketSpine
+2017-03-09 16:26:04,419 - IPC - DEBUG - sendQuery thread start:<_QueryThread(Thread-9, initial daemon)>
+2017-03-09 16:26:04,420 - IPC - DEBUG - query handler called:getComponentInfo injected:socketSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x000002AA487BB2E8>>]
+2017-03-09 16:26:04,421 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'id': 1, 'messageType': 'query', 'query': 'getComponentInfo', 'args': ()}
+2017-03-09 16:26:04,421 - kervi-main - DEBUG - sendQuery:getComponentInfo injected:processSpine
+2017-03-09 16:26:04,421 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-11, initial daemon)>
+2017-03-09 16:26:04,422 - kervi-main - DEBUG - query handler called:getComponentInfo injected:processSpine, func[<bound method KerviComponent._get_component_info of <kervi.dashboard.Dashboard object at 0x0000024FDB1A99B0>>, <bound method KerviComponent._get_component_info of <kervi.sensor.Sensor object at 0x0000024FDB21C6A0>>]
+2017-03-09 16:26:04,423 - kervi-main - DEBUG - get dashboard info:dashboard.app
+2017-03-09 16:26:04,423 - kervi-main - DEBUG - Query dashboard components:dashboard.app - sys-header
+2017-03-09 16:26:04,424 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:
+2017-03-09 16:26:04,424 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-12, initial daemon)>
+2017-03-09 16:26:04,425 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:, func[<bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x0000024FDB1A99B0>>, <bound method KerviComponent._get_dashboard_components of <kervi.sensor.Sensor object at 0x0000024FDB21C6A0>>]
+2017-03-09 16:26:04,426 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-12, stopped daemon 17944)>
+2017-03-09 16:26:04,426 - kervi-main - DEBUG - Query dashboard components:dashboard.app - header
+2017-03-09 16:26:04,426 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:
+2017-03-09 16:26:04,427 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-13, initial daemon)>
+2017-03-09 16:26:04,427 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:, func[<bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x0000024FDB1A99B0>>, <bound method KerviComponent._get_dashboard_components of <kervi.sensor.Sensor object at 0x0000024FDB21C6A0>>]
+2017-03-09 16:26:04,428 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-13, stopped daemon 17452)>
+2017-03-09 16:26:04,429 - kervi-main - DEBUG - Query dashboard components:dashboard.app - footer
+2017-03-09 16:26:04,429 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:
+2017-03-09 16:26:04,430 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-14, initial daemon)>
+2017-03-09 16:26:04,430 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:, func[<bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x0000024FDB1A99B0>>, <bound method KerviComponent._get_dashboard_components of <kervi.sensor.Sensor object at 0x0000024FDB21C6A0>>]
+2017-03-09 16:26:04,431 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-14, stopped daemon 17428)>
+2017-03-09 16:26:04,431 - kervi-main - DEBUG - Query dashboard components:dashboard.app - background
+2017-03-09 16:26:04,432 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:
+2017-03-09 16:26:04,432 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-15, initial daemon)>
+2017-03-09 16:26:04,433 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:, func[<bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x0000024FDB1A99B0>>, <bound method KerviComponent._get_dashboard_components of <kervi.sensor.Sensor object at 0x0000024FDB21C6A0>>]
+2017-03-09 16:26:04,433 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-15, stopped daemon 10928)>
+2017-03-09 16:26:04,434 - kervi-main - DEBUG - Query dashboard components:dashboard.app - cpu
+2017-03-09 16:26:04,434 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:
+2017-03-09 16:26:04,434 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-16, initial daemon)>
+2017-03-09 16:26:04,436 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:, func[<bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x0000024FDB1A99B0>>, <bound method KerviComponent._get_dashboard_components of <kervi.sensor.Sensor object at 0x0000024FDB21C6A0>>]
+2017-03-09 16:26:04,437 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-16, stopped daemon 18004)>
+2017-03-09 16:26:04,437 - kervi-main - DEBUG - get dashboard info done:dashboard.app
+2017-03-09 16:26:04,438 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-11, stopped daemon 19236)>
+2017-03-09 16:26:04,439 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'queryResponse', 'id': 1, 'response': [{'isDefault': True, 'template': None, 'sections': [{'id': 'sys-header', 'uiParameters': {'title': '', 'columns': 1, 'rows': 1, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': [{'linkId': 9303781517185707604, 'componentId': 'CPULoadSensor', 'parameters': {'size': 1, 'type': 'value', 'chartPoints': 60, 'showSparkline': True, 'linkToHeader': False, 'icon': None, 'flat': False, 'showValue': True, 'showName': True}}]}, {'id': 'header', 'uiParameters': {'title': '', 'columns': 1, 'rows': 1, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': []}, {'id': 'footer', 'uiParameters': {'title': '', 'columns': 1, 'rows': 1, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': []}, {'id': 'background', 'uiParameters': {'title': '', 'columns': 1, 'rows': 1, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': []}, {'id': 'cpu', 'uiParameters': {'title': None, 'columns': 2, 'rows': 4, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': [{'linkId': 6797390049284257247, 'componentId': 'CPULoadSensor', 'parameters': {'size': 2, 'type': 'value', 'chartPoints': 60, 'showSparkline': True, 'linkToHeader': True, 'icon': None, 'flat': False, 'showValue': True, 'showName': True}}, {'linkId': 17242220063992860804, 'componentId': 'CPULoadSensor', 'parameters': {'size': 2, 'type': 'chart', 'chartPoints': 60, 'showSparkline': True, 'linkToHeader': False, 'icon': None, 'flat': False, 'showValue': True, 'showName': True}}]}], 'unitSize': 150, 'componentType': 'dashboard', 'id': 'dashboard.app', 'visible': True, 'name': 'app dashboard', 'ui': {}}, {'type': 'cpu_use', 'max': 100, 'min': 0, 'unit': '%', 'value': 8.3, 'upperFatalLimit': None, 'upperWarningLimit': None, 'lowerWarningLimit': None, 'lowerFatalLimit': None, 'sparkline': [0.0, 0.0, 12.5, 10.6, 12.8, 8.3], 'componentType': 'sensor', 'id': 'CPULoadSensor', 'visible': True, 'name': 'CPU', 'ui': {'size': 1, 'type': 'value', 'chartPoints': 60, 'showSparkline': True, 'linkToHeader': False, 'icon': None, 'flat': False, 'showValue': True, 'showName': True}}]}
+2017-03-09 16:26:04,440 - IPC - DEBUG - sendQuery thread done:<_QueryThread(Thread-9, stopped daemon 14452)>
+2017-03-09 16:26:04,440 - IPC - DEBUG - query response:[{'isDefault': True, 'template': None, 'sections': [{'id': 'sys-header', 'uiParameters': {'title': '', 'columns': 1, 'rows': 1, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': [{'linkId': 9303781517185707604, 'componentId': 'CPULoadSensor', 'parameters': {'size': 1, 'type': 'value', 'chartPoints': 60, 'showSparkline': True, 'linkToHeader': False, 'icon': None, 'flat': False, 'showValue': True, 'showName': True}}]}, {'id': 'header', 'uiParameters': {'title': '', 'columns': 1, 'rows': 1, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': []}, {'id': 'footer', 'uiParameters': {'title': '', 'columns': 1, 'rows': 1, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': []}, {'id': 'background', 'uiParameters': {'title': '', 'columns': 1, 'rows': 1, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': []}, {'id': 'cpu', 'uiParameters': {'title': None, 'columns': 2, 'rows': 4, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': [{'linkId': 6797390049284257247, 'componentId': 'CPULoadSensor', 'parameters': {'size': 2, 'type': 'value', 'chartPoints': 60, 'showSparkline': True, 'linkToHeader': True, 'icon': None, 'flat': False, 'showValue': True, 'showName': True}}, {'linkId': 17242220063992860804, 'componentId': 'CPULoadSensor', 'parameters': {'size': 2, 'type': 'chart', 'chartPoints': 60, 'showSparkline': True, 'linkToHeader': False, 'icon': None, 'flat': False, 'showValue': True, 'showName': True}}]}], 'unitSize': 150, 'componentType': 'dashboard', 'id': 'dashboard.app', 'visible': True, 'name': 'app dashboard', 'ui': {}}, {'type': 'cpu_use', 'max': 100, 'min': 0, 'unit': '%', 'value': 8.3, 'upperFatalLimit': None, 'upperWarningLimit': None, 'lowerWarningLimit': None, 'lowerFatalLimit': None, 'sparkline': [0.0, 0.0, 12.5, 10.6, 12.8, 8.3], 'componentType': 'sensor', 'id': 'CPULoadSensor', 'visible': True, 'name': 'CPU', 'ui': {'size': 1, 'type': 'value', 'chartPoints': 60, 'showSparkline': True, 'linkToHeader': False, 'icon': None, 'flat': False, 'showValue': True, 'showName': True}}]
+2017-03-09 16:26:04,449 - IPC - DEBUG - WS onMessage:{'id': 31, 'messageType': 'registerEventHandler', 'event': 'controllerButtonStateChange', 'eventId': ''}
+2017-03-09 16:26:04,450 - IPC - DEBUG - register event handler event:controllerButtonStateChange id: injected:socketSpine
+2017-03-09 16:26:04,451 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'messageType': 'registerEventHandler', 'event': 'controllerButtonStateChange', 'eventId': ''}
+2017-03-09 16:26:04,451 - kervi-main - DEBUG - register event handler event:controllerButtonStateChange id: injected:processSpine
+2017-03-09 16:26:04,451 - IPC - DEBUG - WS onMessage:{'id': 32, 'messageType': 'registerEventHandler', 'event': 'changeControllerInputValue', 'eventId': ''}
+2017-03-09 16:26:04,452 - IPC - DEBUG - register event handler event:changeControllerInputValue id: injected:socketSpine
+2017-03-09 16:26:04,453 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'messageType': 'registerEventHandler', 'event': 'changeControllerInputValue', 'eventId': ''}
+2017-03-09 16:26:04,453 - IPC - DEBUG - WS onMessage:{'id': 33, 'messageType': 'registerEventHandler', 'event': 'controllerSelectChange', 'eventId': ''}
+2017-03-09 16:26:04,453 - kervi-main - DEBUG - register event handler event:changeControllerInputValue id: injected:processSpine
+2017-03-09 16:26:04,453 - IPC - DEBUG - register event handler event:controllerSelectChange id: injected:socketSpine
+2017-03-09 16:26:04,454 - IPC - DEBUG - WS onMessage:{'id': 34, 'messageType': 'registerEventHandler', 'event': 'NewSensorReading', 'eventId': ''}
+2017-03-09 16:26:04,455 - IPC - DEBUG - register event handler event:NewSensorReading id: injected:socketSpine
+2017-03-09 16:26:04,455 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'messageType': 'registerEventHandler', 'event': 'controllerSelectChange', 'eventId': ''}
+2017-03-09 16:26:04,455 - kervi-main - DEBUG - register event handler event:controllerSelectChange id: injected:processSpine
+2017-03-09 16:26:04,456 - IPC - DEBUG - WS onMessage:{'id': 35, 'messageType': 'registerEventHandler', 'event': 'dashboardLinkChanged', 'eventId': None}
+2017-03-09 16:26:04,456 - IPC - DEBUG - register event handler event:dashboardLinkChanged id:None injected:socketSpine
+2017-03-09 16:26:04,457 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'messageType': 'registerEventHandler', 'event': 'NewSensorReading', 'eventId': ''}
+2017-03-09 16:26:04,457 - kervi-main - DEBUG - register event handler event:NewSensorReading id: injected:processSpine
+2017-03-09 16:26:04,459 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'messageType': 'registerEventHandler', 'event': 'dashboardLinkChanged', 'eventId': None}
+2017-03-09 16:26:04,459 - kervi-main - DEBUG - register event handler event:dashboardLinkChanged id:None injected:processSpine
+2017-03-09 16:26:04,530 - kervi-main - DEBUG - delta exceeded:CPULoadSensor value:14.0, old value:8.3
+2017-03-09 16:26:04,530 - kervi-main - DEBUG - sendcommand:StoreSensorValue injected:
+2017-03-09 16:26:04,530 - IPC - DEBUG - WS onMessage:{'id': 172, 'messageType': 'query', 'query': 'GetApplicationInfo', 'args': []}
+2017-03-09 16:26:04,530 - kervi-main - DEBUG - triggerEvent:NewSensorReading, id:CPULoadSensor injected:
+2017-03-09 16:26:04,530 - IPC - DEBUG - sendQuery:GetApplicationInfo injected:socketSpine
+2017-03-09 16:26:04,530 - IPC - DEBUG - sendQuery thread start:<_QueryThread(Thread-10, initial daemon)>
+2017-03-09 16:26:04,530 - kervi-main - DEBUG - trigger event: NewSensorReading on:('192.168.0.111', 3512) 
+2017-03-09 16:26:04,530 - IPC - DEBUG - query handler called:GetApplicationInfo injected:socketSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x000002AA4879BC18>>]
+2017-03-09 16:26:04,531 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'event', 'event': 'NewSensorReading', 'id': None, 'args': ({'sensor': 'CPULoadSensor', 'value': 14.0, 'timestamp': 1489076764.530322},)}
+2017-03-09 16:26:04,531 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'id': 2, 'messageType': 'query', 'query': 'GetApplicationInfo', 'args': ()}
+2017-03-09 16:26:04,531 - kervi-main - DEBUG - sendQuery:GetApplicationInfo injected:processSpine
+2017-03-09 16:26:04,531 - IPC - DEBUG - triggerEvent:NewSensorReading, id:None injected:processSpine
+2017-03-09 16:26:04,531 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-17, initial daemon)>
+2017-03-09 16:26:04,531 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:04,531 - kervi-main - DEBUG - query handler called:GetApplicationInfo injected:processSpine, func[<bound method Application._get_application_info of <kervi.bootstrap.Application object at 0x0000024FD9DF9630>>]
+2017-03-09 16:26:04,531 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-17, stopped daemon 14688)>
+2017-03-09 16:26:04,533 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'queryResponse', 'id': 2, 'response': {'id': 'kervi_app', 'name': 'Kervi application', 'appKey': ''}}
+2017-03-09 16:26:04,533 - IPC - DEBUG - sendQuery thread done:<_QueryThread(Thread-10, stopped daemon 14496)>
+2017-03-09 16:26:04,533 - IPC - DEBUG - query response:{'id': 'kervi_app', 'name': 'Kervi application', 'appKey': ''}
+2017-03-09 16:26:04,533 - IPC - DEBUG - WS onMessage:{'id': 173, 'messageType': 'registerEventHandler', 'event': 'moduleStarted', 'eventId': ''}
+2017-03-09 16:26:04,533 - IPC - DEBUG - register event handler event:moduleStarted id: injected:socketSpine
+2017-03-09 16:26:04,534 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'messageType': 'registerEventHandler', 'event': 'moduleStarted', 'eventId': ''}
+2017-03-09 16:26:04,535 - IPC - DEBUG - WS onMessage:{'id': 174, 'messageType': 'registerEventHandler', 'event': 'moduleStopped', 'eventId': ''}
+2017-03-09 16:26:04,535 - IPC - DEBUG - register event handler event:moduleStopped id: injected:socketSpine
+2017-03-09 16:26:04,536 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'messageType': 'registerEventHandler', 'event': 'moduleStopped', 'eventId': ''}
+2017-03-09 16:26:04,539 - IPC - DEBUG - WS onMessage:{'id': 175, 'messageType': 'query', 'query': 'getComponentInfo', 'args': []}
+2017-03-09 16:26:04,539 - IPC - DEBUG - sendQuery:getComponentInfo injected:socketSpine
+2017-03-09 16:26:04,539 - IPC - DEBUG - sendQuery thread start:<_QueryThread(Thread-11, initial daemon)>
+2017-03-09 16:26:04,539 - IPC - DEBUG - query handler called:getComponentInfo injected:socketSpine, func[<bound method _ConnQueryHandler.on_query of <kervi.utility.process_spine._ConnQueryHandler object at 0x000002AA487BB2E8>>]
+2017-03-09 16:26:04,540 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'id': 2, 'messageType': 'query', 'query': 'getComponentInfo', 'args': ()}
+2017-03-09 16:26:04,540 - kervi-main - DEBUG - sendQuery:getComponentInfo injected:processSpine
+2017-03-09 16:26:04,540 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-18, initial daemon)>
+2017-03-09 16:26:04,540 - kervi-main - DEBUG - query handler called:getComponentInfo injected:processSpine, func[<bound method KerviComponent._get_component_info of <kervi.dashboard.Dashboard object at 0x0000024FDB1A99B0>>, <bound method KerviComponent._get_component_info of <kervi.sensor.Sensor object at 0x0000024FDB21C6A0>>]
+2017-03-09 16:26:04,541 - kervi-main - DEBUG - get dashboard info:dashboard.app
+2017-03-09 16:26:04,541 - kervi-main - DEBUG - Query dashboard components:dashboard.app - sys-header
+2017-03-09 16:26:04,541 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:
+2017-03-09 16:26:04,541 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-19, initial daemon)>
+2017-03-09 16:26:04,541 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:, func[<bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x0000024FDB1A99B0>>, <bound method KerviComponent._get_dashboard_components of <kervi.sensor.Sensor object at 0x0000024FDB21C6A0>>]
+2017-03-09 16:26:04,541 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-19, stopped daemon 12776)>
+2017-03-09 16:26:04,541 - kervi-main - DEBUG - Query dashboard components:dashboard.app - header
+2017-03-09 16:26:04,542 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:
+2017-03-09 16:26:04,542 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-20, initial daemon)>
+2017-03-09 16:26:04,542 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:, func[<bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x0000024FDB1A99B0>>, <bound method KerviComponent._get_dashboard_components of <kervi.sensor.Sensor object at 0x0000024FDB21C6A0>>]
+2017-03-09 16:26:04,542 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-20, stopped daemon 4228)>
+2017-03-09 16:26:04,542 - kervi-main - DEBUG - Query dashboard components:dashboard.app - footer
+2017-03-09 16:26:04,542 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:
+2017-03-09 16:26:04,542 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-21, initial daemon)>
+2017-03-09 16:26:04,542 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:, func[<bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x0000024FDB1A99B0>>, <bound method KerviComponent._get_dashboard_components of <kervi.sensor.Sensor object at 0x0000024FDB21C6A0>>]
+2017-03-09 16:26:04,543 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-21, stopped daemon 14712)>
+2017-03-09 16:26:04,543 - kervi-main - DEBUG - Query dashboard components:dashboard.app - background
+2017-03-09 16:26:04,543 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:
+2017-03-09 16:26:04,543 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-22, initial daemon)>
+2017-03-09 16:26:04,543 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:, func[<bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x0000024FDB1A99B0>>, <bound method KerviComponent._get_dashboard_components of <kervi.sensor.Sensor object at 0x0000024FDB21C6A0>>]
+2017-03-09 16:26:04,543 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-22, stopped daemon 10880)>
+2017-03-09 16:26:04,543 - kervi-main - DEBUG - Query dashboard components:dashboard.app - cpu
+2017-03-09 16:26:04,543 - kervi-main - DEBUG - sendQuery:getDashboardComponents injected:
+2017-03-09 16:26:04,543 - kervi-main - DEBUG - sendQuery thread start:<_QueryThread(Thread-23, initial daemon)>
+2017-03-09 16:26:04,544 - kervi-main - DEBUG - query handler called:getDashboardComponents injected:, func[<bound method KerviComponent._get_dashboard_components of <kervi.dashboard.Dashboard object at 0x0000024FDB1A99B0>>, <bound method KerviComponent._get_dashboard_components of <kervi.sensor.Sensor object at 0x0000024FDB21C6A0>>]
+2017-03-09 16:26:04,544 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-23, stopped daemon 15564)>
+2017-03-09 16:26:04,544 - kervi-main - DEBUG - get dashboard info done:dashboard.app
+2017-03-09 16:26:04,544 - kervi-main - DEBUG - sendQuery thread done:<_QueryThread(Thread-18, stopped daemon 15772)>
+2017-03-09 16:26:04,545 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'queryResponse', 'id': 2, 'response': [{'isDefault': True, 'template': None, 'sections': [{'id': 'sys-header', 'uiParameters': {'title': '', 'columns': 1, 'rows': 1, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': [{'linkId': 9303781517185707604, 'componentId': 'CPULoadSensor', 'parameters': {'size': 1, 'type': 'value', 'chartPoints': 60, 'showSparkline': True, 'linkToHeader': False, 'icon': None, 'flat': False, 'showValue': True, 'showName': True}}]}, {'id': 'header', 'uiParameters': {'title': '', 'columns': 1, 'rows': 1, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': []}, {'id': 'footer', 'uiParameters': {'title': '', 'columns': 1, 'rows': 1, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': []}, {'id': 'background', 'uiParameters': {'title': '', 'columns': 1, 'rows': 1, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': []}, {'id': 'cpu', 'uiParameters': {'title': None, 'columns': 2, 'rows': 4, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': [{'linkId': 6797390049284257247, 'componentId': 'CPULoadSensor', 'parameters': {'size': 2, 'type': 'value', 'chartPoints': 60, 'showSparkline': True, 'linkToHeader': True, 'icon': None, 'flat': False, 'showValue': True, 'showName': True}}, {'linkId': 17242220063992860804, 'componentId': 'CPULoadSensor', 'parameters': {'size': 2, 'type': 'chart', 'chartPoints': 60, 'showSparkline': True, 'linkToHeader': False, 'icon': None, 'flat': False, 'showValue': True, 'showName': True}}]}], 'unitSize': 150, 'componentType': 'dashboard', 'id': 'dashboard.app', 'visible': True, 'name': 'app dashboard', 'ui': {}}, {'type': 'cpu_use', 'max': 100, 'min': 0, 'unit': '%', 'value': 14.0, 'upperFatalLimit': None, 'upperWarningLimit': None, 'lowerWarningLimit': None, 'lowerFatalLimit': None, 'sparkline': [0.0, 0.0, 12.5, 10.6, 12.8, 8.3, 14.0], 'componentType': 'sensor', 'id': 'CPULoadSensor', 'visible': True, 'name': 'CPU', 'ui': {'size': 1, 'type': 'value', 'chartPoints': 60, 'showSparkline': True, 'linkToHeader': False, 'icon': None, 'flat': False, 'showValue': True, 'showName': True}}]}
+2017-03-09 16:26:04,546 - IPC - DEBUG - sendQuery thread done:<_QueryThread(Thread-11, stopped daemon 16096)>
+2017-03-09 16:26:04,546 - IPC - DEBUG - query response:[{'isDefault': True, 'template': None, 'sections': [{'id': 'sys-header', 'uiParameters': {'title': '', 'columns': 1, 'rows': 1, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': [{'linkId': 9303781517185707604, 'componentId': 'CPULoadSensor', 'parameters': {'size': 1, 'type': 'value', 'chartPoints': 60, 'showSparkline': True, 'linkToHeader': False, 'icon': None, 'flat': False, 'showValue': True, 'showName': True}}]}, {'id': 'header', 'uiParameters': {'title': '', 'columns': 1, 'rows': 1, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': []}, {'id': 'footer', 'uiParameters': {'title': '', 'columns': 1, 'rows': 1, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': []}, {'id': 'background', 'uiParameters': {'title': '', 'columns': 1, 'rows': 1, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': []}, {'id': 'cpu', 'uiParameters': {'title': None, 'columns': 2, 'rows': 4, 'userLog': False}, 'dashboard': {'id': 'dashboard.app', 'component_type': 'dashboard'}, 'components': [{'linkId': 6797390049284257247, 'componentId': 'CPULoadSensor', 'parameters': {'size': 2, 'type': 'value', 'chartPoints': 60, 'showSparkline': True, 'linkToHeader': True, 'icon': None, 'flat': False, 'showValue': True, 'showName': True}}, {'linkId': 17242220063992860804, 'componentId': 'CPULoadSensor', 'parameters': {'size': 2, 'type': 'chart', 'chartPoints': 60, 'showSparkline': True, 'linkToHeader': False, 'icon': None, 'flat': False, 'showValue': True, 'showName': True}}]}], 'unitSize': 150, 'componentType': 'dashboard', 'id': 'dashboard.app', 'visible': True, 'name': 'app dashboard', 'ui': {}}, {'type': 'cpu_use', 'max': 100, 'min': 0, 'unit': '%', 'value': 14.0, 'upperFatalLimit': None, 'upperWarningLimit': None, 'lowerWarningLimit': None, 'lowerFatalLimit': None, 'sparkline': [0.0, 0.0, 12.5, 10.6, 12.8, 8.3, 14.0], 'componentType': 'sensor', 'id': 'CPULoadSensor', 'visible': True, 'name': 'CPU', 'ui': {'size': 1, 'type': 'value', 'chartPoints': 60, 'showSparkline': True, 'linkToHeader': False, 'icon': None, 'flat': False, 'showValue': True, 'showName': True}}]
+2017-03-09 16:26:04,639 - IPC - DEBUG - WS onMessage:{'id': 176, 'messageType': 'registerEventHandler', 'event': 'controllerButtonStateChange', 'eventId': ''}
+2017-03-09 16:26:04,639 - IPC - DEBUG - register event handler event:controllerButtonStateChange id: injected:socketSpine
+2017-03-09 16:26:04,639 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'messageType': 'registerEventHandler', 'event': 'controllerButtonStateChange', 'eventId': ''}
+2017-03-09 16:26:04,639 - IPC - DEBUG - WS onMessage:{'id': 177, 'messageType': 'registerEventHandler', 'event': 'changeControllerInputValue', 'eventId': ''}
+2017-03-09 16:26:04,639 - IPC - DEBUG - register event handler event:changeControllerInputValue id: injected:socketSpine
+2017-03-09 16:26:04,641 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'messageType': 'registerEventHandler', 'event': 'changeControllerInputValue', 'eventId': ''}
+2017-03-09 16:26:04,641 - IPC - DEBUG - WS onMessage:{'id': 178, 'messageType': 'registerEventHandler', 'event': 'controllerSelectChange', 'eventId': ''}
+2017-03-09 16:26:04,641 - IPC - DEBUG - register event handler event:controllerSelectChange id: injected:socketSpine
+2017-03-09 16:26:04,641 - IPC - DEBUG - WS onMessage:{'id': 179, 'messageType': 'registerEventHandler', 'event': 'NewSensorReading', 'eventId': ''}
+2017-03-09 16:26:04,641 - IPC - DEBUG - register event handler event:NewSensorReading id: injected:socketSpine
+2017-03-09 16:26:04,641 - IPC - DEBUG - WS onMessage:{'id': 180, 'messageType': 'registerEventHandler', 'event': 'dashboardLinkChanged', 'eventId': None}
+2017-03-09 16:26:04,642 - IPC - DEBUG - register event handler event:dashboardLinkChanged id:None injected:socketSpine
+2017-03-09 16:26:04,643 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'messageType': 'registerEventHandler', 'event': 'controllerSelectChange', 'eventId': ''}
+2017-03-09 16:26:04,645 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'messageType': 'registerEventHandler', 'event': 'NewSensorReading', 'eventId': ''}
+2017-03-09 16:26:04,648 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'messageType': 'registerEventHandler', 'event': 'dashboardLinkChanged', 'eventId': None}
+2017-03-09 16:26:04,790 - IPC - DEBUG - WS onMessage:{'id': 36, 'messageType': 'query', 'query': 'getSensorData', 'args': ['CPULoadSensor']}
+2017-03-09 16:26:04,790 - IPC - DEBUG - sendQuery:getSensorData injected:socketSpine
+2017-03-09 16:26:04,790 - IPC - DEBUG - sendQuery thread start:<_QueryThread(Thread-12, initial daemon)>
+2017-03-09 16:26:04,790 - IPC - DEBUG - query handler called:getSensorData injected:socketSpine, funcNone
+2017-03-09 16:26:04,791 - IPC - DEBUG - sendQuery thread done:<_QueryThread(Thread-12, stopped daemon 14192)>
+2017-03-09 16:26:04,791 - IPC - DEBUG - query response:[]
+2017-03-09 16:26:04,954 - IPC - DEBUG - WS onMessage:{'id': 181, 'messageType': 'query', 'query': 'getSensorData', 'args': ['CPULoadSensor']}
+2017-03-09 16:26:04,954 - IPC - DEBUG - sendQuery:getSensorData injected:socketSpine
+2017-03-09 16:26:04,954 - IPC - DEBUG - sendQuery thread start:<_QueryThread(Thread-13, initial daemon)>
+2017-03-09 16:26:04,954 - IPC - DEBUG - query handler called:getSensorData injected:socketSpine, funcNone
+2017-03-09 16:26:04,955 - IPC - DEBUG - sendQuery thread done:<_QueryThread(Thread-13, stopped daemon 18960)>
+2017-03-09 16:26:04,955 - IPC - DEBUG - query response:[]
+2017-03-09 16:26:05,531 - kervi-main - DEBUG - delta exceeded:CPULoadSensor value:16.5, old value:14.0
+2017-03-09 16:26:05,531 - kervi-main - DEBUG - sendcommand:StoreSensorValue injected:
+2017-03-09 16:26:05,531 - kervi-main - DEBUG - triggerEvent:NewSensorReading, id:CPULoadSensor injected:
+2017-03-09 16:26:05,531 - kervi-main - DEBUG - trigger event: NewSensorReading on:('192.168.0.111', 3512) 
+2017-03-09 16:26:05,532 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'event', 'event': 'NewSensorReading', 'id': None, 'args': ({'sensor': 'CPULoadSensor', 'value': 16.5, 'timestamp': 1489076765.531592},)}
+2017-03-09 16:26:05,532 - IPC - DEBUG - triggerEvent:NewSensorReading, id:None injected:processSpine
+2017-03-09 16:26:05,532 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:05,532 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:06,532 - kervi-main - DEBUG - delta exceeded:CPULoadSensor value:9.4, old value:16.5
+2017-03-09 16:26:06,532 - kervi-main - DEBUG - sendcommand:StoreSensorValue injected:
+2017-03-09 16:26:06,532 - kervi-main - DEBUG - triggerEvent:NewSensorReading, id:CPULoadSensor injected:
+2017-03-09 16:26:06,533 - kervi-main - DEBUG - trigger event: NewSensorReading on:('192.168.0.111', 3512) 
+2017-03-09 16:26:06,533 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'event', 'event': 'NewSensorReading', 'id': None, 'args': ({'sensor': 'CPULoadSensor', 'value': 9.4, 'timestamp': 1489076766.53265},)}
+2017-03-09 16:26:06,534 - IPC - DEBUG - triggerEvent:NewSensorReading, id:None injected:processSpine
+2017-03-09 16:26:06,534 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:06,535 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:07,534 - kervi-main - DEBUG - delta exceeded:CPULoadSensor value:13.4, old value:9.4
+2017-03-09 16:26:07,534 - kervi-main - DEBUG - sendcommand:StoreSensorValue injected:
+2017-03-09 16:26:07,534 - kervi-main - DEBUG - triggerEvent:NewSensorReading, id:CPULoadSensor injected:
+2017-03-09 16:26:07,535 - kervi-main - DEBUG - trigger event: NewSensorReading on:('192.168.0.111', 3512) 
+2017-03-09 16:26:07,536 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'event', 'event': 'NewSensorReading', 'id': None, 'args': ({'sensor': 'CPULoadSensor', 'value': 13.4, 'timestamp': 1489076767.534117},)}
+2017-03-09 16:26:07,536 - IPC - DEBUG - triggerEvent:NewSensorReading, id:None injected:processSpine
+2017-03-09 16:26:07,537 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:07,538 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:08,535 - kervi-main - DEBUG - delta exceeded:CPULoadSensor value:11.3, old value:13.4
+2017-03-09 16:26:08,535 - kervi-main - DEBUG - sendcommand:StoreSensorValue injected:
+2017-03-09 16:26:08,536 - kervi-main - DEBUG - triggerEvent:NewSensorReading, id:CPULoadSensor injected:
+2017-03-09 16:26:08,536 - kervi-main - DEBUG - trigger event: NewSensorReading on:('192.168.0.111', 3512) 
+2017-03-09 16:26:08,537 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'event', 'event': 'NewSensorReading', 'id': None, 'args': ({'sensor': 'CPULoadSensor', 'value': 11.3, 'timestamp': 1489076768.535634},)}
+2017-03-09 16:26:08,538 - IPC - DEBUG - triggerEvent:NewSensorReading, id:None injected:processSpine
+2017-03-09 16:26:08,539 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:08,540 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:09,537 - kervi-main - DEBUG - delta exceeded:CPULoadSensor value:16.2, old value:11.3
+2017-03-09 16:26:09,537 - kervi-main - DEBUG - sendcommand:StoreSensorValue injected:
+2017-03-09 16:26:09,537 - kervi-main - DEBUG - triggerEvent:NewSensorReading, id:CPULoadSensor injected:
+2017-03-09 16:26:09,538 - kervi-main - DEBUG - trigger event: NewSensorReading on:('192.168.0.111', 3512) 
+2017-03-09 16:26:09,538 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'event', 'event': 'NewSensorReading', 'id': None, 'args': ({'sensor': 'CPULoadSensor', 'value': 16.2, 'timestamp': 1489076769.537749},)}
+2017-03-09 16:26:09,539 - IPC - DEBUG - triggerEvent:NewSensorReading, id:None injected:processSpine
+2017-03-09 16:26:09,539 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:09,540 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:10,539 - kervi-main - DEBUG - delta exceeded:CPULoadSensor value:6.8, old value:16.2
+2017-03-09 16:26:10,539 - kervi-main - DEBUG - sendcommand:StoreSensorValue injected:
+2017-03-09 16:26:10,539 - kervi-main - DEBUG - triggerEvent:NewSensorReading, id:CPULoadSensor injected:
+2017-03-09 16:26:10,540 - kervi-main - DEBUG - trigger event: NewSensorReading on:('192.168.0.111', 3512) 
+2017-03-09 16:26:10,541 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'event', 'event': 'NewSensorReading', 'id': None, 'args': ({'sensor': 'CPULoadSensor', 'value': 6.8, 'timestamp': 1489076770.539641},)}
+2017-03-09 16:26:10,541 - IPC - DEBUG - triggerEvent:NewSensorReading, id:None injected:processSpine
+2017-03-09 16:26:10,542 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:10,543 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:11,540 - kervi-main - DEBUG - delta exceeded:CPULoadSensor value:9.6, old value:6.8
+2017-03-09 16:26:11,540 - kervi-main - DEBUG - sendcommand:StoreSensorValue injected:
+2017-03-09 16:26:11,541 - kervi-main - DEBUG - triggerEvent:NewSensorReading, id:CPULoadSensor injected:
+2017-03-09 16:26:11,541 - kervi-main - DEBUG - trigger event: NewSensorReading on:('192.168.0.111', 3512) 
+2017-03-09 16:26:11,542 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'event', 'event': 'NewSensorReading', 'id': None, 'args': ({'sensor': 'CPULoadSensor', 'value': 9.6, 'timestamp': 1489076771.540947},)}
+2017-03-09 16:26:11,543 - IPC - DEBUG - triggerEvent:NewSensorReading, id:None injected:processSpine
+2017-03-09 16:26:11,544 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:11,545 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:12,542 - kervi-main - DEBUG - delta exceeded:CPULoadSensor value:17.4, old value:9.6
+2017-03-09 16:26:12,542 - kervi-main - DEBUG - sendcommand:StoreSensorValue injected:
+2017-03-09 16:26:12,542 - kervi-main - DEBUG - triggerEvent:NewSensorReading, id:CPULoadSensor injected:
+2017-03-09 16:26:12,542 - kervi-main - DEBUG - trigger event: NewSensorReading on:('192.168.0.111', 3512) 
+2017-03-09 16:26:12,543 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'event', 'event': 'NewSensorReading', 'id': None, 'args': ({'sensor': 'CPULoadSensor', 'value': 17.4, 'timestamp': 1489076772.542889},)}
+2017-03-09 16:26:12,543 - IPC - DEBUG - triggerEvent:NewSensorReading, id:None injected:processSpine
+2017-03-09 16:26:12,543 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:12,543 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:13,544 - kervi-main - DEBUG - delta exceeded:CPULoadSensor value:11.4, old value:17.4
+2017-03-09 16:26:13,544 - kervi-main - DEBUG - sendcommand:StoreSensorValue injected:
+2017-03-09 16:26:13,544 - kervi-main - DEBUG - triggerEvent:NewSensorReading, id:CPULoadSensor injected:
+2017-03-09 16:26:13,544 - kervi-main - DEBUG - trigger event: NewSensorReading on:('192.168.0.111', 3512) 
+2017-03-09 16:26:13,545 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'event', 'event': 'NewSensorReading', 'id': None, 'args': ({'sensor': 'CPULoadSensor', 'value': 11.4, 'timestamp': 1489076773.544553},)}
+2017-03-09 16:26:13,545 - IPC - DEBUG - triggerEvent:NewSensorReading, id:None injected:processSpine
+2017-03-09 16:26:13,545 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:13,545 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:15,350 - IPC - DEBUG - register command handler, command:terminateProcess injected:
+2017-03-09 16:26:15,351 - kervi-main - DEBUG - message from:('192.168.0.111', 3512) on:9500 message:{'messageType': 'registerCommandHandler', 'command': 'terminateProcess'}
+2017-03-09 16:26:15,351 - kervi-main - DEBUG - register command handler, command:terminateProcess injected:processSpine
+2017-03-09 16:26:15,546 - kervi-main - DEBUG - delta exceeded:CPULoadSensor value:1.4, old value:11.4
+2017-03-09 16:26:15,546 - kervi-main - DEBUG - sendcommand:StoreSensorValue injected:
+2017-03-09 16:26:15,547 - kervi-main - DEBUG - triggerEvent:NewSensorReading, id:CPULoadSensor injected:
+2017-03-09 16:26:15,548 - kervi-main - DEBUG - trigger event: NewSensorReading on:('192.168.0.111', 3512) 
+2017-03-09 16:26:15,548 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'event', 'event': 'NewSensorReading', 'id': None, 'args': ({'sensor': 'CPULoadSensor', 'value': 1.4, 'timestamp': 1489076775.546645},)}
+2017-03-09 16:26:15,549 - IPC - DEBUG - triggerEvent:NewSensorReading, id:None injected:processSpine
+2017-03-09 16:26:15,549 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:15,550 - IPC - DEBUG - WS relay event:NewSensorReading injected:processSpine
+2017-03-09 16:26:15,566 - kervi-main - DEBUG - sendcommand:terminateProcess injected:
+2017-03-09 16:26:15,567 - IPC - DEBUG - message from:('192.168.0.111', 9500) on:9504 message:{'messageType': 'command', 'command': 'terminateProcess', 'args': ()}
+2017-03-09 16:26:15,568 - IPC - DEBUG - sendcommand:terminateProcess injected:processSpine
+2017-03-09 16:26:15,570 - IPC - DEBUG - IOError in ClientConnectionThread
+ from:('192.168.0.111', 3512)
+2017-03-09 16:26:15,790 - IPC - DEBUG - process terminated:9504
