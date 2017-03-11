@@ -12,7 +12,7 @@ if __name__ == '__main__':
         },
         "network":{
             "IPAddress": nethelper.get_ip_address(),
-            "IPRootAddress": nethelper.get_ip_address(),
+            "IPRootAddress": "192.168.0.21",
             "IPCRootPort": 9500,
         }
     })

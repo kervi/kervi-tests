@@ -9,7 +9,7 @@ if __name__ == '__main__':
     DASHBOARD.add_panel(DashboardPanel("number_inline", columns=3, rows=4, title="number inline"))
     DASHBOARD.add_panel(DashboardPanel("log", columns=3, rows=4, title="Log", user_log=True))
 
-    DASHBOARD = Dashboard("dahsboard.ctrlx", "Controller testx", is_default=True)
+    
     
 
     #define a light controller
