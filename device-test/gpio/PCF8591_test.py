@@ -18,7 +18,7 @@ if __name__ == '__main__':
             Controller.__init__(self, "controller.test", "test")
             self.type = "test"
 
-            self.gpio = PCF8591.PCF8591Driver()
+            self.gpio = PCF8591.PCF8591Driver(0x48, 1)
             print("gpio:", self.gpio.device_name)
             self.AIN0 = AnalogGPIOControllerInput("ain0", "AIN0", self, PCF8591.AIN0, gpio_device=self.gpio)
             self.AIN0.link_to_dashboard("dashboard.ctrl", "input")
