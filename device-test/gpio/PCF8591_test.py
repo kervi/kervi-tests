@@ -4,7 +4,7 @@ if __name__ == '__main__':
 
     #add dashboard and panel
     from kervi.dashboard import Dashboard, DashboardPanel
-    DASHBOARD = Dashboard("dahsboard.ctrl", "PCF8591 test", is_default=True)
+    DASHBOARD = Dashboard("dashboard.ctrl", "PCF8591 test", is_default=True)
     DASHBOARD.add_panel(DashboardPanel("input", columns=2, rows=4, title="input"))
     DASHBOARD.add_panel(DashboardPanel("log", columns=3, rows=4, title="Log", user_log=True))
 
@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
             self.gpio = PCF8591.PCF8591Driver()
             self.AIN0 = AnalogGPIOControllerInput("ain0", "AIN0", self, PCF8591.AIN0, gpio_device=self.gpio)
-            self.AIN0.link_to_dashboard("dahsboard.ctrl", "numberinput", input_size=25)
+            self.AIN0.link_to_dashboard("dashboard.ctrl", "input", input_size=25)
 
         def input_changed(self, changed_input):
             self.user_log_message("input changed:{0} value:{1}".format(changed_input.input_id, changed_input.value))
