@@ -20,9 +20,11 @@ if __name__ == '__main__':
 
             self.gpio = PCF8591.PCF8591Driver()
             self.AIN0 = AnalogGPIOControllerInput("ain0", "AIN0", self, PCF8591.AIN0, gpio_device=self.gpio)
-            self.AIN0.link_to_dashboard("dashboard.ctrl", "input", input_size=25)
+            self.AIN0.link_to_dashboard("dashboard.ctrl", "input")
 
         def input_changed(self, changed_input):
             self.user_log_message("input changed:{0} value:{1}".format(changed_input.input_id, changed_input.value))
+
+    TestController()
 
     APP.run()
