@@ -11,15 +11,15 @@ if __name__ == '__main__':
     #define a light controller
     from kervi.hal import GPIO
     from kervi.controller import Controller, UITextControllerInput
-    from kervi_devices.displays.adafruit_char_lcd import I2CAdafruitCharLCDPlate
+    from kervi_devices.displays.char_lcd import PCFCharLCD
 
     class TestController(Controller):
         def __init__(self):
             Controller.__init__(self, "controller.test", "test")
             self.type = "test"
 
-            self.lcd = I2CAdafruitCharLCDPlate(0x48, 1)
-            print("gpio:", self.lcd.device_name)
+            self.lcd = PCFCharLCD()
+            #print("gpio:", self.lcd.device_name)
             self.text = UITextControllerInput("lcd.text", "LCD text", self)
             self.text.link_to_dashboard("dashboard.ctrl", "input")
 
