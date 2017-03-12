@@ -18,8 +18,9 @@ if __name__ == '__main__':
             Controller.__init__(self, "controller.test", "test")
             self.type = "test"
 
-            self.lcd = I2CAdafruitCharLCDPlate(0x48, 1)
-            print("gpio:", self.lcd.device_name)
+            self.lcd = I2CAdafruitCharLCDPlate(0x3f, 1)
+            self.lcd.message("LCD test ready") 
+            # print("gpio:", self.lcd.device_name)
             self.text = UITextControllerInput("lcd.text", "LCD text", self)
             self.text.link_to_dashboard("dashboard.ctrl", "input")
 
