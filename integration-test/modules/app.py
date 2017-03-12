@@ -6,7 +6,7 @@ if __name__ == '__main__':
     from kervi.dashboard import Dashboard, DashboardPanel
     DASHBOARD = Dashboard("dashboard.app", "app dashboard", is_default=True)
     DASHBOARD.add_panel(DashboardPanel("cpu", columns=2, rows=4, title=None))
-    
+
 
     from kervi.sensor import Sensor
     from kervi_devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
@@ -21,5 +21,4 @@ if __name__ == '__main__':
     from kervi.hal import GPIO
     from kervi.controller import Controller, UIButtonControllerInput
 
-    
     APP.run()
