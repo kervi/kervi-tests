@@ -1,5 +1,5 @@
 """ bootstrap your kervi dashboards here """
-from kervi.dashboard import Dashboard, Camboard, DashboardPanel
+from kervi.dashboard import Dashboard, DashboardPanel
 
 #Create the dashboards for your Kervi application here.
 #Standard dashboard with several panels where sensors are placed.

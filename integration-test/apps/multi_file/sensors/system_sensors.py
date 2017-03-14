@@ -3,7 +3,7 @@
 
 """ Module that defines core cpu sensors """
 
-from kervi.sensor import Sensor, SensorThread
+from kervi.sensor import Sensor
 from kervi_devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
 from kervi_devices.platforms.common.sensors.memory_use import MemUseSensorDeviceDriver
 from kervi_devices.platforms.common.sensors.disk_use import DiskUseSensorDeviceDriver
