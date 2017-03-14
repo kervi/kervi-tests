@@ -1,5 +1,5 @@
 """ Module for a sensor """
-from kervi.sensor import Sensor, SensorThread
+from kervi.sensor import Sensor
 
 class MySensor(Sensor):
     """ My sensor """
@@ -33,4 +33,3 @@ class MySensor(Sensor):
         self.new_sensor_reading(self.counter)
 
 #Add sensor to a SensorThread that polls the sensor by the specified interval 
-MY_SENSOR_THREAD = SensorThread(MySensor(),1)
