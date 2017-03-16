@@ -9,8 +9,8 @@ if __name__ == '__main__':
     DASHBOARD.add_panel(DashboardPanel("log", columns=3, rows=4, title="Log", user_log=True))
 
     #define a light controller
-    from kervi.hal import GPIO
-    from kervi.controller import Controller, UINumberControllerInput, AnalogGPIOControllerInput
+    #from kervi.hal import GPIO
+    from kervi.controller import Controller, UINumberControllerInput
     from kervi_devices.motors.dc_stepper.grove_i2c_motor_driver_dc import MotorDeviceDriver
 
     class TestController(Controller):
@@ -19,7 +19,7 @@ if __name__ == '__main__':
             self.type = "test"
 
             self.motor_controller = MotorDeviceDriver(0x0f, 1)
-            self.motor1 = self.motor_controller[1] 
+            self.motor1 = self.motor_controller[1]
             print("motor driver:", self.motor_controller.device_name)
 
             self.speed = UINumberControllerInput("speed1", "speed 1", self)
