@@ -7,6 +7,7 @@ from kervi.dashboard import Dashboard, DashboardPanel
 APP_DASHBOARD = Dashboard("app", "My dashboard", is_default=True)
 APP_DASHBOARD.add_panel(DashboardPanel("light", columns=2, rows=1, title="Light"))
 APP_DASHBOARD.add_panel(DashboardPanel("sensors", columns=2, rows=1, title="Sensors"))
+APP_DASHBOARD.add_panel(DashboardPanel("log", columns=2, rows=2, title="Log", user_log=True))
 
 SYSTEM_DASHBOARD = Dashboard("system", "System")
 SYSTEM_DASHBOARD.add_panel(DashboardPanel("cpu", columns=2, rows=2))

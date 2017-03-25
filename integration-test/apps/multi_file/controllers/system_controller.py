@@ -6,7 +6,7 @@ class PowerOffButton(UIButtonControllerInput):
     def __init__(self, controller):
         UIButtonControllerInput.__init__(
             self,
-            controller.component_id+".powerDown",
+            controller.component_id+".power",
             "Power off",
             controller
         )
@@ -18,7 +18,7 @@ class PowerOffButton(UIButtonControllerInput):
             button_icon="power-off"
         )
 
-    def click(self):
+    def up(self):
         print("stop kervi")
         self.user_log_message("stop kervi")
         self.controller.spine.send_command("stopKervi")
@@ -28,7 +28,7 @@ class RebootButton(UIButtonControllerInput):
     def __init__(self, controller):
         UIButtonControllerInput.__init__(
             self,
-            controller.component_id + ".reebotDown",
+            controller.component_id + ".reboot",
             "Reboot",
             controller
         )
@@ -40,12 +40,10 @@ class RebootButton(UIButtonControllerInput):
             button_icon="repeat"
         )
 
-    def click(self):
+    def up(self):
         print("restart kervi")
         self.user_log_message("restart kervi")
         self.controller.spine.send_command("restartKervi")
-
-
 
 class SystemController(Controller):
     def __init__(self):
