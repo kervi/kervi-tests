@@ -63,6 +63,10 @@ if __name__ == '__main__':
                 if changed_input.value:
                     self.stepper_motor.step(self.steps.value)
                     self.stepper_motor.release()
+
+        def exit(self):
+            self.stepper_motor.release()
+
     TestController()
 
     APP.run()
