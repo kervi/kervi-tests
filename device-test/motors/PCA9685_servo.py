@@ -19,7 +19,7 @@ if __name__ == '__main__':
             self.type = "test"
 
             self.motor_controller = PCA9685ServoBoard()
-            self.motor1 = self.motor_controller.servo_motors[15]
+            self.motor1 = self.motor_controller.servo_motors[0]
 
             self.position = UINumberControllerInput("position", "position", self)
             self.position.link_to_dashboard("dashboard.ctrl", "input")
