@@ -20,6 +20,7 @@ if __name__ == '__main__':
 
             self.motor_controller = AdafruitMotorHAT()
             self.dc_motor = self.motor_controller.dc_motors[0]
+            self.dc_motor.steps = 48
             self.stepper_motor = self.motor_controller.stepper_motors[1]
 
             #print("motor driver:", self.motor_controller.device_name)
