@@ -57,6 +57,7 @@ if __name__ == '__main__':
                 self.stepper_motor.step_interval = changed_input.value
 
             if changed_input == self.step_type:
+                print("st", changed_input.value)
                 self.stepper_motor.step_type = changed_input.value
 
             if changed_input == self._step:
