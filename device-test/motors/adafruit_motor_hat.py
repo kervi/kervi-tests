@@ -35,10 +35,10 @@ if __name__ == '__main__':
             self.step_interval.link_to_dashboard("dashboard.ctrl", "input")
 
             self.step_type = UISelectControllerInput("step_type", "step type", self)
-            self.step_type.add_option(1, "SINGLE")
-            self.step_type.add_option(2, "DOUBLE")
-            self.step_type.add_option(3, "Interleave")
-            self.step_type.add_option(4, "MICROSTEP")
+            self.step_type.add_option("1", "SINGLE")
+            self.step_type.add_option("2", "DOUBLE")
+            self.step_type.add_option("3", "Interleave")
+            self.step_type.add_option("4", "MICROSTEP")
 
             self.step_type.link_to_dashboard("dashboard.ctrl", "input")
 
@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
             if changed_input == self.step_type:
                 print("st", changed_input.value)
-                self.stepper_motor.step_type = changed_input.value
+                self.stepper_motor.step_type = int(changed_input.value)
 
             if changed_input == self._step:
                 if changed_input.value:
