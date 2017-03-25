@@ -40,7 +40,7 @@ if __name__ == '__main__':
             self.step_type.add_option(3, "Interleave")
             self.step_type.add_option(4, "MICROSTEP")
 
-            self.step_interval.link_to_dashboard("dashboard.ctrl", "input")
+            self.step_type.link_to_dashboard("dashboard.ctrl", "input")
 
             self._step = UIButtonControllerInput("step", "Step", self)
             self._step.link_to_dashboard("dashboard.ctrl", "input")
