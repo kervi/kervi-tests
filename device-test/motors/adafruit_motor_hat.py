@@ -43,7 +43,7 @@ if __name__ == '__main__':
             if changed_input == self.step_interval:
                 self.stepper_motor.step_interval = changed_input.value
             if changed_input == self._step:
-                self.stepper_motor.step()
+                self.stepper_motor.step(1)
     TestController()
 
     APP.run()
