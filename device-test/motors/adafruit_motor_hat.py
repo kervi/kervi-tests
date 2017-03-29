@@ -1,5 +1,6 @@
 if __name__ == '__main__':
     from kervi.bootstrap import Application
+    
     APP = Application()
 
     #add dashboard and panel
