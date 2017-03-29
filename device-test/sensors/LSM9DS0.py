@@ -14,4 +14,10 @@ if __name__ == '__main__':
     SENSOR_COMPASS = Sensor("compass", "Compass", LSM9DS0.LSM9DS0CompasDeviceDriver())
     SENSOR_COMPASS.link_to_dashboard("dashboard.app", "sensor")
 
+    SENSOR_GRAVITY = Sensor("gravity", "Gravity", LSM9DS0.LSM9DS0GravityDeviceDriver())
+    SENSOR_GRAVITY.link_to_dashboard("dashboard.app", "sensor")
+
+    SENSOR_PR = Sensor("pitch", "Pitch/roll", LSM9DS0.LSM9DS0PitchRollDeviceDriver())
+    SENSOR_PR.link_to_dashboard("dashboard.app", "sensor")
+
     APP.run()
