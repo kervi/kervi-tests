@@ -16,8 +16,8 @@ class MySensor(Sensor):
         self.upper_fatal_limit = 80
         self.upper_fatal_message = "Upper fatal"
 
-        #self.upper_warning_limit =70
-        #self.upper_warning_message = "Upper warning"
+        self.upper_warning_limit = 70
+        self.upper_warning_message = "Upper warning"
 
         self.lower_fatal_limit = 20
         self.lower_fatal_message = "lower fatal"

@@ -1,5 +1,6 @@
 """ Sample controller """
-from kervi.controller import Controller, UINumberControllerInput, UIButtonControllerInput
+from kervi.controller import Controller
+from kervi.values import *
 
 
 class PowerOffButton(UIButtonControllerInput):

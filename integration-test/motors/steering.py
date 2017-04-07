@@ -12,27 +12,15 @@ if __name__ == '__main__':
 
     #define a light controller
     from kervi.hal import GPIO
-    from kervi.controller import Controller, UIButtonControllerInput
+    from kervi.controller import Controller
     from kervi.steering import MotorSteering
     from kervi_devices.motors.dummy_motor_driver import DummyMotorBoard
 
     MOTOR_BOARD = DummyMotorBoard()
-    STEERING = MotorSteering("steering", "motor steering", MOTOR_BOARD.dc_motors[0], MOTOR_BOARD.dc_motors[1])
+    STEERING = MotorSteering("steering", "motor steering")
     STEERING.link_to_dashboard("dashboard.ctrl", "steering")
 
-    class TestController(Controller):
-        def __init__(self):
-            Controller.__init__(self, "controller.test", "test")
-            self.type = "test"
-
-            #define an input and link it to the dashboard panel
-            button = UIButtonControllerInput("switchbtn", "Switch", self)
-            button.link_to_dashboard("dashboard.ctrl", "ctrl")
-
-        def input_changed(self, changed_input):
-            self.user_log_message("input changed:{0} value:{1}".format(changed_input.input_id, changed_input.value))
-            tasks.run_task("run", 10, -50,100)
-
-    TestController()
+    STEERING.outputs["left_speed"].link_to(MOTOR_BOARD.dc_motors[0])
+    STEERING.outputs["right_speed"].link_to(MOTOR_BOARD.dc_motors[1])
 
     APP.run()
