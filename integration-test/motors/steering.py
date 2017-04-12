@@ -20,7 +20,7 @@ if __name__ == '__main__':
     STEERING = MotorSteering("steering", "motor steering")
     STEERING.link_to_dashboard("dashboard.ctrl", "steering")
 
-    STEERING.outputs["left_speed"].link_to(MOTOR_BOARD.dc_motors[0])
-    STEERING.outputs["right_speed"].link_to(MOTOR_BOARD.dc_motors[1])
+    STEERING.outputs["left_speed"].link_to(MOTOR_BOARD.dc_motors[0].speed)
+    STEERING.outputs["right_speed"].link_to(MOTOR_BOARD.dc_motors[1].speed)
 
     APP.run()

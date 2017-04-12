@@ -19,9 +19,10 @@ if __name__ == '__main__':
             self.type = "test"
 
             #define an input and link it to the dashboard panel
-            self.inputs.add("number", "Number", DynamicNumber)
-            self.inputs["number"].link_to_dashboard("dashboard","number")
-            self.inputs["number"].link_to_dashboard("dashboard","number", label="#", label_icon="lightbulb-o")
+            self.test_number = self.inputs.add("test_number", "Number", DynamicNumber)
+            self.test_number.link_to_dashboard("dashboard", "number")
+            self.test_number.link_to_dashboard("dashboard", "number", label="#", label_icon="lightbulb-o")
+
 
         def input_changed(self, changed_input):
             self.user_log_message("input changed:{0} value:{1}".format(changed_input.input_id, changed_input.value))

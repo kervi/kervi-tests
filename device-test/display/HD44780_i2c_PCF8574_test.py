@@ -10,7 +10,8 @@ if __name__ == '__main__':
 
     #define a light controller
     from kervi.hal import GPIO
-    from kervi.controller import Controller, UITextControllerInput
+    from kervi.controller import Controller
+    from kervi.values import *
     from kervi_devices.displays.HD44780_i2c_PCF8574 import CharLCDDeviceDriver
 
     class TestController(Controller):
@@ -22,9 +23,9 @@ if __name__ == '__main__':
             self.lcd.enable_display(True)
             self.lcd.message("test")
             self.lcd.set_backlight(True)
-            #print("gpio:", self.lcd.device_name)
-            self.text = UITextControllerInput("lcd.text", "LCD text", self)
-            self.text.link_to_dashboard("dashboard.ctrl", "input")
+
+            self.inputs.add("text", "LCD text", DynamicString)
+            self.inputs["text"].link_to_dashboard("dashboard.ctrl", "input")
 
         def input_changed(self, changed_input):
             self.user_log_message("input changed:{0} value:{1}".format(changed_input.input_id, changed_input.value))
