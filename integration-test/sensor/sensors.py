@@ -11,6 +11,7 @@ if __name__ == '__main__':
     DASHBOARD = Dashboard("system", "Sensor test", is_default=True)
     DASHBOARD.add_panel(DashboardPanel("multi_sensor", columns=3, rows=4, title="Multi sensor"))
     DASHBOARD.add_panel(DashboardPanel("multi_sensor_single", columns=3, rows=4, title="Multi sensor single"))
+    DASHBOARD.add_panel(DashboardPanel("gauge", columns=3, rows=4, title="Gauge"))
     DASHBOARD.add_panel(DashboardPanel("log", columns=3, rows=4, title="Log", user_log=True))
 
     from kervi.sensor import Sensor
@@ -31,5 +32,12 @@ if __name__ == '__main__':
     multi_sensor[0].link_to_dashboard("system", "multi_sensor_single", type="value", size=2)
     multi_sensor[1].link_to_dashboard("system", "multi_sensor_single", type="value", size=2)
     multi_sensor[2].link_to_dashboard("system", "multi_sensor_single", type="value", size=2)
+
+    multi_sensor[0].link_to_dashboard("system", "gauge", type="horizontal_gauge", size=2)
+    multi_sensor[1].link_to_dashboard("system", "gauge", type="vertical_gauge", size=2)
+
+    multi_sensor[2].add_error_range((0, 10), "warning message")
+    multi_sensor[2].add_warning_range((10, 20), "warning message")
+    multi_sensor[2].link_to_dashboard("system", "gauge", type="radial_gauge", size=2)
 
     APP.run()

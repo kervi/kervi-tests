@@ -19,6 +19,8 @@ if __name__ == '__main__':
     CAMERA.link_to_dashboard("app")
     #link camera to a panel
     CAMERA.link_to_dashboard("system", "cam")
+    CAMERA.pan.link_to_dashboard("system", "cpu")
+    CAMERA.tilt.link_to_dashboard("system", "cpu")
 
     from kervi.sensor import Sensor
     from kervi_devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
