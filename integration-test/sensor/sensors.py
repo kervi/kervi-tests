@@ -33,11 +33,13 @@ if __name__ == '__main__':
     multi_sensor[1].link_to_dashboard("system", "multi_sensor_single", type="value", size=2)
     multi_sensor[2].link_to_dashboard("system", "multi_sensor_single", type="value", size=2)
 
-    multi_sensor[0].link_to_dashboard("system", "gauge", type="horizontal_gauge", size=2)
-    multi_sensor[1].link_to_dashboard("system", "gauge", type="vertical_gauge", size=2)
+    multi_sensor[0].link_to_dashboard("system", "gauge", type="horizontal_linear_gauge", size=2)
+    multi_sensor[1].link_to_dashboard("system", "gauge", type="vertical_linear_gauge", size=2)
 
-    multi_sensor[2].add_error_range((0, 10), "warning message")
-    multi_sensor[2].add_warning_range((10, 20), "warning message")
+    multi_sensor[2].add_error_range((0, 10), "l error message")
+    multi_sensor[2].add_warning_range((10, 20), "l warning message")
+    multi_sensor[2].add_warning_range((80, 90), "h warning message")
+    multi_sensor[2].add_error_range((90, 100), "h error message")
     multi_sensor[2].link_to_dashboard("system", "gauge", type="radial_gauge", size=2)
 
     APP.run()

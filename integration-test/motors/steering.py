@@ -51,4 +51,8 @@ if __name__ == '__main__':
     MOTOR_BOARD.dc_motors[2].speed.link_to_dashboard("dashboard.ctrl", "right_pad_x", pad_auto_center=True)
     MOTOR_BOARD.dc_motors[3].speed.link_to_dashboard("dashboard.ctrl", "right_pad_y")
 
+
+    MOTOR_BOARD.servo_motors[0].position.link_to(CAMERA.pan)
+    MOTOR_BOARD.servo_motors[0].position.link_to(CAMERA.tilt)
+
     APP.run()
