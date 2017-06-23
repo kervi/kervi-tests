@@ -11,27 +11,36 @@ class SystemController(Controller):
         self.power_button.link_to_dashboard(
             "system",
             "power",
-            inline=True,
+            #inline=True,
             button_text=None,
             button_icon="power-off",
-            type="button"
+            type="switch"
         )
 
         self.reboot_button = self.inputs.add("reboot", "Reboot", DynamicBoolean)
         self.reboot_button.link_to_dashboard(
             "system",
             "power",
-            inline=True,
+            #inline=True,
             button_text=None,
+            button_icon="repeat",
+            type="button"
+        )
+
+        self.reboot_button.link_to_dashboard(
+            "*",
+            "header_right",
+            #inline=True,
+            label=None,
+            button_text="Reboot",
             button_icon="repeat",
             type="button"
         )
 
     def input_changed(self, changed_input):
         if changed_input == self.power_button:
-            print("power off")
+            print("power", changed_input.value)
         if changed_input == self.reboot_button:
-            print("reboot off")
-            
+            print("reboot", changed_input.value)
 
 SYSTEM_CONTROLLER = SystemController()

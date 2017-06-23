@@ -51,4 +51,3 @@ FAN_CONTROLLER.trigger_temp.link_to_dashboard("app", "fan")
 FAN_CONTROLLER.max_temp.link_to_dashboard("app", "fan")
 FAN_CONTROLLER.active.link_to_dashboard("app", "fan")
 FAN_CONTROLLER.fan_speed.link_to_dashboard("app", "fan")
-

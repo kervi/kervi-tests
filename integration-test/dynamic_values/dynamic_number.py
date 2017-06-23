@@ -27,6 +27,7 @@ if __name__ == '__main__':
         def input_changed(self, changed_input):
             self.user_log_message("input changed:{0} value:{1}".format(changed_input.input_id, changed_input.value))
 
-    TestController()
+    ctrl = TestController()
+    ctrl.link_to_dashboard("dashboard", "number")
 
     APP.run()
