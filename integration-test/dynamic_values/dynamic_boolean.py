@@ -5,7 +5,7 @@ if __name__ == '__main__':
     #add dashboard and panel
     from kervi.dashboard import Dashboard, DashboardPanel
     DASHBOARD = Dashboard("dashboard", "Dynamic boolean test", is_default=True)
-    DASHBOARD.add_panel(DashboardPanel("boolean", columns=2, rows=4, title="Boolean width=0"))
+    DASHBOARD.add_panel(DashboardPanel("boolean", columns=2, rows=4, title="Boolean"))
     DASHBOARD.add_panel(DashboardPanel("boolean_inline", columns=3, rows=4, title="boolean inline"))
     DASHBOARD.add_panel(DashboardPanel("log", columns=3, rows=4, title="Log", user_log=True))
 
@@ -37,6 +37,45 @@ if __name__ == '__main__':
                 "boolean",
                 label="#",
                 type="button"
+            )
+
+            self.inputs["boolean"].link_to_dashboard(
+                "dashboard",
+                "boolean",
+                label="#",
+                button_icon="chevron-left",
+                button_text="Button text",
+                type="button"
+            )
+
+            self.inputs["boolean"].link_to_dashboard(
+                "dashboard",
+                "boolean_inline",
+                label="#inline",
+                on_icon="chevron-left",
+                on_text=None,
+                off_icon="chevron-right",
+                off_text=None,
+                inline=True
+                
+            )
+
+            self.inputs["boolean"].link_to_dashboard(
+                "dashboard",
+                "boolean_inline",
+                label="#inline btn",
+                type="button",
+                inline=True
+            )
+
+            self.inputs["boolean"].link_to_dashboard(
+                "dashboard",
+                "boolean_inline",
+                label="#inline btn",
+                type="button",
+                button_icon="chevron-left",
+                button_text=None,
+                inline=True
             )
 
         def input_changed(self, changed_input):
