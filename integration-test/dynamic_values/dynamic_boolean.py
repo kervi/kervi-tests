@@ -32,6 +32,19 @@ if __name__ == '__main__':
                 off_text=None
                 
             )
+
+            self.inputs["boolean"].link_to_dashboard(
+                "dashboard",
+                "boolean",
+                label="#",
+                on_icon="chevron-left",
+                on_text="Active",
+                off_icon="chevron-right",
+                off_text="Passive"
+                
+            )
+
+
             self.inputs["boolean"].link_to_dashboard(
                 "dashboard",
                 "boolean",

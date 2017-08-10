@@ -5,9 +5,20 @@ if __name__ == '__main__':
     #add dashboard and panel
     from kervi.dashboard import Dashboard, DashboardPanel
     DASHBOARD = Dashboard("dashboard", "Dynamic number test", is_default=True)
-    DASHBOARD.add_panel(DashboardPanel("number", columns=2, rows=4, title="number Width 0"))
-    DASHBOARD.add_panel(DashboardPanel("number_inline", columns=3, rows=4, title="number inline"))
+    DASHBOARD.add_panel(DashboardPanel("number", columns=2, rows=2, title="number Width 0"))
+    DASHBOARD.add_panel(DashboardPanel("number_inline", columns=3, rows=3, title="number inline"))
+    DASHBOARD.add_panel(DashboardPanel("number_chart", columns=4, rows=3))
     DASHBOARD.add_panel(DashboardPanel("log", columns=3, rows=4, title="Log", user_log=True))
+
+
+    from kervi.sensor import Sensor
+    from kervi_devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
+    cpu_sensor = Sensor("CPULoadSensor","CPU", CPULoadSensorDeviceDriver())
+    cpu_sensor.link_to_dashboard("dashboard", "number_chart", type="chart")
+    cpu_sensor.link_to_dashboard("dashboard", "number_chart", link_to_header=True)
+    cpu_sensor.link_to_dashboard("*", "header_right")
+    
+
 
     from kervi.hal import GPIO
     from kervi.controller import Controller
@@ -20,11 +31,15 @@ if __name__ == '__main__':
 
             #define an input and link it to the dashboard panel
             self.test_number = self.inputs.add("test_number", "Number", DynamicNumber)
+            
             self.test_number.link_to_dashboard("dashboard", "number", label="xy")
             self.test_number.link_to_dashboard("dashboard", "number", label="#", label_icon="lightbulb-o")
 
 
             self.test_number.link_to_dashboard("dashboard", "number_inline", inline=True, label="#", label_icon="lightbulb-o")
+            
+            
+            #self.test_number.link_to_dashboard("dashboard", "number_chart", type="chart")
 
 
         def input_changed(self, changed_input):

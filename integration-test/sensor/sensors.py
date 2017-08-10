@@ -27,7 +27,7 @@ if __name__ == '__main__':
 
     multi_sensor = Sensor("MultiSensor", "multi sensor", DummyMultiDimSensorDeviceDriver())
     multi_sensor.store_to_db = False
-    multi_sensor.link_to_dashboard("system", "multi_sensor", type="value", size=2)
+    multi_sensor.link_to_dashboard("system", "multi_sensor", type="value", size=1)
 
     multi_sensor[0].link_to_dashboard("system", "multi_sensor_single", type="value", size=2)
     multi_sensor[1].link_to_dashboard("system", "multi_sensor_single", type="value", size=2)
@@ -40,6 +40,6 @@ if __name__ == '__main__':
     multi_sensor[2].add_warning_range((10, 20), "l warning message")
     multi_sensor[2].add_warning_range((80, 90), "h warning message")
     multi_sensor[2].add_error_range((90, 100), "h error message")
-    multi_sensor[2].link_to_dashboard("system", "gauge", type="radial_gauge", size=2)
+    multi_sensor[2].link_to_dashboard("system", "gauge", type="radial_gauge", size=1)
 
     APP.run()
