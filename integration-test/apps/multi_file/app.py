@@ -11,7 +11,8 @@ if __name__ == '__main__':
         },
         "modules":["sensors", "controllers", "cams"],
         "network":{
-            "IPAddress": nethelper.get_ip_address(),
+            "IPAddress": "localhost",
+            "IPRootAddress": "localhost",
             "IPCRootPort":9500,
             "WebSocketPort":9000,
             "WebPort": 8080,
