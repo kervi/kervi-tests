@@ -1,4 +1,4 @@
-users = {
+settings = {
     "anonymous":{
         "groups":[]
     },

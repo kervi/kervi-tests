@@ -1,9 +1,13 @@
 """ Sample controller """
 from kervi.controller import Controller
 from kervi.values import DynamicNumber, DynamicBoolean
+
+import kervi
+
 class FanController(Controller):
     def __init__(self):
         Controller.__init__(self, "fan_controller", "Fan")
+        
         self.type = "fan"
 
         self.temp = self.inputs.add("temp", "Temperature", DynamicNumber)
@@ -26,6 +30,7 @@ class FanController(Controller):
         self.fan_speed = self.outputs.add("fan_speed", "Fanspeed", DynamicNumber)
 
     def input_changed(self, changed_input):
+        print(changed_input)
         if self.active.value:
             temp = self.temp.value - self.trigger_temp.value
             if temp <= 0:
@@ -43,7 +48,7 @@ FAN_CONTROLLER = FanController()
 
 #link the fan controllers temp input to cpu temperature sensor
 #The temp sensor is loaded in another process and linked via its id
-FAN_CONTROLLER.temp.link_to("CPUTempSensor")
+#FAN_CONTROLLER.temp.link_to("CPUTempSensor")
 FAN_CONTROLLER.temp.link_to_dashboard("app", "fan")
 
 #link the other fan controller inputs to dashboard

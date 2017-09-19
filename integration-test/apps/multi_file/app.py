@@ -13,10 +13,11 @@ if __name__ == '__main__':
         "network":{
             "IPAddress": "localhost",
             "IPRootAddress": "localhost",
-            "IPCRootPort":9500,
-            "WebSocketPort":9000,
-            "WebPort": 8080,
-            "IPCSecret":b"fd9969b3-9748-46b6-a69d-119ec2773352"
+            #"IPCRootPort":9500,
+            #"WebSocketPort":9000,
+            #"WebPort": 8080,
+            "IPCSecret":b"fd9969b3-9748-46b6-a69d-119ec2773352",
+            
         },
     })
 
