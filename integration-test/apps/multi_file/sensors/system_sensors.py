@@ -20,7 +20,7 @@ MEM_SENSOR = Sensor("MemLoadSensor", "Memory", MemUseSensorDeviceDriver())
 MEM_SENSOR.store_to_db = False
 MEM_SENSOR.link_to_dashboard("*", "header_right")
 MEM_SENSOR.link_to_dashboard("system", "memory", type="value", size=2, link_to_header=True)
-MEM_SENSOR.link_to_dashboard("app", "sensors", type="value")
+# MEM_SENSOR.link_to_dashboard("app", "sensors", type="value")
 MEM_SENSOR.link_to_dashboard("system", "memory", type="chart", size=2)
 
 DISK_SENSOR = Sensor("DiskUseSensor", "Disk", DiskUseSensorDeviceDriver())
