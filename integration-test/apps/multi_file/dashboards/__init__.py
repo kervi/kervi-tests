@@ -1,17 +1,50 @@
 """ bootstrap your kervi dashboards here """
-from kervi.dashboard import Dashboard, DashboardPanel
+from kervi.dashboard import Dashboard, DashboardPanel, DashboardPanelGroup
 
 #Create the dashboards for your Kervi application here.
 #Standard dashboard with several panels where sensors are placed.
 #Each sensor create links to one or more dashboard panels 
-APP_DASHBOARD = Dashboard("app", "My dashboard", is_default=True)
-APP_DASHBOARD.add_panel(DashboardPanel("fan", columns=3, rows=1, title="Light"))
-APP_DASHBOARD.add_panel(DashboardPanel("sensors", columns=2, rows=1, title="Sensors"))
-APP_DASHBOARD.add_panel(DashboardPanel("log", columns=3, rows=2, title="Log", user_log=True))
+APP_DASHBOARD = Dashboard(
+    "app",
+    "My dashboard",
+    is_default=True,
+    panels=[
+        DashboardPanelGroup(
+            "sys",
+            panels=
+            [
+                DashboardPanel("fan", width=40, title="Light"),
+                DashboardPanel("sensors", width=20, title="Sensors"),
+                DashboardPanel("log", width=40, title="Log", user_log=True)
+            ]
+        ),
 
-SYSTEM_DASHBOARD = Dashboard("system", "System")
-SYSTEM_DASHBOARD.add_panel(DashboardPanel("cpu", columns=2, rows=2))
-SYSTEM_DASHBOARD.add_panel(DashboardPanel("memory", columns=2, rows=2))
-SYSTEM_DASHBOARD.add_panel(DashboardPanel("disk", columns=1, rows=2))
-SYSTEM_DASHBOARD.add_panel(DashboardPanel("power", columns=2, rows=2, title="Power"))
-SYSTEM_DASHBOARD.add_panel(DashboardPanel("log", columns=2, rows=2, title="Log", user_log=True))
+        DashboardPanelGroup(
+            "sysx",
+            panels=
+            [
+                DashboardPanel("fan", width=20, title="Light"),
+                DashboardPanel("sensors", width=20, title="Sensors"),
+                DashboardPanel("log", width=60, title="Log", user_log=True)
+            ]
+        ),
+
+    ])
+
+SYSTEM_DASHBOARD = Dashboard(
+    "system",
+    "System",
+    panels=[
+        DashboardPanelGroup(
+            "sys",
+            panels=
+            [
+                DashboardPanel("cpu", columns=2, rows=2),
+                DashboardPanel("memory", columns=2, rows=2),
+                DashboardPanel("disk", columns=1, rows=2)
+            ]
+        ),
+        DashboardPanel("power", columns=2, rows=2, title="Power"),
+        DashboardPanel("log", columns=2, rows=2, title="Log", user_log=True)
+    ]
+)
