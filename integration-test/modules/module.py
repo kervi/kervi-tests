@@ -1,8 +1,8 @@
 import kervi.utility.nethelper as nethelper
 
 if __name__ == '__main__':
-    from kervi.bootstrap import ApplicationModule
-    APP_MODULE = ApplicationModule({
+    from kervi.module import Module
+    APP_MODULE = Module({
         "info":{
             "id":"module.id",
             "name":"Module name"
@@ -11,16 +11,16 @@ if __name__ == '__main__':
             "file":"kervi-module.log"
         },
         "network":{
-            "IPAddress": nethelper.get_ip_address(),
-            "IPRootAddress": "192.168.0.21",
+            "IPAddress": "localhost",
+            "IPRootAddress": "localhost",
             "IPCRootPort": 9500,
+            "IPCSecret":b"fd9969b3-9748-46b6-a69d-119ec2773352",
         }
     })
 
     from kervi.dashboard import Dashboard, DashboardPanel
     DASHBOARD = Dashboard("dashboard.module", "module dashboard", is_default=True)
     DASHBOARD.add_panel(DashboardPanel("panel", columns=2, rows=2, title="Panel dashboard"))
-
 
     from kervi.sensor import Sensor
     from kervi_devices.platforms.common.sensors.memory_use import MemUseSensorDeviceDriver

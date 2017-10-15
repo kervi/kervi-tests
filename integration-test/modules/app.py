@@ -1,6 +1,23 @@
 if __name__ == '__main__':
-    from kervi.bootstrap import Application
-    APP = Application()
+    from kervi.application import Application
+    APP = Application(
+        {
+            "info":{
+                "id":"app",
+                "name":"Test multi file app",
+                "appKey":"",
+            },
+            "network":{
+                "IPAddress": "localhost",
+                "IPRootAddress": "localhost",
+                "IPCRootPort":9500,
+                "WebSocketPort":9000,
+                "WebPort": 8080,
+                "IPCSecret":b"fd9969b3-9748-46b6-a69d-119ec2773352",
+                
+            },
+        }
+    )
 
     #add dashboard and panel
     from kervi.dashboard import Dashboard, DashboardPanel
@@ -16,9 +33,5 @@ if __name__ == '__main__':
     #link to a panel, show value in panel header and chart in panel body
     SENSOR_1.link_to_dashboard("dashboard.app", "cpu", type="value", size=2, link_to_header=True)
     SENSOR_1.link_to_dashboard("dashboard.app", "cpu", type="chart", size=2)
-
-    #define a light controller
-    from kervi.hal import GPIO
-    from kervi.controller import Controller, UIButtonControllerInput
 
     APP.run()

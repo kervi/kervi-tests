@@ -12,6 +12,10 @@ class MySensor(Sensor):
         self.max = 100
         self.min = 0
         self.unit = "C"
+        self.add_error_range((0, 10), "l error message")
+        self.add_warning_range((10, 20), "l warning message")
+        self.add_warning_range((80, 90), "h warning message")
+        self.add_error_range((90, 100), "h error message")
 
         self.link_to_dashboard("app", "sensors", type="radial_gauge")
 

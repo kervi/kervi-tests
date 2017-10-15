@@ -1,5 +1,5 @@
 if __name__ == '__main__':
-    from kervi.bootstrap import Application
+    from kervi.application import Application
     APP = Application()
     #Important GPIO must be imported after application creation
     from kervi.hal import GPIO

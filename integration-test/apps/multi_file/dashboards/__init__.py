@@ -7,21 +7,15 @@ from kervi.dashboard import Dashboard, DashboardPanel, DashboardPanelGroup
 APP_DASHBOARD = Dashboard(
     "app",
     "My dashboard",
-    is_default=True,
-    panels=[
+    [
         DashboardPanelGroup(
-            "sys",
-            panels=
             [
                 DashboardPanel("fan", width=40, title="Light"),
                 DashboardPanel("sensors", width=20, title="Sensors"),
                 DashboardPanel("log", width=40, title="Log", user_log=True)
             ]
         ),
-
         DashboardPanelGroup(
-            "sysx",
-            panels=
             [
                 DashboardPanel("fan", width=20, title="Light"),
                 DashboardPanel("sensors", width=20, title="Sensors"),
@@ -29,15 +23,15 @@ APP_DASHBOARD = Dashboard(
             ]
         ),
 
-    ])
+    ],
+    is_default=True
+)
 
 SYSTEM_DASHBOARD = Dashboard(
     "system",
     "System",
     panels=[
         DashboardPanelGroup(
-            "sys",
-            panels=
             [
                 DashboardPanel("cpu", columns=2, rows=2),
                 DashboardPanel("memory", columns=2, rows=2),

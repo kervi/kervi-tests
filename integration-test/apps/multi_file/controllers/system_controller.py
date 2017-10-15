@@ -24,7 +24,9 @@ class SystemController(Controller):
             #inline=True,
             button_text=None,
             button_icon="repeat",
-            type="button"
+            type="button",
+            #button_width="5rem",
+            #button_height="6rem"
         )
 
         self.reboot_button.link_to_dashboard(

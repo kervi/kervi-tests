@@ -2,7 +2,7 @@
 # Licensed under MIT
 
 if __name__ == '__main__':
-    from kervi.bootstrap import Application
+    from kervi.application import Application
     from kervi import tasks
     APP = Application()
 

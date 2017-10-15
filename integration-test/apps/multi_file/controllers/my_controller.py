@@ -54,5 +54,5 @@ FAN_CONTROLLER.temp.link_to_dashboard("app", "fan")
 #link the other fan controller inputs to dashboard
 FAN_CONTROLLER.trigger_temp.link_to_dashboard("app", "fan")
 FAN_CONTROLLER.max_temp.link_to_dashboard("app", "fan")
-FAN_CONTROLLER.active.link_to_dashboard("app", "fan")
+FAN_CONTROLLER.active.link_to_dashboard("app", "fan", button_width="100px")
 FAN_CONTROLLER.fan_speed.link_to_dashboard("app", "fan")
