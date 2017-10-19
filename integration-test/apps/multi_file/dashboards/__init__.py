@@ -33,12 +33,14 @@ SYSTEM_DASHBOARD = Dashboard(
     panels=[
         DashboardPanelGroup(
             [
-                DashboardPanel("cpu", columns=2, rows=2),
-                DashboardPanel("memory", columns=2, rows=2),
-                DashboardPanel("disk", columns=1, rows=2)
+                DashboardPanel("cpu"),
+                DashboardPanel("memory"),
+                DashboardPanel("cam1"),        
             ]
         ),
-        DashboardPanel("power", columns=2, rows=2, title="Power"),
-        DashboardPanel("log", columns=2, rows=2, title="Log", user_log=True)
+        DashboardPanel("disk", width=30),
+        DashboardPanel("cam2", width=50),
+        DashboardPanel("power", title="Power", width=20),
+        DashboardPanel("log", title="Log", width=100, user_log=True)
     ]
 )
