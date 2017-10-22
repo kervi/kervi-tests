@@ -3,3 +3,4 @@ Include the controller modules that you want to start with your Kervi applicatio
 """
 from . import my_controller
 from . import system_controller
+from . import motor_controller

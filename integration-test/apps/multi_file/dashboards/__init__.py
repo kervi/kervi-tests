@@ -26,16 +26,16 @@ APP_DASHBOARD = Dashboard(
     ],
     is_default=True
 )
-
+# 
 SYSTEM_DASHBOARD = Dashboard(
     "system",
     "System",
     panels=[
         DashboardPanelGroup(
             [
-                DashboardPanel("cpu"),
-                DashboardPanel("memory"),
-                DashboardPanel("cam1"),        
+                DashboardPanel("cpu", width=40),
+                DashboardPanel("memory",width=30),
+                DashboardPanel("cam1", width=30),        
             ]
         ),
         DashboardPanel("disk", width=30),
