@@ -21,11 +21,11 @@ APP_DASHBOARD = Dashboard(
                         ),
                         DashboardPanelGroup(
                             [
-                                DashboardPanel("fan", width=20, title="Light"),
-                                DashboardPanel("sensors", width=20, title="Sensors"),
-                                DashboardPanel("log", width=60, title="Log")
+                                DashboardPanel("fan",  title="Light"),
+                                DashboardPanel("sensors", title="Sensors"),
+                                DashboardPanel("log", title="Log")
                             ],
-                                                    ),
+                        ),
                     ],
                     width=60
                 ),
