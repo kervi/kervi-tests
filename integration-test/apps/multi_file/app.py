@@ -7,9 +7,13 @@ if __name__ == '__main__':
         "info":{
             "id":"app",
             "name":"Test multi file app",
-            "appKey":"",
+            "appKey":"1234",
         },
-        "modules":["sensors", "controllers", "cams"],
+        "log" : {
+            "level":"debug",
+            "file":"robot.log"
+        },
+        "modules":["sensors"],
         "network":{
             "IPAddress": "localhost",
             "IPRootAddress": "localhost",
