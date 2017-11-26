@@ -6,7 +6,13 @@ import inspect
 import threading
 import json
 import pickle
+import uuid
 from kervi.utility.named_lists import NamedLists
+import kervi.utility.nethelper as nethelper
+
+_KERVI_COMMAND_ADDRESS = "inproc://kervi_commands"
+_KERVI_QUERY_ADDRESS = "inproc://kervi_query"
+_KERVI_EVENT_ADDRESS = "inproc://kervi_events"
 
 class _ObjectEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -29,87 +35,37 @@ class _ObjectEncoder(json.JSONEncoder):
             return self.default(data)
         return obj
 
-
-class ZMQEventHandler(threading.Thread):
-    def __init__(self, bus, event, handler, **kwargs):
-        threading.Thread.__init__(self)
-        self.daemon = True
-        self.terminate = False
-        self._handler = handler
+class ProcessConnection:
+    def __init__(self, bus):
+        self.address = None
         self._bus = bus
-        self._event = event
-        self._id = kwargs.get("id", None)
-        self._groups = kwargs.get("groups", None)
-        self._handler = handler
+        self._signal_socket = self._bus._context.socket(zmq.PUB)
+        pass
 
-        self._has_keywords = inspect.getargspec(self._handler).keywords
+    def connect(self, address):
+        self.address = address
+        cr = self._signal_socket.connect(address)
+        time.sleep(1)
+        signal_message = {"address": self._bus._signal_address}
+        p = pickle.dumps(signal_message, -1)
+        signal_tag = "signal:connect"
+        self.send_package([signal_tag.encode(), p])
+        
 
-    def stop(self):
-        self.terminate = True
+    def register(self, address):
+        #print("register", address)
+        self.address = address
+        self._signal_socket.connect(address)
 
-    def run(self):
-        event_tag = "event:" + self._event
-        if self._id:
-            event_tag += ":" + self._id
-        socket = self._bus._context.socket(zmq.SUB)
-        socket.setsockopt_string(zmq.SUBSCRIBE, event_tag)
-        socket.connect('inproc://events')
-        while not self.terminate:
-            [topic, component_id, json_message] = socket.recv_multipart()
-            message = pickle.loads(json_message)
+    def disconnect(self):
+        pass
 
-            session_groups = message['groups']
-            authorized = True
-            if session_groups and self._groups:
-                for group in self._groups:
-                    if group in session_groups:
-                        break
-                else:
-                    authorized = False
+    def send_query(self, package):
+        self.send_package(package)
 
-            if authorized:
-                if self._has_keywords:
-                    self._handler(message["id"], *message['args'], injected=message["injected"], scope=message["scope"])
-                else:
-                    self._handler(message["id"], *message['args'])
-
-class ZMQCommandHandler(threading.Thread):
-    def __init__(self, bus, command, handler, **kwargs):
-        threading.Thread.__init__(self)
-        self.daemon = True
-        self.terminate = False
-        self._handler = handler
-        self._bus = bus
-        self._command = command
-        self._handler = handler
-        self._groups = kwargs.get("groups", None)
-        self._has_keywords = inspect.getargspec(self._handler).keywords
-
-    def stop(self):
-        self.terminate = True
-
-    def run(self):
-        socket = self._bus._context.socket(zmq.SUB)
-        socket.setsockopt_string(zmq.SUBSCRIBE, "command:"+self._command)
-        socket.connect('inproc://commands')
-        while not self.terminate:
-            [command, json_message] = socket.recv_multipart()
-            message = pickle.loads(json_message)
-
-            session_groups = message['groups']
-            authorized = True
-            if session_groups and self._groups:
-                for group in self._groups:
-                    if group in session_groups:
-                        break
-                else:
-                    authorized = False
-
-            if authorized:
-                if self._has_keywords:
-                    self._handler(*message['args'], injected=message["injected"], scope=message["scope"])
-                else:
-                    self._handler(*message['args'])
+    def send_package(self, package):
+        #print("send_package", self.address, package)
+        self._signal_socket.send_multipart(package)
 
 class ZMQQueryHandler(threading.Thread):
     def __init__(self, bus):
@@ -123,26 +79,121 @@ class ZMQQueryHandler(threading.Thread):
     def stop(self):
         self.terminate = True
 
-    def register_handler(self, query, func, **kwargs):
+    def run(self):
+        self._socket.connect(_KERVI_QUERY_ADDRESS)
+        while not self.terminate:
+            [tag, json_message] = self._socket.recv_multipart()
+            message = pickle.loads(json_message)
+            result = self._bus._handle_message(tag.decode('utf-8'), message)
+            p = pickle.dumps(result, -1)
+            response_tag = "query_response:" + message['responseId']
+            self._socket.send_multipart([response_tag.encode(), p])
+
+class ZMQMessageThread(threading.Thread):
+    def __init__(self, bus, socket):
+        threading.Thread.__init__(self)
+        self._bus = bus
+        self._socket = socket
+        self.daemon = True
+        self._terminate = False
+
+    def register(self, tag):
+        #print("r", tag)
+        self._socket.setsockopt_string(zmq.SUBSCRIBE, tag)
+
+    def stop(self):
+        self._terminate = True
+
+    def run(self):
+        while not self._terminate:
+            [tag, json_message] = self._socket.recv_multipart()
+
+            message = pickle.loads(json_message)
+            #print("t", tag, message)
+            self._bus._handle_message(tag.decode('utf-8'), message)
+
+class ZMQBus():
+    _context = None
+    _handlers = NamedLists()
+    _connections = []
+    _event_sock = None
+    _command_sock = None
+    _query_sock = None
+
+    def __init__(self):
+        #print("sc", self._context)
+        pass
+
+    def reset_bus(self, signal_port, ip="127.0.0.1", root_address=None, event_port=None):
+        #self._flow_in_address = "tcp://*:" + str(flow_in_port)
+        self._handlers = NamedLists()
+        self._query_id_count = 0
+        self._uuid_handler = uuid.uuid4().hex
+        self._is_root = not root_address == None
+        self._root_address = root_address
+        self._signal_address = "tcp://"+ ip +":" + str(signal_port)
+        self._context = zmq.Context()
+        self._signal_socket = self._context.socket(zmq.SUB)
+        #self._handlers += [ZMQSignalHandler(self, self._on_connect, self._on_register)]
+
+        self._event_socket = self._context.socket(zmq.PUB)
+        self._event_socket.bind(_KERVI_EVENT_ADDRESS)
+
+        self._event_socket_sub = self._context.socket(zmq.SUB)
+        self._event_socket_sub.connect(_KERVI_EVENT_ADDRESS)
+
+        self._command_socket = self._context.socket(zmq.PUB)
+        self._command_socket.bind(_KERVI_COMMAND_ADDRESS)
+
+        self._command_socket_sub = self._context.socket(zmq.SUB)
+        self._command_socket_sub.connect(_KERVI_COMMAND_ADDRESS)
+
+        self._query_socket = self._context.socket(zmq.REQ)
+        self._query_socket.bind(_KERVI_QUERY_ADDRESS)
+
+        self._message_handler = ZMQMessageThread(self, self._signal_socket)
+        self._query_handler = ZMQQueryHandler(self)
+        self._event_handler = ZMQMessageThread(self, self._event_socket_sub)
+        self._command_handler = ZMQMessageThread(self, self._command_socket_sub)
+
+        self._register_handler("signal:connect", self._on_connect)
+        self._message_handler.register("signal:connect")
+
+    def _register_handler(self, tag, func, **kwargs):
         groups = kwargs.get("groups", None)
         argspec = inspect.getargspec(func)
-        self._handlers.add(query,(func, groups, argspec.keywords))
-        #self._socket.setsockopt_string(zmq.SUBSCRIBE, "query:" + query)
+        self._handlers.add(tag, (func, groups, argspec.keywords))
 
-    def call_handlers(self, query, args, session, injected):
-        
-        func_list = self._handlers.get_list_data(query)
+    def _handle_message(self, tag, message):
+        func_list = self._handlers.get_list_data(tag)
         result = []
+        session = None
+        session_groups = None
+        if "session" in message:
+            session = message["session"]
+            if session:
+                session_groups = session['groups']
+            else:
+                session_groups = None
+
+        if "injected" in message:
+            injected = message["injected"]
+        else:
+            injected = None
+        
+        message_args = []
+        if "id" in message:
+            message_args += [message["id"]]
+
+        if "address" in message:
+            message_args += [message["address"]]
+        
+        if "args" in message:
+            message_args += message["args"]
         try:
             if func_list:
                 for func, groups, has_keywords in func_list:
-                    
-                    if session:
-                        session_groups = session['groups']
-                    else:
-                        session_groups = None
                     authorized = True
-                    
                     if session_groups != None and groups and len(groups)>0:
                         for group in groups:
                             if group in session_groups:
@@ -152,69 +203,49 @@ class ZMQQueryHandler(threading.Thread):
                     
                     if authorized:
                         if not has_keywords:
-                            sub_result = func(*args)
+                            sub_result = func(*message_args)
                             if sub_result:
                                 result += [sub_result]
                         else:
-                            sub_result = func(*args, injected=injected, session=session)
+                            sub_result = func(*message_args, injected=message["injected"], scope=message["scope"])
                             if sub_result:
                                 result += [sub_result]
             if len(result) == 1:
                 return result[0]
-        except:
-            print("Exception in query:", query)
-            self.log.exception("Exception in query:" + query)
+        except Exception as e:
+            raise e
 
         return result
     
     def run(self):
-        print("x")
-        self._socket.connect('inproc://queries')
-        while not self.terminate:
-            [query, json_message] = self._socket.recv_multipart()
-            print("y", query, json_message)
-            message = pickle.loads(json_message)
-            result = self.call_handlers(message["query"], message["args"], message["session"], message["injected"])
-            p = pickle.dumps(result, -1)
-            response_tag = "query_response:" + message['id']
-            self._socket.send_multipart([response_tag.encode(), p])
-
-class ZMQBus():
-    _context = None
-    _frontend = None
-    _handlers = []
-    _event_sock = None
-    _command_sock = None
-    _query_sock = None
-    _query_handler = None
-    def __init__(self):
-        pass
-
-    def reset_bus(self):
-        self._context = zmq.Context()
-        self._frontend = self._context.socket(zmq.ROUTER)
-        self._frontend.bind('tcp://*:5570')
-        self._event_sock = self._context.socket(zmq.PUB)
-        self._event_sock.bind("inproc://events")
-        self._command_sock = self._context.socket(zmq.PUB)
-        self._command_sock.bind("inproc://commands")
-        self._query_sock = self._context.socket(zmq.REQ)
-        self._query_sock.bind("inproc://queries")
-
-        self._query_handler = ZMQQueryHandler(self)
-
-        #zmq.proxy(self._frontend, self._event_sock)
-        #zmq.proxy(self._frontend, self._command_sock)
-        #zmq.proxy(self._frontend, self._query_sock)
-
-    def run(self):
+        #print("run", self._signal_address)
         self._query_handler.start()
+        self._signal_socket.bind(self._signal_address)
+        
+        self._message_handler.start()
+        self._event_handler.start()
+        self._command_handler.start()
+        
+        if self._root_address:
+            self.connect_to_root()
 
     def stop(self):
-        self._query_handler.terminate()
-        for handler in self._handlers:
-            handler.terminate()
+        self._message_handler.stop()
+        self._event_handler.stop()
+        self._command_handler.stop()
 
+    def _on_connect(self, address):
+        print("on_connect", address)
+        connection = ProcessConnection(self)
+        connection.register(address)
+        self._connections += [connection]
+    
+    def connect_to_root(self):
+        print("connect to root")
+        connection = ProcessConnection(self)
+        connection.connect(self._root_address)
+        self._connections += [connection]
+    
     def send_command(self, command, *args, **kwargs):
         injected = kwargs.get("injected", "")
         scope = kwargs.get("scope", "global")
@@ -225,86 +256,74 @@ class ZMQBus():
         jsonres = json.dumps(command_message)
         p = pickle.dumps(command_message, -1)
         command_tag = "command:" + command
-        self._command_sock.send_multipart([command_tag.encode(), p])
+        self._command_socket.send_multipart([command_tag.encode(), p])
 
     def register_command_handler(self, command, func, **kwargs):
-        handler_thread = ZMQCommandHandler(self, command, func, **kwargs)
-        handler_thread.start()
-        self._handlers += [handler_thread]
+        tag = "command:"+command
+        self._register_handler(tag, func, **kwargs)
+        self._command_handler.register(tag)
+        self._signal_socket.setsockopt_string(zmq.SUBSCRIBE, tag)
 
     def trigger_event(self, event, id, *args, **kwargs):
         injected = kwargs.get("injected", "")
         scope = kwargs.get("scope", "global")
         groups = kwargs.get("groups", None)
-        #self.log.debug("triggerEvent:{0}, id:{1} injected:{2}, scope:{3}", event, id, injected, scope)
-        event_message = {'event':event, 'id':id, 'args':args, "injected":injected, "scope":scope, "groups":groups}
-        jsonres = json.dumps(event_message)
+        session = kwargs.get("session", None)
+        event_message = {'event':event, 'id':id, 'args':args, "injected":injected, "scope":scope, "groups":groups, "session":session}
+        #jsonres = json.dumps(event_message)
         p = pickle.dumps(event_message, -1)
         event_tag = "event:" + event + ":" + id
-        self._event_sock.send_multipart([event_tag.encode(), id.encode(), p])
+        package = [event_tag.encode(), p]
+        self._event_socket.send_multipart(package)
+        
+        if scope == "global":
+            for connection in self._connections:
+                connection.send_package(package)
 
     def register_event_handler(self, event, func, **kwargs):
-        handler_thread = ZMQEventHandler(self, event, func, **kwargs)
-        handler_thread.start()
-        self._handlers += [handler_thread]
+        tag = "event:"+event
+        tag_id = kwargs.get("id", None)
+        if tag_id:
+            tag += ":" + tag_id
+        self._register_handler(tag, func, **kwargs)
+        self._event_handler.register(tag)
+        self._signal_socket.setsockopt_string(zmq.SUBSCRIBE, tag)
 
+    def add_response_event(self, event):
+        self.response_list += [event]
+
+    def resolve_response(self, message):
+        for event in self.response_list:
+            if event["id"] == message["id"]:
+                event["response"] = message["response"]
+                event["eventSignal"].set()
+    
     def send_query(self, query, *args, **kwargs):
+        self._query_id_count += 1
         injected = kwargs.get("injected", "")
         scope = kwargs.get("scope", "global")
         groups = kwargs.get("groups", None)
         session = kwargs.get("session", None)
-        #self.log.debug("triggerEvent:{0}, id:{1} injected:{2}, scope:{3}", event, id, injected, scope)
-        query_message = {'query':query, "id": "123", 'args':args, "injected":injected, "scope":scope, "groups":groups, "session":session}
+        query_message = {'query':query, "id":uuid_handler, "responseAddress": self._signal_address, 'args':args, "injected":injected, "scope":scope, "groups":groups, "session":session}
         jsonres = json.dumps(query_message)
         p = pickle.dumps(query_message, -1)
         query_tag = "query:" + query
-        self._query_sock.send_multipart([query_tag.encode(), p])
-        query_id, json_result = self._query_sock.recv_multipart()
+        self._query_socket.send_multipart([query_tag.encode(), p])
+        query_id, json_result = self._query_socket.recv_multipart()
         result = pickle.loads(json_result)
+
         return result
 
     def register_query_handler(self, query, func, **kwargs):
-        self._query_handler.register_handler(query, func, **kwargs)
+        self._register_handler("query:"+query, func, **kwargs)
 
-zmq_bus = ZMQBus()
-zmq_bus.reset_bus()
+S = None
+def _init_spine(spine_port, root_address = None, ip = "127.0.0.1"):
+    global S
+    S = ZMQBus()
+    S.reset_bus(spine_port, ip, root_address)
+    
 
-def event_handler(event_id, param_1):
-    print("event 1, h1", param_1)
-
-def event_handler1(event_id, param_1, **kwargs):
-    print("event 2", param_1)
-
-def event_handler2(event_id, param_1):
-    print("event 1, h2", event_id, param_1)
-
-def command_handler1(param_1, param_2, **kwargs):
-    print("commmand", param_1, param_2)
-
-def query_handler1(param_1, param_2, **kwargs):
-    print("query 1 ", param_1, param_2)
-    return {"x":"test x"}
-
-def query_handler2(param_1, param_2, **kwargs):
-    print("query 2", param_1, param_2)
-    return {"y":"test y"}
-
-
-zmq_bus.register_event_handler("event_1", event_handler, id="1")
-zmq_bus.register_event_handler("event_2", event_handler1, id="1")
-zmq_bus.register_event_handler("event_1", event_handler2)
-zmq_bus.register_command_handler("doCommand", command_handler1)
-zmq_bus.register_query_handler("doQuery", query_handler1)
-zmq_bus.register_query_handler("doQuery", query_handler2)
-
-zmq_bus.run()
-time.sleep(1)
-
-zmq_bus.trigger_event("event_1", "1", "param 1")
-zmq_bus.trigger_event("event_1", "2", "param 1")
-zmq_bus.trigger_event("event_2", "2", "param 1")
-zmq_bus.send_command("doCommand", "p1", 2)
-res = zmq_bus.send_query("doQuery", "qp1", 3)
-print("qr", res)
-
-time.sleep(5)
+def Spine():
+    #print("S", S)
+    return S
