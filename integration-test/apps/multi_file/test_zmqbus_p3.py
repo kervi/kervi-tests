@@ -23,10 +23,10 @@ print("qrx", res)
 
 try:
     while True:
-        res = zmq_bus.send_query("doQuery_1", "qp1", 3)
-        print("qr", res)
-
-        time.sleep(5)
+        #res = zmq_bus.send_query("doQuery_1", "qp1", 3)
+        #print("qr", res)
+        zmq_bus.trigger_event("event_1", "1", "param 1")
+        time.sleep(.1)
 
 except KeyboardInterrupt:
     pass
