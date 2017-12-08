@@ -4,6 +4,7 @@ from kervi.dashboard import Dashboard, DashboardPanel, DashboardPanelGroup
 #Create the dashboards for your Kervi application here.
 #Standard dashboard with several panels where sensors are placed.
 #Each sensor create links to one or more dashboard panels 
+print("db")
 APP_DASHBOARD = Dashboard(
     "app",
     "My dashboard",
@@ -45,8 +46,8 @@ SYSTEM_DASHBOARD = Dashboard(
         DashboardPanelGroup(
             [
                 DashboardPanel("cpu", width=40),
-                DashboardPanel("memory",width=30),
-                DashboardPanel("cam1", width=30),        
+                DashboardPanel("memory", width=30),
+                DashboardPanel("cam1", width=30),    
             ]
         ),
         DashboardPanel("disk", width=30),
@@ -55,3 +56,8 @@ SYSTEM_DASHBOARD = Dashboard(
         DashboardPanel("log", title="Log", width=100, user_log=True)
     ]
 )
+
+from kervi.spine import Spine
+
+s=Spine()
+print("x", s.get_handler_info())
