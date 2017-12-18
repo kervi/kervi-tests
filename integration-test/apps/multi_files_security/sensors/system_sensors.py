@@ -3,11 +3,11 @@
 
 """ Module that defines core cpu sensors """
 
-from kervi.sensor import Sensor
-from kervi_devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
-from kervi_devices.platforms.common.sensors.memory_use import MemUseSensorDeviceDriver
-from kervi_devices.platforms.common.sensors.disk_use import DiskUseSensorDeviceDriver
-from kervi_devices.platforms.common.sensors.cpu_temp import CPUTempSensorDeviceDriver
+from kervi.sensors.sensor import Sensor
+from kervi.devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
+from kervi.devices.platforms.common.sensors.memory_use import MemUseSensorDeviceDriver
+from kervi.devices.platforms.common.sensors.disk_use import DiskUseSensorDeviceDriver
+from kervi.devices.platforms.common.sensors.cpu_temp import CPUTempSensorDeviceDriver
 
 CPU_SENSOR = Sensor("CPULoadSensor","CPU", CPULoadSensorDeviceDriver())
 CPU_SENSOR.store_to_db = False

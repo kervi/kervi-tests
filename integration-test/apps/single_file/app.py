@@ -4,7 +4,7 @@ if __name__ == '__main__':
     #Important GPIO must be imported after application creation
     from kervi.hal import GPIO
 
-    from kervi.dashboard import Dashboard, DashboardPanel
+    from kervi.dashboards import Dashboard, DashboardPanel
     DASHBOARD = Dashboard("app", "App", is_default=True)
     DASHBOARD.add_panel(DashboardPanel("fan", columns=3, rows=2, title="CPU fan"))
 
@@ -13,7 +13,7 @@ if __name__ == '__main__':
     SYSTEMBOARD.add_panel(DashboardPanel("cam", columns=2, rows=2))
 
     #Create a streaming camera server
-    from kervi.camera import CameraStreamer
+    from kervi.vision.camera import CameraStreamer
     CAMERA = CameraStreamer("cam1", "camera 1")
     #link camera as background
     CAMERA.link_to_dashboard("app")
@@ -22,9 +22,9 @@ if __name__ == '__main__':
     CAMERA.pan.link_to_dashboard("system", "cpu")
     CAMERA.tilt.link_to_dashboard("system", "cpu")
 
-    from kervi.sensor import Sensor
-    from kervi_devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
-    from kervi_devices.platforms.common.sensors.cpu_temp import CPUTempSensorDeviceDriver
+    from kervi.sensors.sensor import Sensor
+    from kervi.devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
+    from kervi.devices.platforms.common.sensors.cpu_temp import CPUTempSensorDeviceDriver
     #build in sensor that measures cpu use
     SENSOR_CPU_LOAD = Sensor("CPULoadSensor", "CPU", CPULoadSensorDeviceDriver())
     #link to sys area top right
@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
 
     #define a light controller
-    from kervi.controller import Controller
+    from kervi.controllers.controller import Controller
     from kervi.values import DynamicNumber, DynamicBoolean
     class FanController(Controller):
         def __init__(self):

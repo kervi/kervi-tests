@@ -1,5 +1,5 @@
 """ My kervi application """
-from kervi.bootstrap import Application
+from kervi.application import Application
 import kervi.utility.nethelper as nethelper
 
 if __name__ == '__main__':

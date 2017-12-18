@@ -20,13 +20,13 @@ if __name__ == '__main__':
     )
 
     #add dashboard and panel
-    from kervi.dashboard import Dashboard, DashboardPanel
+    from kervi.dashboards import Dashboard, DashboardPanel
     DASHBOARD = Dashboard("dashboard.app", "app dashboard", is_default=True)
     DASHBOARD.add_panel(DashboardPanel("cpu", columns=2, rows=4, title=None))
 
 
-    from kervi.sensor import Sensor
-    from kervi_devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
+    from kervi.sensors.sensor import Sensor
+    from kervi.devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
     SENSOR_1 = Sensor("CPULoadSensor", "CPU", CPULoadSensorDeviceDriver())
     #link to sys area top right
     SENSOR_1.link_to_dashboard("*", "sys-header")

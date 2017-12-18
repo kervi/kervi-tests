@@ -3,7 +3,7 @@ if __name__ == '__main__':
     APP = Application()
 
     #add dashboard and panel
-    from kervi.dashboard import Dashboard, DashboardPanel
+    from kervi.dashboards import Dashboard, DashboardPanel
     DASHBOARD = Dashboard("main", "Controller Buttons", is_default=True)
     DASHBOARD.add_panel(DashboardPanel("gpio", columns=3, rows=3, title="GPIO"))
 

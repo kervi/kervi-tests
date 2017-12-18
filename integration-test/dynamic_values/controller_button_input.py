@@ -3,7 +3,7 @@ if __name__ == '__main__':
     APP = Application()
 
     #add dashboard and panel
-    from kervi.dashboard import Dashboard, DashboardPanel
+    from kervi.dashboards.dashboard import Dashboard, DashboardPanel
     DASHBOARD = Dashboard("dahsboard.ctrl", "Controller Buttons", is_default=True)
     DASHBOARD.add_panel(DashboardPanel("button", columns=2, rows=4, title="button Width 0"))
     DASHBOARD.add_panel(DashboardPanel("button_inline", columns=3, rows=4, title="button inline"))
@@ -14,7 +14,7 @@ if __name__ == '__main__':
 
     #define a light controller
     from kervi.hal import GPIO
-    from kervi.controller import Controller, UIButtonControllerInput
+    from kervi.controllers.controller import Controller, UIButtonControllerInput
 
     class TestController(Controller):
         def __init__(self):

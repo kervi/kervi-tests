@@ -1,8 +1,6 @@
 """ Module for a sensor """
-from kervi.sensor import Sensor
-from kervi_devices.sensors.dummy_sensor import DummySensorDeviceDriver
-
-
+from kervi.sensors.sensor import Sensor
+from kervi.devices.sensors.dummy_sensor import DummySensorDeviceDriver
 
 class MySensor(Sensor):
     """ My sensor """

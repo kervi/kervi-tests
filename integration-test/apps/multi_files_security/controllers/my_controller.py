@@ -1,5 +1,5 @@
 """ Sample controller """
-from kervi.controller import Controller
+from kervi.controllers.controller import Controller
 from kervi.values import DynamicNumber, DynamicBoolean
 
 import kervi

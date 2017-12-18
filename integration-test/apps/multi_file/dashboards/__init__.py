@@ -4,7 +4,6 @@ from kervi.dashboard import Dashboard, DashboardPanel, DashboardPanelGroup
 #Create the dashboards for your Kervi application here.
 #Standard dashboard with several panels where sensors are placed.
 #Each sensor create links to one or more dashboard panels 
-print("db")
 APP_DASHBOARD = Dashboard(
     "app",
     "My dashboard",
@@ -60,4 +59,3 @@ SYSTEM_DASHBOARD = Dashboard(
 from kervi.spine import Spine
 
 s=Spine()
-print("x", s.get_handler_info())
