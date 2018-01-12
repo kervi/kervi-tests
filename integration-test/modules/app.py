@@ -8,8 +8,8 @@ if __name__ == '__main__':
                 "appKey":"",
             },
             "network":{
-                "IPAddress": "localhost",
-                "IPRootAddress": "localhost",
+                "IPAddress": "127.0.0.1",
+                "IPRootAddress": "127.0.0.1",
                 "IPCRootPort":9500,
                 "WebSocketPort":9000,
                 "WebPort": 8080,

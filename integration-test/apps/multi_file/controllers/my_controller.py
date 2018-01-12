@@ -18,16 +18,22 @@ class FanController(Controller):
         self.trigger_temp.min = 0
         self.trigger_temp.max = 100
         #remember the value when app restarts
-        self.trigger_temp.persists = True
+        self.trigger_temp.persist_value = True
 
         self.max_temp = self.inputs.add("max_temp", "Max speed temperature", DynamicNumber)
         self.max_temp.min = 0
         self.max_temp.max = 100
         #remember the value when app restarts
-        self.max_temp.persists = True
+        self.max_temp.persist_value = True
 
         self.active = self.inputs.add("active", "Active", DynamicBoolean)
+        self.active.value = False
+        self.active.persist_value = True
+
         self.fan_speed = self.outputs.add("fan_speed", "Fanspeed", DynamicNumber)
+
+    def on_start(self):
+        print("my controller is started")
 
     def input_changed(self, changed_input):
         print(changed_input)
