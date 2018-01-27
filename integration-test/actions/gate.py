@@ -27,11 +27,11 @@ if __name__ == '__main__':
     motor_board = DummyMotorBoard()
 
     from kervi.hal import GPIO
-    hi_switch = GPIO["GPIO2"]
-    lo_switch = GPIO["GPIO3"]
+    hi_end_stop = GPIO["GPIO2"]
+    lo_end_stop = GPIO["GPIO3"]
 
-    hi_switch.define_as_input()
-    lo_switch.define_as_input()
+    hi_end_stop.define_as_input()
+    lo_end_stop.define_as_input()
 
     stop_move = False
 
@@ -41,28 +41,33 @@ if __name__ == '__main__':
         global stop_move
         if open:
             print("open gate")
-            if not hi_switch.value:
+            if not hi_end_stop.value:
                 stop_move = False
                 motor_board.dc_motors[0].speed.value = 50
-                while not stop_move and not hi_switch.value:
+                while not stop_move and not hi_end_stop.value:
                     time.sleep(0.1)
                 motor_board.dc_motors[0].speed.value = 0
-            if hi_switch.value:
+            if hi_end_stop.value:
                 print("Gate open")
             else:
                 print("Gate stopped")
         else:
             print("close gate:")
-            if not lo_switch.value:
+            if not lo_end_stop.value:
                 stop_move = False
                 motor_board.dc_motors[0].speed.value = -50
-                while not stop_move and not lo_switch.value:
+                while not stop_move and not lo_end_stop.value:
                     time.sleep(0.1)
                 motor_board.dc_motors[0].speed.value = 0
-            if lo_switch.value:
+            if lo_end_stop.value:
                 print("Gate closed")
             else:
                 print("Gate stopped")
+
+    @move_gate.set_interupt
+    def interupt_move():
+        global stop_move
+        stop_move = True
 
     @action(name="Stop gate")
     def stop_gate():

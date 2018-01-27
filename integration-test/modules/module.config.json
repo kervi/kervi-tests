@@ -1,0 +1,8 @@
+{
+    "module": {
+        "name": "module test x"
+    },
+    "network": {
+        "ipc_root_address": "127.0.0.1"
+    } 
+}

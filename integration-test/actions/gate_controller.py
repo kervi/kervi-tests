@@ -23,7 +23,7 @@ if __name__ == '__main__':
     )
 
     from kervi.controllers.controller import Controller
-    from kervi.actions import action
+    from kervi.actions import action, Actions
     from kervi.values import DynamicNumber, DynamicBoolean
     
     class GateController(Controller):
@@ -35,8 +35,8 @@ if __name__ == '__main__':
             self.gate_speed.min = 0
             self.gate_speed.persist_value = True
 
-            self.lo_switch = self.inputs.add("lo_switch", "low switch", DynamicBoolean)
-            self.hi_switch = self.inputs.add("hi_switch", "High switch", DynamicBoolean)
+            self.lo_end_stop = self.inputs.add("lo_end_stop", "low end stop", DynamicBoolean)
+            self.hi_end_stop = self.inputs.add("hi_end_stop", "High end stop", DynamicBoolean)
 
             self.gate_motor_speed = self.outputs.add("gate_motor_speed", "Gate motor speed", DynamicNumber)
 
@@ -46,28 +46,33 @@ if __name__ == '__main__':
         def move_gate(self, open=True):
             if open:
                 print("open gate")
-                if not self.hi_switch.value:
+                if not self.hi_end_stop.value:
                     self._stop_move = False
                     self.gate_motor_speed.value = self.gate_speed.value
-                    while not self._stop_move and not self.hi_switch.value:
+                    while not self._stop_move and not self.hi_end_stop.value:
                         time.sleep(0.1)
                     self.gate_motor_speed.value = 0
-                if self.hi_switch.value:
+                if self.hi_end_stop.value:
                     print("Gate open")
                 else:
                     print("Gate stopped")
             else:
                 print("close gate:")
-                if not self.lo_switch.value:
+                if not self.lo_end_stop.value:
                     self._stop_move = False
                     self.gate_motor_speed.value = -1 * self.gate_speed.value
-                    while not self._stop_move and not self.lo_switch.value:
+                    while not self._stop_move and not self.lo_end_stop.value:
                         time.sleep(0.1)
                     self.gate_motor_speed.value = 0
-                if self.lo_switch.value:
+                if self.lo_end_stop.value:
                     print("Gate closed")
                 else:
                     print("Gate stopped")
+
+        @move_gate.set_interupt
+        def interupt_move_gate(self):
+            print("stop move")
+            self._stop_move = True
 
         @action(name="Stop gate")
         def stop_gate(self):
@@ -84,7 +89,6 @@ if __name__ == '__main__':
     gate_controller = GateController()
     gate_controller.move_gate.link_to_dashboard("app", "gate", inline=True, button_text=None, button_icon="arrow-up", label=None, action_parameters=[True])
     gate_controller.move_gate.link_to_dashboard("app", "gate", inline=True, button_text=None, button_icon="arrow-down", label=None, action_parameters=[False])
-    gate_controller.stop_gate.link_to_dashboard("app", "gate", inline=True, button_text=None, button_icon="stop", label=None)
 
     gate_controller.link_to_dashboard("settings", "gate")
 
@@ -97,7 +101,9 @@ if __name__ == '__main__':
     GPIO["GPIO2"].define_as_input()
     GPIO["GPIO3"].define_as_input()
 
-    gate_controller.lo_switch.link_to(GPIO["GPIO2"])
-    gate_controller.hi_switch.link_to(GPIO["GPIO3"])
+    gate_controller.lo_end_stop.link_to(GPIO["GPIO2"])
+    gate_controller.hi_end_stop.link_to(GPIO["GPIO3"])
+
+    APP.actions.shutdown.link_to_dashboard("*", "header_right", inline=True, label=None, button_text="Reboot")
 
     APP.run()

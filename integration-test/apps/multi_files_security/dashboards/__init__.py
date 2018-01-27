@@ -4,18 +4,28 @@ from kervi.dashboards import Dashboard, DashboardPanel
 #Create the dashboards for your Kervi application here.
 #Standard dashboard with several panels where sensors are placed.
 #Each sensor create links to one or more dashboard panels 
-APP_DASHBOARD = Dashboard("app", "My dashboard", is_default=True)
-APP_DASHBOARD.add_panel(DashboardPanel("fan", columns=3, rows=1, title="Light"))
-APP_DASHBOARD.add_panel(DashboardPanel("sensors", columns=2, rows=1, title="Sensors"))
-APP_DASHBOARD.add_panel(DashboardPanel("log", columns=3, rows=2, title="Log", user_log=True))
+Dashboard(
+    "app",
+    "My dashboard",
+    [
+        DashboardPanel("fan", title="Light"),
+        DashboardPanel("sensors", title="Sensors"),
+        DashboardPanel("log", title="Log", user_log=True, user_groups=["admin"])
+    ],
+    is_default=True
+)
 
-SYSTEM_DASHBOARD = Dashboard("system", "System")
-SYSTEM_DASHBOARD.user_groups = ["admin"]
-SYSTEM_DASHBOARD.add_panel(DashboardPanel("cpu", columns=2, rows=2))
-SYSTEM_DASHBOARD.add_panel(DashboardPanel("memory", columns=2, rows=2))
-SYSTEM_DASHBOARD.add_panel(DashboardPanel("disk", columns=1, rows=2))
-SYSTEM_DASHBOARD.add_panel(DashboardPanel("cam", columns=2, rows=2))
-POWER_PANEL = DashboardPanel("power", columns=2, rows=2, title="Power")
-POWER_PANEL.user_groups = ["admin"]
-SYSTEM_DASHBOARD.add_panel(POWER_PANEL)
-SYSTEM_DASHBOARD.add_panel(DashboardPanel("log", columns=2, rows=2, title="Log", user_log=True))
+Dashboard(
+    "system",
+    "System",
+    [
+        DashboardPanel("cpu"),
+        DashboardPanel("memory"),
+        DashboardPanel("disk"),
+        DashboardPanel("cam"),
+        DashboardPanel("power", title="Power", user_groups=["admin"]),
+        DashboardPanel("log", title="Log", user_log=True)
+    ],
+    user_groups=["admin"],
+
+)

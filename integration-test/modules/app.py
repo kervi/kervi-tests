@@ -1,22 +1,7 @@
 if __name__ == '__main__':
     from kervi.application import Application
     APP = Application(
-        {
-            "info":{
-                "id":"app",
-                "name":"Test multi file app",
-                "appKey":"",
-            },
-            "network":{
-                "IPAddress": "127.0.0.1",
-                "IPRootAddress": "127.0.0.1",
-                "IPCRootPort":9500,
-                "WebSocketPort":9000,
-                "WebPort": 8080,
-                "IPCSecret":b"fd9969b3-9748-46b6-a69d-119ec2773352",
-                
-            },
-        }
+        
     )
 
     #add dashboard and panel
@@ -34,4 +19,7 @@ if __name__ == '__main__':
     SENSOR_1.link_to_dashboard("dashboard.app", "cpu", type="value", size=2, link_to_header=True)
     SENSOR_1.link_to_dashboard("dashboard.app", "cpu", type="chart", size=2)
 
+    APP.actions.shutdown.link_to_dashboard("*", "header_right", inline=True, label=None, button_text="App shutdown")
+
+    
     APP.run()

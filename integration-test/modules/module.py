@@ -32,6 +32,7 @@ if __name__ == '__main__':
     SENSOR_1.link_to_dashboard("dashboard.module", "panel", type="value", size=2, link_to_header=True)
     SENSOR_1.link_to_dashboard("dashboard.module", "panel", type="chart", size=2)
 
+    APP_MODULE.actions.shutdown.link_to_dashboard("*", "header_right", inline=True, label=None, button_text="Module shutdown")
 
 
     APP_MODULE.run()

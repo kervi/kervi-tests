@@ -17,8 +17,11 @@ if __name__ == '__main__':
             #"WebSocketPort":9000,
             #"WebPort": 8080,
             "IPCSecret":b"fd9969b3-9748-46b6-a69d-119ec2773352",
-            
         },
     })
+
+    APP.actions.shutdown.link_to_dashboard("*", "header_right", inline=True, label=None, button_text="Reboot")
+    APP.actions.shutdown.user_groups=["admin"]
+
 
     APP.run()

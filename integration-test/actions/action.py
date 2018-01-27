@@ -4,10 +4,10 @@ if __name__ == '__main__':
     from kervi.application import Application
     APP = Application(
         {
-          "modules":["action_tests"],
+          "modules": ["action_tests"],
           "network":{
-            "IPAddress": "127.0.0.1",
-            "IPRootAddress": "127.0.0.1"
+            "ip": "127.0.0.1",
+            "ip_root_address": "127.0.0.1"
           }
         }
     )
@@ -23,6 +23,19 @@ if __name__ == '__main__':
     )
 
     from kervi.actions import action, Actions
+    interupt_action = False
+    @action
+    def action_start():
+        print("action_start")
+        while not interupt_action:
+            time.sleep(0.1)
+        print("action_start done")
+
+    @action_start.set_interupt
+    def action_interupt():
+        global interupt_action
+        print("action interupt")
+        interupt_action = True
 
     @action(name="Action 0")
     def action_0(p1=None):
@@ -36,17 +49,21 @@ if __name__ == '__main__':
     @action(action_id="test.action_1")
     def action_1(p1, p2):
         print("action_1", p1, p2)
+        return (p1, p2)
 
     from kervi.controllers.controller import Controller
     from kervi.actions import Actions
     from kervi.values import DynamicBoolean
     import action_file
+    import threading
     class TestClass(Controller):
         def __init__(self):
             super().__init__("tc", "test controller")
 
             self.active = self.inputs.add("active", "Active", DynamicBoolean)
             self.active.value = False
+
+            self._action_x_interupt = False
 
         @action(action_id="x.y")
         def action_2(self, p1, **kwargs):
@@ -55,18 +72,45 @@ if __name__ == '__main__':
             if p1==3:
                 time.sleep(10)
             print("action_2 done")
+            return p1
+
+        @action
+        def action_x(self):
+            print("action_x start")
+            self._action_x_interupt = False
+            while not self._action_x_interupt:
+                time.sleep(.1)
+            print("action_x done")
+
+
+        @action_x.set_interupt
+        def action_x_interupt(self):
+            print("action_x interupt")
+            self._action_x_interupt = True
 
         def on_start(self):
+            action_start(run_async=True)
+
+            self.action_x(run_async=True)
+            Actions["action_4_x"](run_async=True)
+            
             print("my controller is started")
             self.action_2(4)
-            action_1("x1a", 1)
-            Actions["test.action_1"]("x1", 2)
-            Actions["test.action_1"]("x1", 2)
-            Actions["a.b.c"]("x3", 3)
-            if not Actions["tc.x.y"](3, timeout=5):
-                print("a2 timeout")
+            print("action_1 res:", action_1("x1a", 1))
+            print("test.action_1 res:", Actions["test.action_1"]("x1", 2))
+            print("test.action_1 res:", Actions["test.action_1"]("x1", 3))
+            print("a.b.c res:", Actions["a.b.c"]("x3", 3, keyword="test"))
+            try:
+                print("tc.x.y res:", Actions["tc.x.y"](3, timeout=5))
+            except TimeoutError:
+                print("timeout in tc.x.y")
+            print("tc.x.y timeout:",Actions["tc.x.y"].is_running)
             print("a2 state", Actions["action_2"].state)
-            Actions["action_4"]("a", 4)
+            print("action_4 res:", Actions["action_4"]("a", 4))
+            action_start.interupt()
+            self.action_x.interupt()
+            Actions["action_4_x"].interupt("tx")
+
         def input_changed(self, changed_input):
             print(changed_input)
             pass

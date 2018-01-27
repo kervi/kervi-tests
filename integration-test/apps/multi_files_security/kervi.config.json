@@ -1,0 +1,39 @@
+{
+    "application" : {
+        "name": "Security app",
+        "id": "security_app"
+    },
+
+    "log" : {
+        "level":"debug",
+        "file":"kervi.log",
+        "resetLog":false
+    },
+
+    "modules": ["sensors", "controllers", "cams"],
+
+    "network" : {
+        #"bind_to": "",
+        #"http_port": "80",
+        #"ws_port": "9600",
+        #"ipc_port": "9500"
+    },
+
+    "users" : {
+        "anonymous":{
+            "groups":[]
+        },
+        "admin":{
+            "password":"",
+            "groups":["admin"]
+        }
+    },
+
+    "encryption" :{
+        "ipc_secret":"",
+        "useSSL": false,
+        "certFile": "kervi.cert",
+        "keyFile": "kervi.key"
+    }
+}
+
