@@ -2,8 +2,6 @@
 from kervi.controllers.controller import Controller
 from kervi.values import DynamicNumber, DynamicBoolean
 
-import kervi
-
 class FanController(Controller):
     def __init__(self):
         Controller.__init__(self, "fan_controller", "Fan")

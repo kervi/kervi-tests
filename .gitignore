@@ -2,3 +2,7 @@
 *.log
 *.db
 *.db-journal
+*.cert
+*.key
+*.config.json
+

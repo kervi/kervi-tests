@@ -1,39 +1,28 @@
 {
     "application" : {
-        "name": "Security app",
+        "name": "Security app x",
         "id": "security_app"
-    },
-
-    "log" : {
-        "level":"debug",
-        "file":"kervi.log",
-        "resetLog":false
     },
 
     "modules": ["sensors", "controllers", "cams"],
 
-    "network" : {
-        #"bind_to": "",
-        #"http_port": "80",
-        #"ws_port": "9600",
-        #"ipc_port": "9500"
-    },
-
-    "users" : {
-        "anonymous":{
-            "groups":[]
-        },
-        "admin":{
-            "password":"",
-            "groups":["admin"]
+    "authentication":{
+        "enabled": true,
+        "users" : {
+            "anonymous":{
+                "enabled": false
+            },
+            "admin":{
+                "password":"",
+                "groups":["admin"]
+            }
         }
     },
-
-    "encryption" :{
-        "ipc_secret":"",
-        "useSSL": false,
-        "certFile": "kervi.cert",
-        "keyFile": "kervi.key"
+    "encryption":{
+        "enabled": true,
+        "use_ssl": false,
+        "cert_file": "C:\\tim privat\\github\\kervi-tests\\integration-test\\apps\\multi_files_security\\35594205_192.168.50.49.cert",
+        "key_file":  "C:\\tim privat\\github\\kervi-tests\\integration-test\\apps\\multi_files_security\\35594205_192.168.50.49.key"
     }
 }
 
