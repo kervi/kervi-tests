@@ -1,13 +1,13 @@
 """ Sample controller """
 from kervi.controllers.controller import Controller
-from kervi.values import DynamicBoolean
+from kervi.values import BooleanValue
 
 class SystemController(Controller):
     def __init__(self):
         Controller.__init__(self, "systemController", "System")
         self.type = "system_power"
 
-        self.power_button = self.inputs.add("power", "Power", DynamicBoolean)
+        self.power_button = self.inputs.add("power", "Power", BooleanValue)
         self.power_button.link_to_dashboard(
             "system",
             "power",
@@ -17,7 +17,7 @@ class SystemController(Controller):
             type="switch"
         )
 
-        self.reboot_button = self.inputs.add("reboot", "Reboot", DynamicBoolean)
+        self.reboot_button = self.inputs.add("reboot", "Reboot", BooleanValue)
         self.reboot_button.link_to_dashboard(
             "system",
             "power",

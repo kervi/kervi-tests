@@ -1,6 +1,6 @@
 """ Sample controller """
 from kervi.controllers.controller import Controller
-from kervi.values import DynamicNumber, DynamicBoolean
+from kervi.values import NumberValue, BooleanValue
 
 import kervi
 
@@ -10,24 +10,24 @@ class FanController(Controller):
         
         self.type = "fan"
 
-        self.temp = self.inputs.add("temp", "Temperature", DynamicNumber)
+        self.temp = self.inputs.add("temp", "Temperature", NumberValue)
         self.temp.min = 0
         self.temp.max = 150
 
-        self.trigger_temp = self.inputs.add("trigger_temp", "Trigger temperature", DynamicNumber)
+        self.trigger_temp = self.inputs.add("trigger_temp", "Trigger temperature", NumberValue)
         self.trigger_temp.min = 0
         self.trigger_temp.max = 100
         #remember the value when app restarts
         self.trigger_temp.persists = True
 
-        self.max_temp = self.inputs.add("max_temp", "Max speed temperature", DynamicNumber)
+        self.max_temp = self.inputs.add("max_temp", "Max speed temperature", NumberValue)
         self.max_temp.min = 0
         self.max_temp.max = 100
         #remember the value when app restarts
         self.max_temp.persists = True
 
-        self.active = self.inputs.add("active", "Active", DynamicBoolean)
-        self.fan_speed = self.outputs.add("fan_speed", "Fanspeed", DynamicNumber)
+        self.active = self.inputs.add("active", "Active", BooleanValue)
+        self.fan_speed = self.outputs.add("fan_speed", "Fanspeed", NumberValue)
 
     def input_changed(self, changed_input):
         print(changed_input)

@@ -13,7 +13,7 @@ if __name__ == '__main__':
     #define a light controller
     from kervi.hal import GPIO
     from kervi.controller import Controller
-    from kervi.values import DynamicString
+    from kervi.values import StringValue
 
 
     class TestController(Controller):
@@ -21,7 +21,7 @@ if __name__ == '__main__':
             Controller.__init__(self, "controller.test", "test")
             self.type = "test"
 
-            self.test_string = self.inputs.add("test_string", "String", DynamicString)
+            self.test_string = self.inputs.add("test_string", "String", StringValue)
             self.test_string.link_to_dashboard("dashboard", "text")
             self.test_string.link_to_dashboard("dashboard", "text", label="#", label_icon="lightbulb-o")
             self.test_string.link_to_dashboard("dashboard", "text", label="#", label_icon="lightbulb-o", inline=True)

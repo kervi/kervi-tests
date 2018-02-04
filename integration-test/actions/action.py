@@ -53,14 +53,14 @@ if __name__ == '__main__':
 
     from kervi.controllers.controller import Controller
     from kervi.actions import Actions
-    from kervi.values import DynamicBoolean
+    from kervi.values import BooleanValue
     import action_file
     import threading
     class TestClass(Controller):
         def __init__(self):
             super().__init__("tc", "test controller")
 
-            self.active = self.inputs.add("active", "Active", DynamicBoolean)
+            self.active = self.inputs.add("active", "Active", BooleanValue)
             self.active.value = False
 
             self._action_x_interupt = False

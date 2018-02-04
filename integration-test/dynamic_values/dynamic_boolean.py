@@ -11,7 +11,7 @@ if __name__ == '__main__':
 
     from kervi.hal import GPIO
     from kervi.controllers.controller import Controller
-    from kervi.values import DynamicBoolean
+    from kervi.values import BooleanValue
 
     class TestController(Controller):
         def __init__(self):
@@ -19,7 +19,7 @@ if __name__ == '__main__':
             self.type = "test"
 
             #define an input and link it to the dashboard panel
-            self.inputs.add("boolean", "Boolean", DynamicBoolean)
+            self.inputs.add("boolean", "Boolean", BooleanValue)
             self.inputs["boolean"].link_to_dashboard("dashboard", "boolean")
             self.inputs["boolean"].link_to_dashboard("dashboard", "boolean", label="#", label_icon="lightbulb-o")
             self.inputs["boolean"].link_to_dashboard(

@@ -9,7 +9,19 @@ if __name__ == '__main__':
             "name":"Test multi file app",
             "appKey":"1234",
         },
-        "modules":["sensors", "controllers", "cams"]
+        "modules":["sensors", "controllers", "cams"],
+        "network":{
+            "ip": "127.0.0.1",
+            "ip_root_address": "127.0.0.1"
+        },
+        "authentication":{
+            "users":{
+                "admin": {
+                    "email":"tim@wentzlau.dk"
+                }
+            }
+        }
+
     })
 
     APP.run()

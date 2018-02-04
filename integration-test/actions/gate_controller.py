@@ -2,7 +2,11 @@ if __name__ == '__main__':
     import time
     from kervi.application import Application
 
-    APP = Application()
+    APP = Application({
+        "network":{
+            "ip": "127.0.0.1"
+        }
+    })
     
     from kervi.dashboards import Dashboard, DashboardPanel
     Dashboard(
@@ -24,21 +28,21 @@ if __name__ == '__main__':
 
     from kervi.controllers.controller import Controller
     from kervi.actions import action, Actions
-    from kervi.values import DynamicNumber, DynamicBoolean
+    from kervi.values import NumberValue, BooleanValue
     
     class GateController(Controller):
         def __init__(self, controller_id="gate_controller", name="Gate controller"):
             super().__init__(controller_id, name)
 
-            self.gate_speed = self.inputs.add("speed", "Gate speed", DynamicNumber)
+            self.gate_speed = self.inputs.add("speed", "Gate speed", NumberValue)
             self.gate_speed.value = 100
             self.gate_speed.min = 0
             self.gate_speed.persist_value = True
 
-            self.lo_end_stop = self.inputs.add("lo_end_stop", "low end stop", DynamicBoolean)
-            self.hi_end_stop = self.inputs.add("hi_end_stop", "High end stop", DynamicBoolean)
+            self.lo_end_stop = self.inputs.add("lo_end_stop", "low end stop", BooleanValue)
+            self.hi_end_stop = self.inputs.add("hi_end_stop", "High end stop", BooleanValue)
 
-            self.gate_motor_speed = self.outputs.add("gate_motor_speed", "Gate motor speed", DynamicNumber)
+            self.gate_motor_speed = self.outputs.add("gate_motor_speed", "Gate motor speed", NumberValue)
 
             self._stop_move = False
 
@@ -87,7 +91,7 @@ if __name__ == '__main__':
             pass
 
     gate_controller = GateController()
-    gate_controller.move_gate.link_to_dashboard("app", "gate", inline=True, button_text=None, button_icon="arrow-up", label=None, action_parameters=[True])
+    gate_controller.move_gate.link_to_dashboard("app", "gate", inline=True, button_text=None, button_icon="arrow-up", label=None, action_parameters=[True], type="switch")
     gate_controller.move_gate.link_to_dashboard("app", "gate", inline=True, button_text=None, button_icon="arrow-down", label=None, action_parameters=[False])
 
     gate_controller.link_to_dashboard("settings", "gate")

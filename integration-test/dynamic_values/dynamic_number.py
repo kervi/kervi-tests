@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
     from kervi.hal import GPIO
     from kervi.controller import Controller
-    from kervi.values import DynamicNumber
+    from kervi.values import NumberValue
 
     class TestController(Controller):
         def __init__(self):
@@ -30,7 +30,7 @@ if __name__ == '__main__':
             self.type = "test"
 
             #define an input and link it to the dashboard panel
-            self.test_number = self.inputs.add("test_number", "Number", DynamicNumber)
+            self.test_number = self.inputs.add("test_number", "Number", NumberValue)
             
             self.test_number.link_to_dashboard("dashboard", "number", label="xy")
             self.test_number.link_to_dashboard("dashboard", "number", label="#", label_icon="lightbulb-o")

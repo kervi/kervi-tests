@@ -24,7 +24,7 @@ if __name__ == '__main__':
             self.lcd.message("test")
             self.lcd.set_backlight(True)
 
-            self.inputs.add("text", "LCD text", DynamicString)
+            self.inputs.add("text", "LCD text", StringValue)
             self.inputs["text"].link_to_dashboard("dashboard.ctrl", "input")
 
         def input_changed(self, changed_input):
