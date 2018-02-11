@@ -6,10 +6,7 @@ class MySensor(Sensor):
     """ My sensor """
     def __init__(self):
         Sensor.__init__(self, "mySensor", "My sensor", DummySensorDeviceDriver())
-        self.type = "temp"
-        self.max = 100
-        self.min = 0
-        self.unit = "C"
+        self.value_type = "temperature"
         self.add_error_range((0, 10), "l error message", channels=["user_log", "email"])
         self.add_warning_range((10, 20), "l warning message")
         self.add_warning_range((80, 90), "h warning message")

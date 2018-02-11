@@ -20,8 +20,12 @@ if __name__ == '__main__':
                     "email":"tim@wentzlau.dk"
                 }
             }
+        },
+        "display":{
+            "unit_systems":{
+                "default": "us-imperial",
+            }
         }
-
     })
 
     APP.run()
