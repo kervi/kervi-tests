@@ -5,14 +5,14 @@ import kervi.utility.nethelper as nethelper
 if __name__ == '__main__':
     APP = Application({
         "application":{
-            "id":"app",
+            "id":"app_1",
             "name":"Test multi file app",
             "appKey":"1234",
         },
         "modules":["sensors", "controllers", "cams"],
         "network":{
             "ip": "127.0.0.1",
-            "ip_root_address": "127.0.0.1"
+            "ipc_root_address": "127.0.0.1"
         },
         "authentication":{
             "users":{
@@ -24,6 +24,14 @@ if __name__ == '__main__':
         "display":{
             "unit_systems":{
                 "default": "us-imperial",
+            }
+        },
+        "routing":{
+            "kervi_io":{
+                "enabled": False,
+                "address": "127.0.0.1",
+                "port": 5672,
+                "api_key": "api_key_1"
             }
         }
     })
