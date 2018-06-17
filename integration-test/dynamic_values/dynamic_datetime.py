@@ -14,7 +14,9 @@ if __name__ == '__main__':
 
     #define a light controller
     from kervi.hal import GPIO
-    from kervi.controllers.controller import Controller, UIDateTimeControllerInput
+    from kervi.controllers.controller import Controller
+    from kervi.values import DateTimeValue
+    from kervi.messaging import Messaging
 
     class TestController(Controller):
         def __init__(self):
@@ -22,17 +24,17 @@ if __name__ == '__main__':
             self.type = "test"
 
             #define an input and link it to the dashboard panel
-            input1 = UIDateTimeControllerInput("text1", "date input 1", "date", self)
-            input1.link_to_dashboard("dahsboard.ctrl", "textinput")
+            self.input1 = self.inputs.add("d1", "DateTime 1", DateTimeValue)
+            self.input1.link_to_dashboard("dahsboard.ctrl", "textinput")
 
-            input2 = UIDateTimeControllerInput("text2", "time input 1", "time", self)
-            input2.link_to_dashboard("dahsboard.ctrl", "textinput", input_size=None)
+            self.input2 = self.inputs.add("d2", "DateTime 2", DateTimeValue)
+            self.input2.link_to_dashboard("dahsboard.ctrl", "textinput", type="date", input_size=None)
 
-            input3 = UIDateTimeControllerInput("text3", "time input 1", "time", self)
-            input3.link_to_dashboard("dahsboard.ctrl", "textinput", input_size=75)
+            self.input3 = self.inputs.add("d3", "DateTime 3", DateTimeValue)
+            self.input3.link_to_dashboard("dahsboard.ctrl", "textinput", type="time", input_size=75)
 
         def input_changed(self, changed_input):
-            self.user_log_message("input changed:{0} value:{1}".format(changed_input.input_id, changed_input.value))
+            Messaging.send_message("input changed:{0} value:{1}".format(changed_input.value_id, changed_input.value))
 
     TestController()
 

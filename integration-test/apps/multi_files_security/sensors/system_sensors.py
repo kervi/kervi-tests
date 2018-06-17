@@ -27,6 +27,7 @@ DISK_SENSOR = Sensor("DiskUseSensor", "Disk", DiskUseSensorDeviceDriver())
 DISK_SENSOR.store_to_db = False
 DISK_SENSOR.link_to_dashboard("*", "sys-header")
 DISK_SENSOR.link_to_dashboard("system", "disk", type="vertical_linear_gauge", size=2)
+DISK_SENSOR.link_to_dashboard("system", "disk", type="vertical_linear_gauge", size=2)
 
 #build in sensor that measures cpu temperature
 SENSOR_CPU_TEMP = Sensor("CPUTempSensor", "CPU T", CPUTempSensorDeviceDriver())

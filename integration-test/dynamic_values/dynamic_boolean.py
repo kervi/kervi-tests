@@ -3,7 +3,7 @@ if __name__ == '__main__':
     APP = Application()
 
     #add dashboard and panel
-    from kervi.dashboards.dashboard import Dashboard, DashboardPanel
+    from kervi.dashboards import Dashboard, DashboardPanel
     DASHBOARD = Dashboard("dashboard", "Dynamic boolean test", is_default=True)
     DASHBOARD.add_panel(DashboardPanel("boolean", columns=2, rows=4, title="Boolean"))
     DASHBOARD.add_panel(DashboardPanel("boolean_inline", columns=3, rows=4, title="boolean inline"))
@@ -12,6 +12,7 @@ if __name__ == '__main__':
     from kervi.hal import GPIO
     from kervi.controllers.controller import Controller
     from kervi.values import BooleanValue
+    from kervi.messaging import Messaging
 
     class TestController(Controller):
         def __init__(self):
@@ -92,7 +93,7 @@ if __name__ == '__main__':
             )
 
         def input_changed(self, changed_input):
-            self.user_log_message("input changed:{0} value:{1}".format(changed_input.input_id, changed_input.value))
+            Messaging.send_message("input changed:{0} value:{1}".format(changed_input.value_id, changed_input.value))
 
     TestController()
 

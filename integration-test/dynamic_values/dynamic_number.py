@@ -3,26 +3,80 @@ if __name__ == '__main__':
     APP = Application()
 
     #add dashboard and panel
-    from kervi.dashboard import Dashboard, DashboardPanel
+    from kervi.dashboards import Dashboard, DashboardPanel
     DASHBOARD = Dashboard("dashboard", "Dynamic number test", is_default=True)
-    DASHBOARD.add_panel(DashboardPanel("number", columns=2, rows=2, title="number Width 0"))
-    DASHBOARD.add_panel(DashboardPanel("number_inline", columns=3, rows=3, title="number inline"))
-    DASHBOARD.add_panel(DashboardPanel("number_chart", columns=4, rows=3))
-    DASHBOARD.add_panel(DashboardPanel("log", columns=3, rows=4, title="Log", user_log=True))
+    DASHBOARD.add_panel(DashboardPanel("number", width=33, title="number Width 0"))
+    DASHBOARD.add_panel(DashboardPanel("number_inline", title="number inline"))
+    DASHBOARD.add_panel(DashboardPanel("number_chart"))
+    DASHBOARD.add_panel(DashboardPanel("number_chart_x", width="100%"))
+    DASHBOARD.add_panel(DashboardPanel("log", title="Log", user_log=True))
 
 
-    from kervi.sensor import Sensor
-    from kervi_devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
+    from kervi.sensors.sensor import Sensor
+    from kervi.devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
     cpu_sensor = Sensor("CPULoadSensor","CPU", CPULoadSensorDeviceDriver())
     cpu_sensor.link_to_dashboard("dashboard", "number_chart", type="chart")
     cpu_sensor.link_to_dashboard("dashboard", "number_chart", link_to_header=True)
     cpu_sensor.link_to_dashboard("*", "header_right")
     
+    cpu_sensor.link_to_dashboard(
+        "dashboard", 
+        "number_chart_x", 
+        type="chart", 
+        chart_grid=False, 
+        chart_buttons=False,
+        label=False,
+        chart_fill=False,
+        chart_point=0
+    )
+    
 
+    from kervi.devices.sensors.dummy_sensor import DummySensorDeviceDriver, DummyMultiDimSensorDeviceDriver
+    BATTERY_SENSOR = Sensor("Battery","Battery", DummySensorDeviceDriver())
+    BATTERY_SENSOR.set_ui_parameter("value_icon", [
+        {
+            "range":[0, 5],
+            "icon":"battery-empty"
+        },
+        {
+            "range":[5, 25],
+            "icon":"battery-quarter"
+        },
+        {
+            "range":[20, 50],
+            "icon":"battery-half"
+        },
+        {
+            "range":[5, 75],
+            "icon":"battery-three-quarters"
+        },
+        {
+            "range":[75, 100],
+            "icon":"battery-full"
+        }
+    ])
+    BATTERY_SENSOR.link_to_dashboard(link_to_header=True, display_unit=False, show_sparkline=False, show_value=False)
+
+    TEST_SENSOR = Sensor(
+        "chart_test",
+        "Chart test", 
+        DummySensorDeviceDriver(min=-100), 
+        polling_interval=10
+    )
+    TEST_SENSOR.link_to_dashboard(
+        "dashboard", 
+        type="chart", 
+        #chart_grid=False, 
+        chart_buttons=False,
+        label=False,
+        chart_fill=False,
+        chart_point=3
+    )
 
     from kervi.hal import GPIO
-    from kervi.controller import Controller
+    from kervi.controllers.controller import Controller
     from kervi.values import NumberValue
+    from kervi.messaging import Messaging
 
     class TestController(Controller):
         def __init__(self):
@@ -43,7 +97,7 @@ if __name__ == '__main__':
 
 
         def input_changed(self, changed_input):
-            self.user_log_message("input changed:{0} value:{1}".format(changed_input.input_id, changed_input.value))
+            Messaging.send_message("input changed:{0} value:{1}".format(changed_input.value_id, changed_input.value))
 
     ctrl = TestController()
     #ctrl.link_to_dashboard("dashboard", "number")

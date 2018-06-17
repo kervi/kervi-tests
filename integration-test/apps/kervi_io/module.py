@@ -14,14 +14,14 @@ if __name__ == '__main__':
             "file":"kervi-module.log"
         },
         "network":{
-            "ip": "127.0.0.1",
-            "module_port": "9600",
-            "ipc_root_port": 9500,
-            "ipc_root_address": "127.0.0.1"
+            #"ip": "127.0.0.1",
+            #"ip_module_port": 9600,
+            "ipc_root_port": 9700,
+            #"ipc_root_address": "127.0.0.1"
         },
         "routing":{
             "kervi_io":{
-                "enabled": False,
+                "enabled": True,
                 "address": "127.0.0.1",
                 "port": 5672,
                 "api_key": "api_key_1"
@@ -35,7 +35,7 @@ if __name__ == '__main__':
 
     from kervi.sensors.sensor import Sensor
     from kervi.devices.platforms.common.sensors.memory_use import MemUseSensorDeviceDriver
-    SENSOR_1 = Sensor("MemLoadSensor", "MEM", MemUseSensorDeviceDriver())
+    SENSOR_1 = Sensor("module_MemLoadSensor", "MEM", MemUseSensorDeviceDriver())
     #link to sys area top right
     SENSOR_1.link_to_dashboard("*", "sys-header")
     #link to a panel, show value in panel header and chart in panel body
