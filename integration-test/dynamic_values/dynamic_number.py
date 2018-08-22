@@ -5,10 +5,12 @@ if __name__ == '__main__':
     #add dashboard and panel
     from kervi.dashboards import Dashboard, DashboardPanel
     DASHBOARD = Dashboard("dashboard", "Dynamic number test", is_default=True)
-    DASHBOARD.add_panel(DashboardPanel("number", width=33, title="number Width 0"))
+    DASHBOARD.add_panel(DashboardPanel("number", width=33, title="number"))
     DASHBOARD.add_panel(DashboardPanel("number_inline", title="number inline"))
+    DASHBOARD.add_panel(DashboardPanel("number_gauge", width=20))
+    
     DASHBOARD.add_panel(DashboardPanel("number_chart"))
-    DASHBOARD.add_panel(DashboardPanel("number_chart_x", width="100%"))
+    DASHBOARD.add_panel(DashboardPanel("number_chart_x", width=100))
     DASHBOARD.add_panel(DashboardPanel("log", title="Log", user_log=True))
 
 
@@ -55,8 +57,9 @@ if __name__ == '__main__':
             "icon":"battery-full"
         }
     ])
-    BATTERY_SENSOR.link_to_dashboard(link_to_header=True, display_unit=False, show_sparkline=False, show_value=False)
+    BATTERY_SENSOR.link_to_dashboard("dashboard", "number_gauge", link_to_header=True, display_unit=False, show_sparkline=False, show_value=False)
 
+    
     TEST_SENSOR = Sensor(
         "chart_test",
         "Chart test", 
@@ -85,6 +88,7 @@ if __name__ == '__main__':
 
             #define an input and link it to the dashboard panel
             self.test_number = self.inputs.add("test_number", "Number", NumberValue)
+            self.test_number.unit = "%"
             
             self.test_number.link_to_dashboard("dashboard", "number", label="xy")
             self.test_number.link_to_dashboard("dashboard", "number", label="#", label_icon="lightbulb-o")
@@ -92,6 +96,13 @@ if __name__ == '__main__':
 
             self.test_number.link_to_dashboard("dashboard", "number_inline", inline=True, label="#", label_icon="lightbulb-o")
             
+            self.test_number.link_to_dashboard("dashboard", "number_gauge", type="radial_gauge")
+            self.test_number.add_error_range((0, 10), "l error message", channels=["user_log", "email"])
+            self.test_number.add_warning_range((10, 20), "l warning message")
+            self.test_number.add_warning_range((80, 90), "h warning message")
+            self.test_number.add_normal_range((20, 80), "normal")
+            self.test_number.add_error_range((90, 100), "h error message", channels=["user_log", "email"])
+
             
             #self.test_number.link_to_dashboard("dashboard", "number_chart", type="chart")
 

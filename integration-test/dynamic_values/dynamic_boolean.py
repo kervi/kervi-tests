@@ -5,9 +5,9 @@ if __name__ == '__main__':
     #add dashboard and panel
     from kervi.dashboards import Dashboard, DashboardPanel
     DASHBOARD = Dashboard("dashboard", "Dynamic boolean test", is_default=True)
-    DASHBOARD.add_panel(DashboardPanel("boolean", columns=2, rows=4, title="Boolean"))
-    DASHBOARD.add_panel(DashboardPanel("boolean_inline", columns=3, rows=4, title="boolean inline"))
-    DASHBOARD.add_panel(DashboardPanel("log", columns=3, rows=4, title="Log", user_log=True))
+    DASHBOARD.add_panel(DashboardPanel("boolean", width=25, title="Boolean"))
+    DASHBOARD.add_panel(DashboardPanel("boolean_inline", title="boolean inline"))
+    DASHBOARD.add_panel(DashboardPanel("log", title="Log", user_log=True))
 
     from kervi.hal import GPIO
     from kervi.controllers.controller import Controller

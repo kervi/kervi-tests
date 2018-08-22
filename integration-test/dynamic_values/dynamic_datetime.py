@@ -5,12 +5,10 @@ if __name__ == '__main__':
     #add dashboard and panel
     from kervi.dashboards import Dashboard, DashboardPanel
     DASHBOARD = Dashboard("dahsboard.ctrl", "Controller test", is_default=True)
-    DASHBOARD.add_panel(DashboardPanel("textinput", columns=2, rows=4, title="text Width 0"))
-    DASHBOARD.add_panel(DashboardPanel("text_inline", columns=3, rows=4, title="text inline"))
-    DASHBOARD.add_panel(DashboardPanel("log", columns=3, rows=4, title="Log", user_log=True))
-
-    DASHBOARD = Dashboard("dahsboard.ctrlx", "Controller testx", is_default=True)
-    
+    DASHBOARD.add_panel(DashboardPanel("textinput", title="date time value", width="50%"))
+    DASHBOARD.add_panel(DashboardPanel("text_inline", title="inline"))
+    DASHBOARD.add_panel(DashboardPanel("log", title="Log", user_log=True))
+ 
 
     #define a light controller
     from kervi.hal import GPIO
@@ -25,6 +23,7 @@ if __name__ == '__main__':
 
             #define an input and link it to the dashboard panel
             self.input1 = self.inputs.add("d1", "DateTime 1", DateTimeValue)
+            self.input1.persist_value = True
             self.input1.link_to_dashboard("dahsboard.ctrl", "textinput")
 
             self.input2 = self.inputs.add("d2", "DateTime 2", DateTimeValue)
@@ -34,7 +33,9 @@ if __name__ == '__main__':
             self.input3.link_to_dashboard("dahsboard.ctrl", "textinput", type="time", input_size=75)
 
         def input_changed(self, changed_input):
-            Messaging.send_message("input changed:{0} value:{1}".format(changed_input.value_id, changed_input.value))
+            Messaging.send_message(changed_input.value, source_id=changed_input.component_id, source_name=changed_input.name)
+            Messaging.send_message(changed_input.date, source_id=changed_input.component_id, source_name=changed_input.name)
+            Messaging.send_message(changed_input.time, source_id=changed_input.component_id, source_name=changed_input.name)
 
     TestController()
 

@@ -6,3 +6,4 @@
 *.key
 *.config.json
 *.png
+device-test/display/dummydisplay.bmp

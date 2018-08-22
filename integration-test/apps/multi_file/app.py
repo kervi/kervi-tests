@@ -23,7 +23,7 @@ if __name__ == '__main__':
         },
         "display":{
             "unit_systems":{
-                "default": "us-imperial",
+                "default": "metric",
             }
         },
         "routing":{

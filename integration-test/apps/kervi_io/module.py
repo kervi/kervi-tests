@@ -16,15 +16,17 @@ if __name__ == '__main__':
         "network":{
             #"ip": "127.0.0.1",
             #"ip_module_port": 9600,
-            "ipc_root_port": 9700,
+            "ipc_root_port": 9800,
             #"ipc_root_address": "127.0.0.1"
         },
         "routing":{
             "kervi_io":{
                 "enabled": True,
-                "address": "127.0.0.1",
-                "port": 5672,
-                "api_key": "api_key_1"
+                "address": "mq.kervi.io",
+                "port": 5671,
+                "api_user": "86a2a8aa634d42a09b90e2eb6390cbf6",
+                "api_password": "5f0b164f424040658264af22c0d8f14a",
+                "api_channel": "20bddf88a4434e99ba0e014de2b875c7"
             }
         }
     })
