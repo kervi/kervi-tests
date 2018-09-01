@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
 
     from kervi.devices.displays.dummy_display_driver import DummyCharDisplayDriver, DummyBitmapDisplayDriver
-    from kervi.devices.displays.SSD1306 import SSD1306_128_64_DeviceDriver
+    from kervi.devices.displays.SSD1306 import SSD1306DeviceDriver
     from kervi.displays import Display, DisplayPage
 
     page1 = DisplayPage("p1")
@@ -40,7 +40,7 @@ if __name__ == '__main__':
     display.text.link_to_dashboard()
     display.add_page(page1)
 
-    display1 = Display("d2", "Display 2", DummyBitmapDisplayDriver(128,32))
+    display1 = Display("d2", "Display 2", SSD1306DeviceDriver(32))
     display1.text.link_to_dashboard()
     display1.add_page(page1)
     display1.add_page(page2)
