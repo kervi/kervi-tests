@@ -21,26 +21,30 @@ if __name__ == '__main__':
 
 
     from kervi.devices.displays.dummy_display_driver import DummyCharDisplayDriver, DummyBitmapDisplayDriver
+    from kervi.devices.displays.SSD1306 import SSD1306_128_64_DeviceDriver
     from kervi.displays import Display, DisplayPage
 
     page1 = DisplayPage("p1")
-    page1.template = "CPU: {CPULoadSensor}%\nLine 2"
-    page1.link_value(SENSOR_CPU_LOAD)
+    page1.template = "CPU: {CPULoadSensor}%\nLine 2\nline 3 æøåäð"
+    page1.link_value(SENSOR_CPU_LOAD, "2.0f")
 
     page2 = DisplayPage("p2")
-    page2.template = "temp: {CPUTempSensor}%"
+    page2.template = "temp: {CPUTempSensor}%\nxxæøåÆØÅ"
     page2.link_value(SENSOR_CPU_TEMP)
 
+
+    page3 = DisplayPage("p3")
+    page3.template = "abcæøåÆØÅ"
 
     display = Display("d1", "Display", DummyCharDisplayDriver())
     display.text.link_to_dashboard()
     display.add_page(page1)
 
     display1 = Display("d2", "Display 2", DummyBitmapDisplayDriver(128,32))
-    display1.line_height = 16
     display1.text.link_to_dashboard()
     display1.add_page(page1)
     display1.add_page(page2)
+    display1.add_page(page3)
     display1.activate_page_scroll()
 
 

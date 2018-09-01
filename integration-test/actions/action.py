@@ -88,7 +88,7 @@ if __name__ == '__main__':
             print("action_x interupt")
             self._action_x_interupt = True
 
-        def on_start(self):
+        def controller_start(self):
             action_start(run_async=True)
 
             self.action_x(run_async=True)
