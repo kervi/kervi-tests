@@ -10,7 +10,7 @@
         "enabled": true,
         "users" : {
             "anonymous":{
-                "enabled": false
+                "enabled": true
             },
             "admin":{
                 "password":"",

@@ -3,16 +3,13 @@ if __name__ == '__main__':
     APP = Application()
 
     #add dashboard and panel
-    from kervi.dashboard import Dashboard, DashboardPanel
-    DASHBOARD = Dashboard("dashboard.app", "Test BMP085", is_default=True)
-    DASHBOARD.add_panel(DashboardPanel("sensor", columns=2, rows=4, title=None))
-
-    from kervi.hal import GPIO
-    from kervi.sensor import Sensor
-    from kervi_devices.sensors import TSL2561
+    from kervi.dashboards import Dashboard, DashboardPanel
     
-    SENSOR = Sensor("TSL2561", "Light", TSL2561.TSL2561DeviceDriver())
-    SENSOR.link_to_dashboard("dashboard.app", "sensor")
+    from kervi.sensors.sensor import Sensor
+    from kervi.devices.sensors.TSL2561 import TSL2561DeviceDriver
+    
+    SENSOR = Sensor("TSL2561", "Light", TSL2561DeviceDriver())
+    SENSOR.link_to_dashboard()
 
     
     APP.run()
