@@ -9,14 +9,8 @@ if __name__ == '__main__':
         },
         "log":{
             "file":"kervi-module.log"
-        },
-        "network":{
-            "IPAddress": "127.0.0.1",
-            "ModulePort": "9600",
-            "IPRootAddress": "127.0.0.1",
-            "IPCRootPort": 9500,
-            "IPCSecret":b"fd9969b3-9748-46b6-a69d-119ec2773352",
         }
+        
     })
 
     from kervi.dashboards import Dashboard, DashboardPanel
