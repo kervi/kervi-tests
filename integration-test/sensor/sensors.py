@@ -14,6 +14,7 @@ if __name__ == '__main__':
     DASHBOARD = Dashboard("system", "Sensor test", is_default=True)
     DASHBOARD.add_panel(DashboardPanel("multi_sensor", title="Multi sensor"))
     DASHBOARD.add_panel(DashboardPanel("multi_sensor_single", title="Multi sensor single"))
+    DASHBOARD.add_panel(DashboardPanel("color_sensor", title="Color sensor single ----xxx---"))
     DASHBOARD.add_panel(DashboardPanel("gauge", title="Gauge"))
     DASHBOARD.add_panel(DashboardPanel("log", title="Log", user_log=True))
 
@@ -48,4 +49,8 @@ if __name__ == '__main__':
 
     multi_sensor.enable.link_to_dashboard()
 
+    from kervi.devices.sensors.dummy_sensor import DummyColorSensorDeviceDriver
+    color_sensor = Sensor("color_sensor", "Color", DummyColorSensorDeviceDriver())
+    color_sensor.link_to_dashboard("system", "color_sensor")
+    color_sensor.link_to_dashboard("system", "color_sensor")
     APP.run()
