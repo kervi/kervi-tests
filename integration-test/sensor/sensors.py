@@ -6,6 +6,11 @@ if __name__ == '__main__':
     APP = Application({
         "network":{
             "ip": "127.0.0.1"
+        },
+        "plugins":{
+            "authentication":{
+                "kervi.plugin.authentication.plain": True
+            }
         }
     })
 
@@ -43,7 +48,7 @@ if __name__ == '__main__':
     multi_sensor[2].add_error_range((0, 10), "l error message")
     multi_sensor[2].add_warning_range((10, 20), "l warning message")
     multi_sensor[2].add_warning_range((80, 90), "h warning message")
-    multi_sensor[2].add_error_range((90, 100), "h error message")
+    multi_sensor[2].add_error_range((90, 100), "h error message", channels=["user_log", "email"])
     #multi_sensor[2].add_normal_range((20, 80), "normal message")
     multi_sensor[2].link_to_dashboard("system", "gauge", type="radial_gauge")
 
