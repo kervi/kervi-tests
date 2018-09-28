@@ -11,4 +11,6 @@ if __name__ == '__main__':
     sensor1 = Sensor("CW2015_capacity", "CW2015 capacity", CW2015CapacityDeviceDriver())
     sensor1.link_to_dashboard()
 
+    APP.actions.shutdown.link_to(sensor1, trigger_value= lambda x: x<10)
+
     APP.run()
