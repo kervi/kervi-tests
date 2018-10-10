@@ -9,6 +9,7 @@ if __name__ == '__main__':
             "name":"Test multi file app",
             "appKey":"1234",
         },
+        "unit_system":  "us-imperial",
         "modules":["sensors", "controllers", "cams"],
         "network":{
             "ip": "127.0.0.1",
@@ -56,11 +57,6 @@ if __name__ == '__main__':
         },
         "messaging": {
             "default_channels": ["user_log"]
-        },
-        "display":{
-            "unit_systems":{
-                "default": "metric",
-            }
         },
         "routing":{
             "kervi_io":{

@@ -11,16 +11,19 @@ class FanController(Controller):
         self.temp = self.inputs.add("temp", "Temperature", NumberValue)
         self.temp.min = 0
         self.temp.max = 150
+        self.temp.unit = "c"
 
         self.trigger_temp = self.inputs.add("trigger_temp", "Trigger temperature", NumberValue)
         self.trigger_temp.min = 0
         self.trigger_temp.max = 100
+        self.trigger_temp.unit = "c"
         #remember the value when app restarts
         self.trigger_temp.persist_value = True
 
         self.max_temp = self.inputs.add("max_temp", "Max speed temperature", NumberValue)
         self.max_temp.min = 0
         self.max_temp.max = 100
+        self.max_temp.unit = "c"
         #remember the value when app restarts
         self.max_temp.persist_value = True
 

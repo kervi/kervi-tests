@@ -11,7 +11,7 @@ if __name__ == '__main__':
     #define a light controller
     #from kervi.hal import GPIO
     from kervi.controller import Controller
-    from kervi_devices.motors.adafruit_i2c_motor_hat import AdafruitMotorHAT
+    from kervi.devices.motors.adafruit_i2c_motor_hat import AdafruitMotorHAT
 
     motor_controller = AdafruitMotorHAT()
     motor_controller.dc_motors[0].speed.link_to_dashboard("dashboard")

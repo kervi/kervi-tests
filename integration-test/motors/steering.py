@@ -32,8 +32,9 @@ if __name__ == '__main__':
 
     #Setup steering
     from kervi.steering import MotorSteering
-    from kervi_devices.motors.dummy_motor_driver import DummyMotorBoard
+    from kervi.devices.motors.dummy_motor_driver import DummyMotorBoard
 
+    from kervi.devices.motors.LN298 import LN298DeviceDriver
     MOTOR_BOARD = DummyMotorBoard()
     STEERING = MotorSteering("steering", "motor steering")
     STEERING.adaptive_speed.set_ui_parameter("tick", .01)
