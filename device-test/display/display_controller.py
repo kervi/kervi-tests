@@ -1,11 +1,19 @@
 if __name__ == '__main__':
     from kervi.application import Application
-    APP = Application()
+    APP = Application({
+        "unit_system":  "us-imperial",
+        "network":{
+            "ip": "127.0.0.1",
+            "ipc_root_address": "127.0.0.1"
+        }
+
+    })
 
 
     from kervi.sensors.sensor import Sensor
     from kervi.devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
     from kervi.devices.platforms.common.sensors.cpu_temp import CPUTempSensorDeviceDriver
+    from kervi.devices.sensors.dummy_sensor import DummySensorDeviceDriver
     #build in sensor that measures cpu use
     SENSOR_CPU_LOAD = Sensor("CPULoadSensor", "CPU", CPULoadSensorDeviceDriver())
     #link to sys area top right
@@ -15,7 +23,7 @@ if __name__ == '__main__':
     SENSOR_CPU_LOAD.link_to_dashboard(type="chart", size=2)
 
     #build in sensor that measures cpu temperature
-    SENSOR_CPU_TEMP = Sensor("CPUTempSensor", "", CPUTempSensorDeviceDriver())
+    SENSOR_CPU_TEMP = Sensor("CPUTempSensor", "", DummySensorDeviceDriver(type="temperature", unit="c"))
     #link to sys area top right
     SENSOR_CPU_TEMP.link_to_dashboard("*", "sys-header")
 
@@ -29,23 +37,23 @@ if __name__ == '__main__':
     page1.link_value(SENSOR_CPU_LOAD, "2.0f")
 
     page2 = DisplayPage("p2")
-    page2.template = "temp: {CPUTempSensor}%\nxxæøåÆØÅ"
-    page2.link_value(SENSOR_CPU_TEMP)
+    page2.template = "temp: {CPUTempSensor} {CPUTempSensor_unit}\nx"
+    page2.link_value(SENSOR_CPU_TEMP, "3.1f")
 
 
     page3 = DisplayPage("p3")
-    page3.template = "abcæøåÆØÅ"
+    page3.template = "xabcæøåÆØÅ"
 
     display = Display("d1", "Display", DummyCharDisplayDriver())
     display.text.link_to_dashboard()
-    display.add_page(page1)
+    display.add_page(page2)
 
-    display1 = Display("d2", "Display 2", SSD1306DeviceDriver(32))
-    display1.text.link_to_dashboard()
-    display1.add_page(page1)
-    display1.add_page(page2)
-    display1.add_page(page3)
-    display1.activate_page_scroll()
+    # display1 = Display("d2", "Display 2", SSD1306DeviceDriver(32))
+    # display1.text.link_to_dashboard()
+    # display1.add_page(page1)
+    # display1.add_page(page2)
+    # display1.add_page(page3)
+    # display1.activate_page_scroll()
 
 
     APP.run()

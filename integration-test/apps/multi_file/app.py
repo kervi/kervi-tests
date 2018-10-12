@@ -9,7 +9,7 @@ if __name__ == '__main__':
             "name":"Test multi file app",
             "appKey":"1234",
         },
-        "unit_system":  "us-imperial",
+        #"unit_system":  "us-imperial",
         "modules":["sensors", "controllers", "cams"],
         "network":{
             "ip": "127.0.0.1",
@@ -26,7 +26,7 @@ if __name__ == '__main__':
             },
             "messaging":{
                 "kervi.plugin.messaging.email": {
-                    "enabled": False,
+                    "enabled": True,
                     "smtp": {
                         "sender_name": "Kervi",
                         "sender_address": "kervi@example.com",
