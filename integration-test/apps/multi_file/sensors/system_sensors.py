@@ -3,11 +3,11 @@
 
 """ Module that defines core cpu sensors """
 
-from kervi.sensors.sensor import Sensor
-from kervi.devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
-from kervi.devices.platforms.common.sensors.memory_use import MemUseSensorDeviceDriver
-from kervi.devices.platforms.common.sensors.disk_use import DiskUseSensorDeviceDriver
-from kervi.devices.platforms.common.sensors.cpu_temp import CPUTempSensorDeviceDriver
+from kervi.sensors import Sensor
+from kervi.devices.sensors.system import CPULoadSensorDeviceDriver
+from kervi.devices.sensors.system import MemoryUseSensorDeviceDriver
+from kervi.devices.sensors.system import DiskUseSensorDeviceDriver
+from kervi.devices.sensors.system import CPUTempSensorDeviceDriver
 
 CPU_SENSOR = Sensor("CPULoadSensor","CPU", CPULoadSensorDeviceDriver())
 CPU_SENSOR.link_to_dashboard("*", "header_right")
@@ -21,7 +21,7 @@ CPU_SENSOR.link_to_dashboard(type="chart")
 
 CPU_SENSOR.user_groups = ["admin"]
 
-MEM_SENSOR = Sensor("MemLoadSensor", "Memory", MemUseSensorDeviceDriver())
+MEM_SENSOR = Sensor("MemLoadSensor", "Memory", MemoryUseSensorDeviceDriver())
 MEM_SENSOR.store_to_db = False
 MEM_SENSOR.link_to_dashboard("*", "header_right")
 MEM_SENSOR.link_to_dashboard("system", "memory", type="value", size=2, link_to_header=True)

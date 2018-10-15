@@ -51,7 +51,7 @@ if __name__ == '__main__':
         print("action_1", p1, p2)
         return (p1, p2)
 
-    from kervi.controllers.controller import Controller
+    from kervi.controllers import Controller
     from kervi.actions import Actions
     from kervi.values import BooleanValue
     import action_file

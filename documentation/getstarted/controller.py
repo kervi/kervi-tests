@@ -18,8 +18,8 @@ if __name__ == '__main__':
 
 
     #create sensors
-    from kervi.sensors.sensor import Sensor
-    from kervi.devices.platforms.common.sensors.cpu_temp import CPUTempSensorDeviceDriver
+    from kervi.sensors import Sensor
+    from kervi.devices.sensors.system import CPUTempSensorDeviceDriver
     from kervi.devices.sensors.dummy_sensor import DummySensorDeviceDriver
     #create a senors that uses CPU temp device driver
     cpu_temp_sensor = Sensor("CPUTempSensor","CPU temp", DummySensorDeviceDriver())
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     cpu_temp_sensor.link_to_dashboard("app", "cpu", type="chart")
 
     #define a controller
-    from kervi.controllers.controller import Controller
+    from kervi.controllers import Controller
     from kervi.values import NumberValue
     
     class FanController(Controller):

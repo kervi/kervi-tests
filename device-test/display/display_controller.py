@@ -10,9 +10,9 @@ if __name__ == '__main__':
     })
 
 
-    from kervi.sensors.sensor import Sensor
-    from kervi.devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
-    from kervi.devices.platforms.common.sensors.cpu_temp import CPUTempSensorDeviceDriver
+    from kervi.sensors import Sensor
+    from kervi.devices.sensors.system import CPULoadSensorDeviceDriver
+    from kervi.devices.sensors.system import CPUTempSensorDeviceDriver
     from kervi.devices.sensors.dummy_sensor import DummySensorDeviceDriver
     #build in sensor that measures cpu use
     SENSOR_CPU_LOAD = Sensor("CPULoadSensor", "CPU", CPULoadSensorDeviceDriver())

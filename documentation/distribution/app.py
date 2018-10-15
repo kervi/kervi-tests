@@ -7,8 +7,8 @@ if __name__ == '__main__':
             }                
         })
 
-        from kervi.sensors.sensor import Sensor
-        from kervi.devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
+        from kervi.sensors import Sensor
+        from kervi.devices.sensors.system import CPULoadSensorDeviceDriver
 
         SENSOR_1 = Sensor("app_CPULoadSensor", "App CPU", CPULoadSensorDeviceDriver())
         SENSOR_1.link_to_dashboard(type="value", link_to_header=True)

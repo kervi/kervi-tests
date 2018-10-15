@@ -4,7 +4,7 @@ if __name__ == '__main__':
 
     #add dashboard and panel
     
-    from kervi.sensors.sensor import Sensor
+    from kervi.sensors import Sensor
     import kervi.devices.sensors.BMP085 as BMP085
     SENSOR_TEMP = Sensor("BMP085_temp", "Temperature", BMP085.BMP085DeviceDriver(BMP085.BMP085_TEMPERATURE_SENSOR))
     SENSOR_TEMP.link_to_dashboard()

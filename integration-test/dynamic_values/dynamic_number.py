@@ -14,8 +14,8 @@ if __name__ == '__main__':
     DASHBOARD.add_panel(DashboardPanel("log", title="Log", user_log=True))
 
 
-    from kervi.sensors.sensor import Sensor
-    from kervi.devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
+    from kervi.sensors import Sensor
+    from kervi.devices.sensors.system import CPULoadSensorDeviceDriver
     cpu_sensor = Sensor("CPULoadSensor","CPU", CPULoadSensorDeviceDriver())
     cpu_sensor.link_to_dashboard("dashboard", "number_chart", type="chart")
     cpu_sensor.link_to_dashboard("dashboard", "number_chart", link_to_header=True)
@@ -77,7 +77,7 @@ if __name__ == '__main__':
     )
 
     from kervi.hal import GPIO
-    from kervi.controllers.controller import Controller
+    from kervi.controllers import Controller
     from kervi.values import NumberValue
     from kervi.messaging import Messaging
 

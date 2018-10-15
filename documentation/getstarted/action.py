@@ -5,9 +5,9 @@ if __name__ == '__main__':
     app = Application()
 
     #create sensors
-    from kervi.sensors.sensor import Sensor
-    from kervi.devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
-    from kervi.devices.platforms.common.sensors.cpu_temp import CPUTempSensorDeviceDriver
+    from kervi.sensors import Sensor
+    from kervi.devices.sensors.system import CPULoadSensorDeviceDriver
+    from kervi.devices.sensors.system import CPUTempSensorDeviceDriver
 
     #create a senors that uses CPU load device driver
     cpu_load_sensor = Sensor("CPULoadSensor","CPU", CPULoadSensorDeviceDriver())
@@ -25,7 +25,7 @@ if __name__ == '__main__':
     cpu_temp_sensor.link_to_dashboard(type = "value", show_sparkline=True, link_to_header=True)
     cpu_temp_sensor.link_to_dashboard(type="chart")
 
-    from kervi.controllers.controller import Controller
+    from kervi.controllers import Controller
     from kervi.values import NumberValue
     from kervi.actions import action
     

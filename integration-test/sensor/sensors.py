@@ -23,8 +23,8 @@ if __name__ == '__main__':
     DASHBOARD.add_panel(DashboardPanel("gauge", title="Gauge"))
     DASHBOARD.add_panel(DashboardPanel("log", title="Log", user_log=True))
 
-    from kervi.sensors.sensor import Sensor
-    from kervi.devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
+    from kervi.sensors import Sensor
+    from kervi.devices.sensors.system import CPULoadSensorDeviceDriver
     from kervi.devices.sensors.dummy_sensor import DummyMultiDimSensorDeviceDriver
 
     cpu_sensor = Sensor("CPULoadSensor","CPU", CPULoadSensorDeviceDriver())

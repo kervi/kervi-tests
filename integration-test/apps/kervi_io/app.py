@@ -31,14 +31,14 @@ if __name__ == '__main__':
     })
 
     
-    from kervi.sensors.sensor import Sensor
-    from kervi.devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
+    from kervi.sensors import Sensor
+    from kervi.devices.sensors.system import CPULoadSensorDeviceDriver
 
     SENSOR_1 = Sensor("module_CPULoadSensor", "CPU", CPULoadSensorDeviceDriver())
     SENSOR_1.link_to_dashboard(type="value", link_to_header=True)
     SENSOR_1.link_to_dashboard(type="chart")
 
-    from kervi.controllers.controller import Controller
+    from kervi.controllers import Controller
     from kervi.values import NumberValue
     from kervi.messaging import Messaging
 

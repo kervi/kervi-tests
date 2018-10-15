@@ -10,7 +10,7 @@ if __name__ == '__main__':
 
     #define a light controller
     from kervi.hal import GPIO
-    from kervi.controllers.controller import Controller
+    from kervi.controllers import Controller
     from kervi.values import *
     from kervi.devices.displays.HD44780_i2c_PCF8574 import CharLCDDeviceDriver
 

@@ -1,5 +1,5 @@
 """ Sample controller """
-from kervi.controllers.controller import Controller
+from kervi.controllers import Controller
 from kervi.values import NumberValue, BooleanValue
 
 class FanController(Controller):

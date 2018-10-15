@@ -9,7 +9,7 @@ if __name__ == '__main__':
     DASHBOARD.add_panel(DashboardPanel("color_inline", title="Color inline"))
     DASHBOARD.add_panel(DashboardPanel("log", title="Log", user_log=True))
 
-    from kervi.controllers.controller import Controller
+    from kervi.controllers import Controller
     from kervi.values import ColorValue
     from kervi.messaging import Messaging
 
@@ -57,7 +57,7 @@ if __name__ == '__main__':
 
     TestController()
 
-    from kervi.sensors.sensor import Sensor
+    from kervi.sensors import Sensor
     from kervi.devices.sensors.dummy_sensor import DummyColorSensorDeviceDriver
     from kervi.devices.sensors.TCS34725 import TCS34725DeviceDriver
     sensor = Sensor("color_sensor", "Color sensor", TCS34725DeviceDriver())

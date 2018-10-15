@@ -1,5 +1,5 @@
 """ Module for a sensor """
-from kervi.sensors.sensor import Sensor
+from kervi.sensors import Sensor
 from kervi.devices.sensors.dummy_sensor import DummySensorDeviceDriver, DummyMultiDimSensorDeviceDriver
 
 class MySensor(Sensor):

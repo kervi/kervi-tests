@@ -26,7 +26,7 @@ if __name__ == '__main__':
         ]
     )
 
-    from kervi.controllers.controller import Controller
+    from kervi.controllers import Controller
     from kervi.actions import action, Actions
     from kervi.values import NumberValue, BooleanValue
 

@@ -8,7 +8,7 @@ if __name__ == '__main__':
     DASHBOARD.add_panel(DashboardPanel("sensor", columns=2, rows=4, title=None))
 
     from kervi.hal import GPIO
-    from kervi.sensors.sensor import Sensor
+    from kervi.sensors import Sensor
     import kervi.devices.sensors as LSM9DS0
 
     SENSOR_COMPASS = Sensor("compass", "Compass", LSM9DS0.LSM9DS0CompasDeviceDriver())

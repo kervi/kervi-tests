@@ -15,7 +15,7 @@ if __name__ == '__main__':
         is_default=True
     )
 
-    from kervi.controllers.controller import Controller
+    from kervi.controllers import Controller
     from kervi.values import StringValue
     from kervi.messaging import Messaging
 

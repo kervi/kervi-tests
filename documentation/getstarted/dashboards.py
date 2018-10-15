@@ -27,9 +27,9 @@ if __name__ == '__main__': # this line is important in windows
     )
 
     #create sensor
-    from kervi.sensors.sensor import Sensor
-    from kervi.devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
-    from kervi.devices.platforms.common.sensors.cpu_temp import CPUTempSensorDeviceDriver
+    from kervi.sensors import Sensor
+    from kervi.devices.sensors.system import CPULoadSensorDeviceDriver
+    from kervi.devices.sensors.system import CPUTempSensorDeviceDriver
     from kervi.devices.sensors.dummy_sensor import DummySensorDeviceDriver
     #create a senors that uses CPU load device driver
     cpu_load_sensor = Sensor("CPULoadSensor","CPU", CPULoadSensorDeviceDriver())
@@ -46,7 +46,7 @@ if __name__ == '__main__': # this line is important in windows
     cpu_temp_sensor.link_to_dashboard("system", "cpu-temp", type="radial_gauge")
     
     #define a controller
-    from kervi.controllers.controller import Controller
+    from kervi.controllers import Controller
     from kervi.values import NumberValue
     
     class FanController(Controller):

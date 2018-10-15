@@ -10,7 +10,7 @@ if __name__ == '__main__':
     DASHBOARD.add_panel(DashboardPanel("log", title="Log", user_log=True))
 
     from kervi.hal import GPIO
-    from kervi.controllers.controller import Controller
+    from kervi.controllers import Controller
     from kervi.values import BooleanValue
     from kervi.messaging import Messaging
 

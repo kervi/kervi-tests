@@ -13,7 +13,7 @@ if __name__ == '__main__':
     
 
     #define a light controller
-    from kervi.controllers.controller import Controller
+    from kervi.controllers import Controller
     from kervi.values import EnumValue
     from kervi.messaging import Messaging
 

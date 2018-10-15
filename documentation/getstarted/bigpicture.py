@@ -23,9 +23,9 @@ if __name__ == '__main__':
         ]
     )
     
-    from kervi.sensors.sensor import Sensor
-    from kervi.devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
-    from kervi.devices.platforms.common.sensors.cpu_temp import CPUTempSensorDeviceDriver
+    from kervi.sensors import Sensor
+    from kervi.devices.sensors.system import CPULoadSensorDeviceDriver
+    from kervi.devices.sensors.system import CPUTempSensorDeviceDriver
     from kervi.devices.sensors.dummy_sensor import DummySensorDeviceDriver
     
     #build in sensor that measures cpu use
@@ -43,7 +43,7 @@ if __name__ == '__main__':
     SENSOR_CPU_TEMP.link_to_dashboard("system", "cpu-temp", type="value", link_to_header=True)
     SENSOR_CPU_TEMP.link_to_dashboard("system", "cpu-temp", type="chart")
     
-    from kervi.controllers.controller import Controller, NumberValue
+    from kervi.controllers import Controller, NumberValue
     from kervi.actions import action
     class FanController(Controller):
         def __init__(self):

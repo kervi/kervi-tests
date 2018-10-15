@@ -22,9 +22,9 @@ if __name__ == '__main__':
     CAMERA.pan.link_to_dashboard("system", "cpu")
     CAMERA.tilt.link_to_dashboard("system", "cpu")
 
-    from kervi.sensors.sensor import Sensor
-    from kervi.devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
-    from kervi.devices.platforms.common.sensors.cpu_temp import CPUTempSensorDeviceDriver
+    from kervi.sensors import Sensor
+    from kervi.devices.sensors.system import CPULoadSensorDeviceDriver
+    from kervi.devices.sensors.system import CPUTempSensorDeviceDriver
     #build in sensor that measures cpu use
     SENSOR_CPU_LOAD = Sensor("CPULoadSensor", "CPU", CPULoadSensorDeviceDriver())
     #link to sys area top right
@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
 
     #define a light controller
-    from kervi.controllers.controller import Controller
+    from kervi.controllers import Controller
     from kervi.values import NumberValue, BooleanValue
     class FanController(Controller):
         def __init__(self):

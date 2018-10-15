@@ -17,7 +17,7 @@ if __name__ == '__main__':
 
     from kervi.sensor import Sensor
     from kervi_devices.platforms.common.sensors.cpu_use import CPULoadSensorDeviceDriver
-    from kervi_devices.platforms.common.sensors.memory_use import MemUseSensorDeviceDriver
+    from kervi_devices.platforms.common.sensors.memory_use import MemoryUseSensorDeviceDriver
 
     CPU_SENSOR = Sensor("CPULoadSensor","CPU", CPULoadSensorDeviceDriver())
     CPU_SENSOR.store_to_db = False
@@ -26,7 +26,7 @@ if __name__ == '__main__':
     CPU_SENSOR.link_to_dashboard("*", "footer_center")
     CPU_SENSOR.link_to_dashboard("*", "footer_right")
 
-    MEM_SENSOR = Sensor("MemLoadSensor", "Memory", MemUseSensorDeviceDriver())
+    MEM_SENSOR = Sensor("MemLoadSensor", "Memory", MemoryUseSensorDeviceDriver())
     MEM_SENSOR.store_to_db = False
     MEM_SENSOR.link_to_dashboard("*", "header_right")
 
