@@ -3,27 +3,30 @@ if __name__ == '__main__':
     from kervi.application import Application
     APP = Application({
         "application": {
-            "id":"app_4",
-            "name":"Test multi file app",
+            "id":"app_5",
+            "name":"Kervi io app 5",
             "appKey":"1234",
         },
-        
+        "discovery":{
+            "enabled": False
+        },
         "log":{
             "file":"kervi-module.log"
         },
         "network":{
             "ip": "127.0.0.1",
-            "ip_module_port": 9600,
-            "ipc_root_port": 9700,
-            "ipc_root_address": "127.0.0.1"
+            "ip_module_port": 1100,
+            "ipc_root_port": 1200,
+            "ipc_root_address": "127.0.0.1",
+            "ws_port": "9001"
         },
         "plugins":{
-             "kervi.plugin.routing.kervi_io": True#{
-            #     "enabled": True,
-            #     "api_user": "86a2a8aa634d42a09b90e2eb6390cbf6",
-            #     "api_password": "5f0b164f424040658264af22c0d8f14a",
-            #     "api_channel": "20bddf88a4434e99ba0e014de2b875c7"
-            # }
+            "kervi.plugin.routing.kervi_io":{
+                "enabled": True,
+                "api_user": "86a2a8aa634d42a09b90e2eb6390cbf6",
+                "api_password": "5f0b164f424040658264af22c0d8f14a",
+                "api_channel": "20bddf88a4434e99ba0e014de2b875c7"
+            }
         }
     })
 
@@ -31,7 +34,7 @@ if __name__ == '__main__':
     from kervi.sensors import Sensor
     from kervi.devices.sensors.system import CPULoadSensorDeviceDriver
 
-    SENSOR_1 = Sensor("module_CPULoadSensor", "CPU", CPULoadSensorDeviceDriver())
+    SENSOR_1 = Sensor("module_CPULoadSensor", "CPU 2", CPULoadSensorDeviceDriver())
     SENSOR_1.link_to_dashboard(type="value", link_to_header=True)
     SENSOR_1.link_to_dashboard(type="chart")
 

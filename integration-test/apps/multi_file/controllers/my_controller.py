@@ -1,6 +1,7 @@
 """ Sample controller """
 from kervi.controllers import Controller
 from kervi.values import NumberValue, BooleanValue
+from kervi.actions import action
 
 class FanController(Controller):
     def __init__(self):
@@ -33,6 +34,10 @@ class FanController(Controller):
 
         self.fan_speed = self.outputs.add("fan_speed", "Fanspeed", NumberValue)
 
+    @action(owner_class="FanControllerX")
+    def ctrl_action(self):
+        print("ctrl_action")
+    
     def on_start(self):
         print("my controller is started")
 

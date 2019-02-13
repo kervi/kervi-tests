@@ -21,23 +21,21 @@ if __name__ == '__main__':
             }
         },
         "plugins":{
-            "authentication": {
-                "kervi.plugin.authentication.plain": True
-            },
-            "messaging":{
-                "kervi.plugin.messaging.email": {
-                    "enabled": True,
-                    "smtp": {
-                        "sender_name": "Kervi",
-                        "sender_address": "kervi@example.com",
-                        "server": "localhost",
-                        "port": "25",
-                        "user": "",
-                        "password": "",
-                        "tls": False
-                    }
+            "kervi.plugin.authentication.plain": True,
+            
+            "kervi.plugin.messaging.email": {
+                "enabled": False,
+                "smtp": {
+                    "sender_name": "Kervi",
+                    "sender_address": "kervi@example.com",
+                    "server": "localhost",
+                    "port": "25",
+                    "user": "",
+                    "password": "",
+                    "tls": False
                 }
             }
+            
         },
         "plain_users": {
             "anonymous":{
@@ -57,14 +55,6 @@ if __name__ == '__main__':
         },
         "messaging": {
             "default_channels": ["user_log"]
-        },
-        "routing":{
-            "kervi_io":{
-                "enabled": False,
-                "address": "127.0.0.1",
-                "port": 5672,
-                "api_key": "api_key_1"
-            }
         }
     })
 

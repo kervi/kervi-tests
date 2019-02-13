@@ -59,8 +59,8 @@ if __name__ == '__main__':
 
     from kervi.sensors import Sensor
     from kervi.devices.sensors.dummy_sensor import DummyColorSensorDeviceDriver
-    from kervi.devices.sensors.TCS34725 import TCS34725DeviceDriver
-    sensor = Sensor("color_sensor", "Color sensor", TCS34725DeviceDriver())
+    #from kervi.devices.sensors.TCS34725 import TCS34725DeviceDriver
+    sensor = Sensor("color_sensor", "Color sensor", DummyColorSensorDeviceDriver())
     sensor.link_to_dashboard()
 
     APP.run()
