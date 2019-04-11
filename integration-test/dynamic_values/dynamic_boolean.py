@@ -5,7 +5,7 @@ if __name__ == '__main__':
     #add dashboard and panel
     from kervi.dashboards import Dashboard, DashboardPanel
     DASHBOARD = Dashboard("dashboard", "Dynamic boolean test", is_default=True)
-    DASHBOARD.add_panel(DashboardPanel("boolean", width=25, title="Boolean"))
+    DASHBOARD.add_panel(DashboardPanel("boolean", title="Boolean"))
     DASHBOARD.add_panel(DashboardPanel("boolean_inline", title="boolean inline"))
     DASHBOARD.add_panel(DashboardPanel("log", title="Log", user_log=True))
 
@@ -27,9 +27,9 @@ if __name__ == '__main__':
                 "dashboard",
                 "boolean",
                 label="#",
-                on_icon="chevron-left",
+                on_icon="left",
                 on_text=None,
-                off_icon="chevron-right",
+                off_icon="right",
                 off_text=None
                 
             )
@@ -38,9 +38,9 @@ if __name__ == '__main__':
                 "dashboard",
                 "boolean",
                 label="#",
-                on_icon="chevron-left",
+                on_icon="left",
                 on_text="Active",
-                off_icon="chevron-right",
+                off_icon="right",
                 off_text="Passive"
                 
             )
@@ -57,7 +57,7 @@ if __name__ == '__main__':
                 "dashboard",
                 "boolean",
                 label="#",
-                button_icon="chevron-left",
+                button_icon="left",
                 button_text="Button text",
                 type="button"
             )
@@ -66,9 +66,9 @@ if __name__ == '__main__':
                 "dashboard",
                 "boolean_inline",
                 label="#inline",
-                on_icon="chevron-left",
+                on_icon="left",
                 on_text=None,
-                off_icon="chevron-right",
+                off_icon="right",
                 off_text=None,
                 inline=True
                 
@@ -87,7 +87,7 @@ if __name__ == '__main__':
                 "boolean_inline",
                 label="#inline btn",
                 type="button",
-                button_icon="chevron-left",
+                button_icon="left",
                 button_text=None,
                 inline=True
             )

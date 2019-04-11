@@ -13,7 +13,7 @@ CPU_SENSOR = Sensor("CPULoadSensor","CPU", CPULoadSensorDeviceDriver())
 CPU_SENSOR.link_to_dashboard("*", "header_right")
 CPU_SENSOR.link_to_dashboard("system", "cpu", type="value", size=2, link_to_header=True)
 CPU_SENSOR.link_to_dashboard("app", "sensors", type="value")
-CPU_SENSOR.link_to_dashboard("system", "cpu", type="chart", size=2)
+CPU_SENSOR.link_to_dashboard("system", "cpu", type="chart", chart_type="line", chart_title=None, chart_x_axis=False, chart_grid=False)
 
 CPU_SENSOR.link_to_dashboard(type="value", size=2, link_to_header=True)
 CPU_SENSOR.link_to_dashboard(type="chart")

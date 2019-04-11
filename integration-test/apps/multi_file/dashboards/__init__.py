@@ -14,20 +14,21 @@ APP_DASHBOARD = Dashboard(
                     [
                         DashboardPanelGroup(
                             [
-                                DashboardPanel("fan", width=70, title="Light"),
+                                DashboardPanel("fan", width=70, title="Lightx"),
                                 DashboardPanel("sensors", width=30, title="Sensors"),
                             ],
                             
                         ),
                         DashboardPanelGroup(
                             [
-                                DashboardPanel("fan",  title="Light"),
-                                DashboardPanel("sensors", title="Sensors"),
-                                DashboardPanel("log", title="Log")
+                                DashboardPanel("fanx",  title="Panel 1"),
+                                DashboardPanel("sensorsx", title="Panel 2"),
+                                DashboardPanel("logx", title="Panel 3")
                             ],
                         ),
                     ],
-                    width=60
+                    width=60,
+                    layout="column"
                 ),
 
                 DashboardPanel("log", width=40, title="Log", user_log=True)

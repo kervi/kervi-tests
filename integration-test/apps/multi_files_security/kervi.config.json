@@ -5,24 +5,34 @@
     },
 
     "modules": ["sensors", "controllers", "cams"],
+    "network":{
+        "ip": "127.0.0.1",
+        "ipc_root_address": "127.0.0.1"
+    },
+    "plugins":{
+        "kervi.plugin.authentication.plain": true
+    },
+    "plain_users":{
+        "anonymous":{
+            "enabled": true
+        },
+        "admin":{
+            "password":"",
+            "groups":["admin"]
+        },
 
-    "authentication":{
-        "enabled": true,
-        "users" : {
-            "anonymous":{
-                "enabled": true
-            },
-            "admin":{
-                "password":"",
-                "groups":["admin"]
-            }
+        "tim":{
+            "enabled": true,
+            "password":"1234",
+            "groups":["admin"]
         }
+        
     },
     "encryption":{
         "enabled": true,
         "use_ssl": false,
-        "cert_file": "C:\\tim privat\\github\\kervi-tests\\integration-test\\apps\\multi_files_security\\35594205_192.168.50.49.cert",
-        "key_file":  "C:\\tim privat\\github\\kervi-tests\\integration-test\\apps\\multi_files_security\\35594205_192.168.50.49.key"
+        "cert_file": "d:\\tim privat\\github\\kervi-tests\\integration-test\\apps\\multi_files_security\\35594205_192.168.50.49.cert",
+        "key_file":  "d:\\tim privat\\github\\kervi-tests\\integration-test\\apps\\multi_files_security\\35594205_192.168.50.49.key"
     }
 }
 

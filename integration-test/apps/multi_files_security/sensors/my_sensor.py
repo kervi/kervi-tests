@@ -11,7 +11,7 @@ class MySensor(Sensor):
         self.min = 0
         self.unit = "C"
 
-        self.link_to_dashboard("app", "sensors", type="radial_gauge")
+        #self.link_to_dashboard("app", "sensors", type="radial_gauge")
 
 MySensor()
  

@@ -9,10 +9,18 @@ class FanController(Controller):
         
         self.type = "fan"
 
-        self.temp = self.inputs.add("temp", "Temperature", NumberValue)
-        self.temp.min = 0
-        self.temp.max = 150
-        self.temp.unit = "c"
+        self.temp = self.inputs.add_number(
+            "temp",
+            min=0,
+            max=150,
+            unit="c"
+            
+        )
+        
+        # self.temp = self.inputs.add("temp", "Temperature", NumberValue)
+        # self.temp.min = 0
+        # self.temp.max = 150
+        # self.temp.unit = "c"
 
         self.trigger_temp = self.inputs.add("trigger_temp", "Trigger temperature", NumberValue)
         self.trigger_temp.min = 0
@@ -35,6 +43,7 @@ class FanController(Controller):
         self.fan_speed = self.outputs.add("fan_speed", "Fanspeed", NumberValue)
 
     @action(owner_class="FanControllerX")
+    #@schedule(every_minutes=10, every_hour=5, every_day_at)
     def ctrl_action(self):
         print("ctrl_action")
     
