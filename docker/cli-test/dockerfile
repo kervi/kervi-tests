@@ -1,0 +1,9 @@
+FROM alpine:edge
+RUN apk update && apk add build-base musl-dev python3 python3-dev  linux-headers
+RUN pip3 install pyzmq
+
+RUN pip3 install kervi
+RUN mkdir /clitest
+WORKDIR /clitest
+RUN kervi create application my_app "My app"--single-file
+CMD ["python3", "my_app.py"]

@@ -12,8 +12,11 @@ class SystemController(Controller):
             "system",
             "power",
             #inline=True,
-            button_text=None,
-            button_icon="power-off",
+            on_text="Til",
+            on_icon="cloud",
+            off_text="fra",
+            off_icon="check",
+            
             type="switch"
         )
 
@@ -22,8 +25,8 @@ class SystemController(Controller):
             "system",
             "power",
             #inline=True,
-            button_text=None,
-            button_icon="repeat",
+            button_text="knap",
+            button_icon="cloud",
             type="button",
             #button_width="5rem",
             #button_height="6rem"

@@ -13,7 +13,8 @@ if __name__ == '__main__':
         "modules":["sensors", "controllers", "cams"],
         "network":{
             "ip": "127.0.0.1",
-            "ipc_root_address": "127.0.0.1"
+            "ipc_root_address": "127.0.0.1",
+            "ws_port": 9000,
         },
         "texts":{
             "ui":{

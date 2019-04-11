@@ -5,7 +5,7 @@ if __name__ == '__main__':
     #add dashboard and panel
     from kervi.dashboards import Dashboard, DashboardPanel
     DASHBOARD = Dashboard("dashboard", "Dynamic number test", is_default=True)
-    DASHBOARD.add_panel(DashboardPanel("number", width=33, title="number"))
+    DASHBOARD.add_panel(DashboardPanel("number", width=33, title="Number"))
     DASHBOARD.add_panel(DashboardPanel("number_inline", title="number inline"))
     DASHBOARD.add_panel(DashboardPanel("number_gauge", width=20))
     
