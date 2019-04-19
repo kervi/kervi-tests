@@ -9,6 +9,7 @@ if __name__ == '__main__':
 
     from kervi.hal import GPIO
     from kervi.sensors import Sensor
+    
     import kervi.devices.sensors.LSM9DS1 as LSM9DS1
 
     SENSOR_ACCL = Sensor("accl", "Acceleration", LSM9DS1.LSM9DS1AccelerationDeviceDriver())
