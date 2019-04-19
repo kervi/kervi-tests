@@ -58,5 +58,5 @@ if __name__ == '__main__':
             "default_channels": ["user_log"]
         }
     })
-
+    APP.actions.reboot.link_to_dashboard("*", "header_right")
     APP.run()
