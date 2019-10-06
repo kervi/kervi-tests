@@ -41,11 +41,13 @@ class FanController(Controller):
         self.active.persist_value = True
 
         self.fan_speed = self.outputs.add("fan_speed", "Fanspeed", NumberValue)
+        self.fan_on = self.outputs.add("fan_on", "Fan on", BooleanValue)
 
     @action(owner_class="FanControllerX")
     #@schedule(every_minutes=10, every_hour=5, every_day_at)
     def ctrl_action(self):
         print("ctrl_action")
+        self.inter
     
     def on_start(self):
         print("my controller is started")
@@ -62,8 +64,10 @@ class FanController(Controller):
                 if speed > 100:
                     speed = 100
                 self.fan_speed.value = speed
+            self.fan_on.value = self.fan_speed.value > 0
         else:
             self.fan_speed.value = 0
+            self.fan_on.value = False
 
 FAN_CONTROLLER = FanController()
 
@@ -72,8 +76,14 @@ FAN_CONTROLLER = FanController()
 FAN_CONTROLLER.temp.link_to("CPUTempSensor")
 FAN_CONTROLLER.temp.link_to_dashboard("app", "fan")
 
+FAN_CONTROLLER.temp.every().minute.at(":00").set(0)
+FAN_CONTROLLER.temp.every().minute.at(":15").set(20)
+FAN_CONTROLLER.temp.every().minute.at(":30").set(40)
+FAN_CONTROLLER.temp.every().minute.at(":45").set(60)
+
 #link the other fan controller inputs to dashboard
 FAN_CONTROLLER.trigger_temp.link_to_dashboard("app", "fan")
 FAN_CONTROLLER.max_temp.link_to_dashboard("app", "fan")
 FAN_CONTROLLER.active.link_to_dashboard("app", "fan", button_width="100px")
 FAN_CONTROLLER.fan_speed.link_to_dashboard("app", "fan")
+FAN_CONTROLLER.fan_on.link_to_dashboard("app", "fan")

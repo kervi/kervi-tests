@@ -10,14 +10,14 @@ def action_4(p1, p2, **kwargs):
 terminate = False
 @action
 def action_4_x():
-    print("action_4_x start", Configuration().modules)
+    print("action_4_x start", Configuration.modules)
     
     while not terminate:
         time.sleep(.1)
 
     print("action_4_x done")
 
-@action_4_x.set_interupt
+@action_4_x.set_interrupt
 def _4_x(x):
     global terminate
     terminate = True

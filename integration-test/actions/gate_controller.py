@@ -78,6 +78,7 @@ if __name__ == '__main__':
 
         @action(name="Move gate")
         def move_gate(self, open=True, speed=None):
+            print("Move gate", open, speed)
             if not speed:
                 speed = self.gate_speed.value
             if open:
@@ -144,7 +145,7 @@ if __name__ == '__main__':
         "gpio_simulator_controller.gpio2_in",
         trigger_value = lambda x: x > 10,
         trigger_interrupt_value = lambda x: x < 10,
-        #action_parameters=[50],
+        action_parameters=[50],
         interrupt_parameters=["d"],
         pass_value = True
     )

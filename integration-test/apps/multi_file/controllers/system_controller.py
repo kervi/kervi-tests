@@ -32,16 +32,6 @@ class SystemController(Controller):
             #button_height="6rem"
         )
 
-        self.reboot_button.link_to_dashboard(
-            "*",
-            "header_right",
-            #inline=True,
-            label=None,
-            button_text="Reboot",
-            button_icon="repeat",
-            type="button"
-        )
-
     def input_changed(self, changed_input):
         if changed_input == self.power_button:
             print("power", changed_input.value)

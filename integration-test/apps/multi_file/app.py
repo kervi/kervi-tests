@@ -4,13 +4,16 @@ import kervi.utility.nethelper as nethelper
 
 if __name__ == '__main__':
     APP = Application({
+        "development":{
+            "debug_threads": False
+        },
         "application":{
             "id":"app_1",
             "name":"Test multi file app",
             "appKey":"1234",
         },
         #"unit_system":  "us-imperial",
-        "modules":["sensors", "controllers", "cams"],
+        "modules":["sensors", "controllers", "cams", "cam_processor", "cv_processor"],
         "network":{
             "ip": "127.0.0.1",
             "ipc_root_address": "127.0.0.1",
@@ -58,5 +61,7 @@ if __name__ == '__main__':
             "default_channels": ["user_log"]
         }
     })
+
+    APP.actions.reboot.link_to_dashboard("*", "header_right")
 
     APP.run()

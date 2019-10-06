@@ -31,7 +31,7 @@ if __name__ == '__main__':
             time.sleep(0.1)
         print("action_start done")
 
-    @action_start.set_interupt
+    @action_start.set_interrupt
     def action_interupt():
         global interupt_action
         print("action interupt")
@@ -83,7 +83,7 @@ if __name__ == '__main__':
             print("action_x done")
 
 
-        @action_x.set_interupt
+        @action_x.set_interrupt
         def action_x_interupt(self):
             print("action_x interupt")
             self._action_x_interupt = True
@@ -103,13 +103,13 @@ if __name__ == '__main__':
             try:
                 print("tc.x.y res:", Actions["tc.x.y"](3, timeout=5))
             except TimeoutError:
-                print("timeout in tc.x.y")
+                print("timeoutx in tc.x.y")
             print("tc.x.y timeout:",Actions["tc.x.y"].is_running)
             print("a2 state", Actions["action_2"].state)
             print("action_4 res:", Actions["action_4"]("a", 4))
-            action_start.interupt()
-            self.action_x.interupt()
-            Actions["action_4_x"].interupt("tx")
+            action_start.interrupt()
+            self.action_x.interrupt()
+            Actions["action_4_x"].interrupt("tx")
 
         def input_changed(self, changed_input):
             print(changed_input)
