@@ -13,7 +13,7 @@ firstFrame = None
 firstPicture = True
 lastRegion = None
 
-@stream_observer(stream_id="cam1")
+#@stream_observer(stream_id="cam1")
 def my_observer(this_observer, stream_event, stream_data):
     
     global firstFrame, firstPicture, lastRegion
@@ -66,7 +66,7 @@ def my_observer(this_observer, stream_event, stream_data):
             #if firstPicture:
             #    firstPicture = False
         #cv2.imshow("Security Feed", frame)
-        return_frame = cv2.imencode(".png", frame)[1].tostring()
+        return_frame = cv2.imencode(".jpg", frame)[1].tostring()
         return return_frame
 
 #my_observer.link_to_dashboard()
