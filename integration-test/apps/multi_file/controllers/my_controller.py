@@ -22,7 +22,7 @@ class FanController(Controller):
         # self.temp.max = 150
         # self.temp.unit = "c"
 
-        self.trigger_temp = self.inputs.add("trigger_temp", "Trigger temperature", NumberValue)
+        self.trigger_temp = self.inputs.add("trigger_temp", "Trigger temperature f", NumberValue)
         self.trigger_temp.min = 0
         self.trigger_temp.max = 100
         self.trigger_temp.unit = "c"
