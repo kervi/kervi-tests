@@ -22,7 +22,7 @@ class FanController(Controller):
         # self.temp.max = 150
         # self.temp.unit = "c"
 
-        self.trigger_temp = self.inputs.add("trigger_temp", "Trigger temperature", NumberValue)
+        self.trigger_temp = self.inputs.add("trigger_temp", "Trigger temperature y", NumberValue)
         self.trigger_temp.min = 0
         self.trigger_temp.max = 100
         self.trigger_temp.unit = "c"
@@ -50,7 +50,7 @@ class FanController(Controller):
         self.inter
     
     def on_start(self):
-        print("my controller is started")
+        print("my controller is started") 
 
     def input_changed(self, changed_input):
         #print(changed_input)
@@ -60,7 +60,10 @@ class FanController(Controller):
                 self.fan_speed.value = 0
             else:
                 max_span = self.max_temp.value - self.trigger_temp.value
-                speed = (temp / max_span) * 100
+                if max_span == 0:
+                    speed = 0
+                else: 
+                    speed = (temp / max_span) * 100
                 if speed > 100:
                     speed = 100
                 self.fan_speed.value = speed

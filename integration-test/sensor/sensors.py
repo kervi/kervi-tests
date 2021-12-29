@@ -5,13 +5,16 @@ if __name__ == '__main__':
     from kervi.application import Application
     APP = Application({
         "network":{
-            "ip": "127.0.0.1"
+            "ip": "127.0.0.1",
+            "ipc_root_address": "127.0.0.1",
+            "ws_port": 9000,
         },
-        "plugins":{
-            "authentication":{
-                "kervi.plugin.authentication.plain": True
-            }
-        }
+        "location": {
+            # greenwich
+            "longitude": 61.563300, 
+            "latitude": -6.838634,
+            "time_zone": 0
+        },
     })
 
     #add dashboard and panel
@@ -20,12 +23,14 @@ if __name__ == '__main__':
     DASHBOARD.add_panel(DashboardPanel("multi_sensor", title="Multi sensor"))
     DASHBOARD.add_panel(DashboardPanel("multi_sensor_single", title="Multi sensor single"))
     DASHBOARD.add_panel(DashboardPanel("color_sensor", title="Color sensor single ----xxx---"))
+    DASHBOARD.add_panel(DashboardPanel("sun_sensor", title="Sun sensor"))
     DASHBOARD.add_panel(DashboardPanel("gauge", title="Gauge"))
     DASHBOARD.add_panel(DashboardPanel("log", title="Log", user_log=True))
 
     from kervi.sensors import Sensor
     from kervi.devices.sensors.system import CPULoadSensorDeviceDriver
     from kervi.devices.sensors.dummy_sensor import DummyMultiDimSensorDeviceDriver
+    
 
     cpu_sensor = Sensor("CPULoadSensor","CPU", CPULoadSensorDeviceDriver())
     cpu_sensor.store_to_db = False
@@ -52,10 +57,18 @@ if __name__ == '__main__':
     #multi_sensor[2].add_normal_range((20, 80), "normal message")
     multi_sensor[2].link_to_dashboard("system", "gauge", type="radial_gauge")
 
-    multi_sensor.enable.link_to_dashboard()
+    #multi_sensor.enable.link_to_dashboard()
 
     from kervi.devices.sensors.dummy_sensor import DummyColorSensorDeviceDriver
     color_sensor = Sensor("color_sensor", "Color", DummyColorSensorDeviceDriver())
     color_sensor.link_to_dashboard("system", "color_sensor")
     color_sensor.link_to_dashboard("system", "color_sensor")
+    
+    from kervi.devices.sensors.sun import SunSensorDeviceDriver
+    sun_sensor = Sensor("sun_sensor", "Sun", SunSensorDeviceDriver())
+    #sun_sensor.link_to_dashboard("system", "sun_sensor")
+    sun_sensor[0].link_to_dashboard("system", "sun_sensor")
+    sun_sensor[1].link_to_dashboard("system", "sun_sensor")
+    
+    
     APP.run()

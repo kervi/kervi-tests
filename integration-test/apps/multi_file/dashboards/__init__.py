@@ -57,6 +57,23 @@ SYSTEM_DASHBOARD = Dashboard(
     ]
 )
 
+
+ADMIN_DASHBOARD = Dashboard(
+    "admin",
+    "Admin",
+    user_groups = ['admin'],
+    panels=[
+        DashboardPanelGroup(
+            [
+                DashboardPanel("cpu", width=40),
+                DashboardPanel("memory", width=30),
+            ]
+        ),
+        DashboardPanel("log", title="Log", width=100, user_log=True)
+    ]
+)
+
+
 from kervi.spine import Spine
 
 s=Spine()

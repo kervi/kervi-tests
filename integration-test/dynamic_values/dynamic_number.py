@@ -44,23 +44,23 @@ if __name__ == '__main__':
     BATTERY_SENSOR.set_ui_parameter("value_icon", [
         {
             "range":[0, 5],
-            "icon":"battery-empty"
+            "icon":"mdi:battery-alert-variant-outline"
         },
         {
             "range":[5, 25],
-            "icon":"battery-quarter"
+            "icon":"mdi:battery-10"
         },
         {
             "range":[20, 50],
-            "icon":"battery-half"
+            "icon":"mdi:battery-50"
         },
         {
             "range":[5, 75],
-            "icon":"battery-three-quarters"
+            "icon":"mdi:battery-70"
         },
         {
             "range":[75, 100],
-            "icon":"battery-full"
+            "icon":"mdi:battery"
         }
     ])
     BATTERY_SENSOR.link_to_dashboard("dashboard", "number_gauge", link_to_header=True, display_unit=False, show_sparkline=False, show_value=False)
@@ -97,10 +97,10 @@ if __name__ == '__main__':
             self.test_number.unit = "%"
             
             self.test_number.link_to_dashboard("dashboard", "number", label="xy")
-            self.test_number.link_to_dashboard("dashboard", "number", label="#", label_icon="lightbulb-o")
+            self.test_number.link_to_dashboard("dashboard", "number", label="#", label_icon="highlight")
 
 
-            self.test_number.link_to_dashboard("dashboard", "number_inline", inline=True, label="#", label_icon="lightbulb-o")
+            self.test_number.link_to_dashboard("dashboard", "number_inline", inline=True, label="#", label_icon="mdi:bluetooth")
             
             self.test_number.link_to_dashboard("dashboard", "number_gauge", type="radial_gauge")
             self.test_number.add_error_range((0, 10), "l error message", channels=["user_log", "email"])
