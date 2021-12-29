@@ -15,9 +15,9 @@ if __name__ == '__main__':
         #"unit_system":  "us-imperial",
         "modules":["sensors", "controllers", "cams"],
         "network":{
-            "ip": "127.0.0.1",
-            "ipc_root_address": "127.0.0.1",
-            "ws_port": 9000,
+            #"ip": "127.0.0.1",
+            #"ipc_root_address": "127.0.0.1",
+            #"ws_port": 9000,
         },
         "texts":{
             "ui":{
