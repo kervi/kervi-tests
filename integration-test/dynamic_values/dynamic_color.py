@@ -1,6 +1,12 @@
 if __name__ == '__main__':
     from kervi.application import Application
-    APP = Application()
+    APP = Application({
+        "network":{
+            "ip": "127.0.0.1",
+            "ipc_root_address": "127.0.0.1",
+            "ws_port": 9000,
+        }        
+    })
 
     #add dashboard and panel
     from kervi.dashboards import Dashboard, DashboardPanel
@@ -21,6 +27,7 @@ if __name__ == '__main__':
             #define an input and link it to the dashboard panel
             self.color = self.inputs.add("color", "Boolean", ColorValue)
             self.color.value = "#000f00"
+            self.color.persist_value = True
             self.color.link_to_dashboard("dashboard", "boolean")
             self.color.link_to_dashboard("dashboard", "boolean", label="#", label_icon="lightbulb-o")
             self.color.link_to_dashboard(

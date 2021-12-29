@@ -1,6 +1,12 @@
 if __name__ == '__main__':
     from kervi.application import Application
-    APP = Application()
+    APP = Application({
+        "network":{
+            "ip": "127.0.0.1",
+            "ipc_root_address": "127.0.0.1",
+            "ws_port": 9000,
+        }        
+    })
 
     #add dashboard and panel
     from kervi.dashboards import Dashboard, DashboardPanel
@@ -31,6 +37,8 @@ if __name__ == '__main__':
 
             self.input3 = self.inputs.add("d3", "DateTime 3", DateTimeValue)
             self.input3.link_to_dashboard("dahsboard.ctrl", "textinput", type="time", input_size=75)
+
+            self.input1.link_to_dashboard("dahsboard.ctrl", "text_inline")
 
         def input_changed(self, changed_input):
             Messaging.send_message(changed_input.value, source_id=changed_input.component_id, source_name=changed_input.name)

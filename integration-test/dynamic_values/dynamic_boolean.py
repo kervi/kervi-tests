@@ -1,6 +1,12 @@
 if __name__ == '__main__':
     from kervi.application import Application
-    APP = Application()
+    APP = Application({
+        "network":{
+            "ip": "127.0.0.1",
+            "ipc_root_address": "127.0.0.1",
+            "ws_port": 9000,
+        }        
+    })
 
     #add dashboard and panel
     from kervi.dashboards import Dashboard, DashboardPanel
@@ -22,11 +28,11 @@ if __name__ == '__main__':
             #define an input and link it to the dashboard panel
             self.inputs.add("boolean", "Boolean", BooleanValue)
             self.inputs["boolean"].link_to_dashboard("dashboard", "boolean")
-            self.inputs["boolean"].link_to_dashboard("dashboard", "boolean", label="#", label_icon="lightbulb-o")
+            self.inputs["boolean"].link_to_dashboard("dashboard", "boolean", label="1", label_icon="bulb", on_text="active", off_text="inactive")
             self.inputs["boolean"].link_to_dashboard(
                 "dashboard",
                 "boolean",
-                label="#",
+                label="2",
                 on_icon="left",
                 on_text=None,
                 off_icon="right",
@@ -37,11 +43,11 @@ if __name__ == '__main__':
             self.inputs["boolean"].link_to_dashboard(
                 "dashboard",
                 "boolean",
-                label="#",
+                label="3",
                 on_icon="left",
-                on_text="Active",
+                on_text="Activex",
                 off_icon="right",
-                off_text="Passive"
+                off_text="Passivex"
                 
             )
 
@@ -49,14 +55,35 @@ if __name__ == '__main__':
             self.inputs["boolean"].link_to_dashboard(
                 "dashboard",
                 "boolean",
-                label="#",
+                label="4",
+                type="button",
+                button_text=None,
+                on_icon="left",
+                off_icon="right",
+                on_text="ON",
+                off_text="OFF"
+            )
+
+            self.inputs["boolean"].link_to_dashboard(
+                "dashboard",
+                "boolean",
+                label="5",
                 type="button"
             )
 
             self.inputs["boolean"].link_to_dashboard(
                 "dashboard",
                 "boolean",
-                label="#",
+                label="6",
+                button_icon="plus",
+                button_text="Button text",
+                type="button"
+            )
+
+            self.inputs["boolean"].link_to_dashboard(
+                "dashboard",
+                "boolean",
+                label="7",
                 button_icon="left",
                 button_text="Button text",
                 type="button"
@@ -64,8 +91,20 @@ if __name__ == '__main__':
 
             self.inputs["boolean"].link_to_dashboard(
                 "dashboard",
+                "boolean",
+                label="8",
+                type="button",
+                button_text=None,
+                on_icon="left",
+                off_icon="right",
+                on_text=None,
+                off_text=None
+            )
+
+            self.inputs["boolean"].link_to_dashboard(
+                "dashboard",
                 "boolean_inline",
-                label="#inline",
+                label="1 inline",
                 on_icon="left",
                 on_text=None,
                 off_icon="right",
@@ -77,7 +116,7 @@ if __name__ == '__main__':
             self.inputs["boolean"].link_to_dashboard(
                 "dashboard",
                 "boolean_inline",
-                label="#inline btn",
+                label="2 inline btn",
                 type="button",
                 inline=True
             )
@@ -85,7 +124,7 @@ if __name__ == '__main__':
             self.inputs["boolean"].link_to_dashboard(
                 "dashboard",
                 "boolean_inline",
-                label="#inline btn",
+                label="3 inline btn",
                 type="button",
                 button_icon="left",
                 button_text=None,

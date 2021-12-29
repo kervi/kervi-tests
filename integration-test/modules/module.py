@@ -12,7 +12,7 @@ if __name__ == '__main__':
         },
         "network" : {
             "ipc_root_port": 9500,
-            "ipc_root_address": "127.0.0.1"
+            "ipc_root_address": "192.168.0.137"
         }
         
     })
@@ -36,12 +36,9 @@ if __name__ == '__main__':
     from kervi.streams import stream_observer
     from kervi.streams import stream_images, stream_observer
     from kervi.vision.region import region_observer, Region, Regions
-    from imutils.video import VideoStream
-
+    
     import datetime
-    import imutils
     import time
-    import cv2 
     import numpy as np
 
     firstFrame = None
@@ -50,6 +47,9 @@ if __name__ == '__main__':
 
     @stream_observer(stream_id="cam1")
     def my_observer(this_observer, stream_event, stream_data):
+        #from imutils.video import VideoStream
+        import imutils    
+        import cv2 
         
         global firstFrame, firstPicture, lastRegion
         if not stream_data:

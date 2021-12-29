@@ -17,10 +17,10 @@ CPU_SENSOR.link_to_dashboard("system", "cpu", type="chart", chart_type="line", c
 
 CPU_SENSOR.link_to_dashboard(type="value", size=2, link_to_header=True)
 CPU_SENSOR.link_to_dashboard(type="chart")
-
+   
 CPU_SENSOR.user_groups = ["admin"]
 
-MEM_SENSOR = Sensor("MemLoadSensor", "Memory", MemoryUseSensorDeviceDriver())
+MEM_SENSOR = Sensor("MemLoadSensor", "Memory", MemoryUseSensorDeviceDriver(), user_groups = ["admin"])
 MEM_SENSOR.store_to_db = False
 MEM_SENSOR.link_to_dashboard("*", "header_right")
 MEM_SENSOR.link_to_dashboard("system", "memory", type="value", size=2, link_to_header=True)

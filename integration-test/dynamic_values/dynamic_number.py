@@ -1,6 +1,12 @@
 if __name__ == '__main__':
     from kervi.application import Application
-    APP = Application()
+    APP = Application({
+        "network":{
+            "ip": "127.0.0.1",
+            "ipc_root_address": "127.0.0.1",
+            "ws_port": 9000,
+        }        
+    })
 
     #add dashboard and panel
     from kervi.dashboards import Dashboard, DashboardPanel
@@ -19,7 +25,7 @@ if __name__ == '__main__':
     cpu_sensor = Sensor("CPULoadSensor","CPU", CPULoadSensorDeviceDriver())
     cpu_sensor.link_to_dashboard("dashboard", "number_chart", type="chart")
     cpu_sensor.link_to_dashboard("dashboard", "number_chart", link_to_header=True)
-    cpu_sensor.link_to_dashboard("*", "header_right")
+    cpu_sensor.link_to_dashboard("*", "header_right", show_sparkline=True)
     
     cpu_sensor.link_to_dashboard(
         "dashboard", 
@@ -28,7 +34,7 @@ if __name__ == '__main__':
         chart_grid=False, 
         chart_buttons=False,
         label=False,
-        chart_fill=False,
+        #chart_fill=False,
         chart_point=0
     )
     
@@ -72,7 +78,7 @@ if __name__ == '__main__':
         #chart_grid=False, 
         chart_buttons=False,
         label=False,
-        chart_fill=False,
+        #chart_fill=False,
         chart_point=3
     )
 
